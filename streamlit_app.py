@@ -28,9 +28,7 @@ if uploaded_file is not None:
   Instruction:	
 	 1. Do not generate any code.
 	 2. Only use information obtained from the dictionary provided.
-	 3. Only Generate 5 questions.
 	 4. Don't generate any comment or anything apart from the json format list.
-	 5.The Visualization should not be complex.
 The output should be in valid JSON format as follows:
 
 [
@@ -53,7 +51,8 @@ Here is the summary of the data:
 Instructions:
     1.The data is provided in a DataFrame named df.
     2.Generate only Python code without any explanations or comments.
-    3.Do not modify any part of the provided code structure below 
+    3.Do not modify any part of the provided code structure below .
+    4.Generate only 6 questions.
 Here are the details:
 
 Question, visualization, and reason:
@@ -86,7 +85,10 @@ def plot_and_save(df: pd.DataFrame):
         local_vars = {}
         exec(generated_code.replace('```python', '').replace('```', ''), globals(), local_vars)
         plot_and_save = local_vars['plot_and_save']
-        plot_buffer = plot_and_save(df)
+        try:
+            plot_buffer = plot_and_save(df)
+        except:
+            pass
         if plot_buffer:
             st.image(plot_buffer, caption="Age Chart", use_column_width=True)
 else:
