@@ -24,10 +24,13 @@ if uploaded_file is not None:
     var_dict = {'df': df}
     summary = summary_gen(df)
     st.write(summary)
-    prompt_qa = f''' You are a data analyst tasked with performing an EXPLORATORY DATA ANALYSIS (EDA) on a dataset. Your role is to identify patterns by asking questions based on the data summary, ensuring that these questions can only be answered through visualizations, generating relevant visualizations, and providing reasoning for the insights and summary you present. For each insight, ensure you address:
-			i)A clear question that guides the analysis.
-			ii) A corresponding visualization that answers the question.
-			iii) An explanation or reasoning for why this insight is important or relevant to the dataset.
+    prompt_qa = f''' Imagine there are three analysts working to uncover patterns in a dataset. Each analyst proposes thoughtful questions to explore the data, focusing on those that can only be answered through visualizations (e.g., bar charts, scatter plots, heatmaps). For every question, they suggest multiple visual approaches, explaining how each one helps in identifying key insights.
+		Your role is to act as a supervisor who reviews the questions and visualization suggestions from all three analysts. For each step:
+			i)Analyze the questions produced by the analysts.
+			ii)Evaluate their proposed visualizations and explanations.
+			iii)Choose the most insightful question and the most effective visualization.
+			iv)Provide a brief justification for why you selected that question and visualization.
+			v)Summarize the insights gained from the chosen approach.
    The final output should be in valid JSON format as follows:
 
 [
