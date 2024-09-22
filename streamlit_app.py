@@ -38,6 +38,7 @@ if uploaded_file is not None:
 ]
 Instruction:
  1. No comment should be produced.
+ 2.Generate 10 questions.
 Here is the summary of the data:
 {summary}
 '''
