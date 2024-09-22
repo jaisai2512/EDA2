@@ -29,6 +29,7 @@ if uploaded_file is not None:
 	 1. Do not generate any code.
 	 2. Only use information obtained from the dictionary provided.
 	 4. Don't generate any comment or anything apart from the json format list.
+  	 5. Manily focus on distribution and correlation pattern
 The output should be in valid JSON format as follows:
 
 [
