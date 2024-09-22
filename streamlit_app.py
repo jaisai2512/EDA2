@@ -78,7 +78,7 @@ def plot_and_save(df: pd.DataFrame):
     <stub> # only modify this section
     buf = io.BytesIO()
     plt.savefig(buf, format='png') 
-    buf.seek(0)  # Move the cursor to the start of the stream
+    buf.seek(0)
     return buf'''
         with st.spinner("Executing code..."):
             generated_code = api(prompt_vis)
