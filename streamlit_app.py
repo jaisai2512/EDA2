@@ -51,8 +51,8 @@ Here is the summary of the data:
     #exit()
     data = json.loads(api(prompt_qa))
     for i in data:
-        prompt_vis = f'''You are tasked with analyzing a dataset through Exploratory Data Analysis (EDA). For this task, you will be provided with predefined imports and functions. Come up with a plan which gives the solution for the question, for the solution plan use the visualization and reason part:
-You must insert your solutions into the designated spaces within the provided function while maintaining the integrity of the overall function.
+        prompt_vis = f'''You are tasked with analyzing a dataset through Exploratory Data Analysis (EDA). For this task, you will be provided with predefined imports and functions. Come up with a plan which gives the solution for the question, for the solution plan use following:
+YOU MUST APPLY the following transform before using that column i) convert date fields to date types using df[''] = pd.to_datetime(df<field>], errors='coerce'), ALWAYS use  errors='coerce' ii) drop the rows with NaT values df = df[pd.notna(df[<field>])] iii) convert field to right time format for plotting.  ALWAYS make sure the x-axis labels are legible (e.g., rotate when needed). Solve the task  carefully by completing ONLY the  <stub> section.
 Instructions:
     1.The data is provided in a DataFrame named df.
     2.Generate only Python code without any explanations or comments.
