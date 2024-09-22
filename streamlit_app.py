@@ -50,6 +50,7 @@ Here is the summary of the data:
 '''
     st.write("Basic Information:")
     data = json.loads(api(prompt_qa))
+    st.write(data)
     for i in data:
         prompt_vis = f'''You are a data analyst with coding skills and you are tasked to write a visualization code based on the provided question, visualization, reason and summary of the data
 
