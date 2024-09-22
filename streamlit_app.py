@@ -45,7 +45,11 @@ Here is the summary of the data:
     
     data = json.loads(api(prompt_qa))
     for i in data:
-        prompt_vis = f'''You are a supervisor overseeing three skilled analysts, each adept in coding. Each analyst has been given a question, a visualization, and the reasoning behind it. Their task is to solve the question step by step through their code. Your role is to evaluate their solutions, ensuring the code aligns with the summary data, effectively addresses the question, and incorporates insights from the visualization and reasoning provided. Ultimately, select the best solution among the three.
+        prompt_vis = f'''You are tasked with analyzing a dataset through Exploratory Data Analysis (EDA). For this task, you will be provided with predefined imports and functions. Your job is to develop solutions for the following:
+                            i)A clear question that guides the analysis.
+                            ii)An appropriate visualization that answers the question.
+                            iii)A reasoning or explanation for the significance of the question and the insights derived from it.
+You must insert your solutions into the designated spaces within the provided function while maintaining the integrity of the overall function.
 Instructions:
     1.The data is provided in a DataFrame named df.
     2.Generate only Python code without any explanations or comments.
