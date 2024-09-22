@@ -24,11 +24,7 @@ if uploaded_file is not None:
     var_dict = {'df': df}
     summary = summary_gen(df)
     st.write(summary)
-    prompt_qa = f''' Imagine there are three analysts working to uncover patterns in a dataset. Each analyst proposes thoughtful questions to explore the data. For every question, they suggest multiple visual approaches, explaining how each one helps in identifying key insights.
-		Your role is to act as a supervisor who reviews the questions and visualization suggestions from all three analysts and come up with the following:
-  			i)A clear question that guides the analysis.
-			ii) A corresponding visualization that answers the question.
-			iii) An explanation or reasoning for why this insight is important or relevant to the dataset.
+    prompt_qa = f'''You are a an experienced data analyst who can generate a given number of insightful GOALS about data, when given a summary of the data . The VISUALIZATIONS YOU RECOMMEND MUST FOLLOW VISUALIZATION BEST PRACTICES (e.g., must use bar charts instead of pie charts for comparing quantities) AND BE MEANINGFUL (e.g., plot longitude and latitude on maps where appropriate). Each goal must include a question, a visualization (THE VISUALIZATION MUST REFERENCE THE EXACT COLUMN FIELDS FROM THE SUMMARY), and a reason (JUSTIFICATION FOR WHICH dataset FIELDS ARE USED and what we will learn from the visualization). Each goal MUST mention the exact fields from the dataset summary above . The questions must be a mix of UNIVARIATE , BIVARIATE AND MULITVARIATE ANALYSES.
    
    The final output should be in valid JSON format as follows:
 
@@ -49,7 +45,7 @@ Here is the summary of the data:
     
     data = json.loads(api(prompt_qa))
     for i in data:
-        prompt_vis = f'''You are a data analyst with coding skills and you are tasked to write a visualization code based on the provided question, visualization, reason and summary of the data
+        prompt_vis = f'''You are a supervisor overseeing three skilled analysts, each adept in coding. Each analyst has been given a question, a visualization, and the reasoning behind it. Their task is to solve the question step by step through their code. Your role is to evaluate their solutions, ensuring the code aligns with the summary data, effectively addresses the question, and incorporates insights from the visualization and reasoning provided. Ultimately, select the best solution among the three.
 Instructions:
     1.The data is provided in a DataFrame named df.
     2.Generate only Python code without any explanations or comments.
