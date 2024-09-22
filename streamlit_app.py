@@ -49,7 +49,7 @@ Here is the summary of the data:
     
     data = json.loads(api(prompt_qa))
     for i in data:
-        prompt_vis = f'''You are a supervisor overseeing three skilled analysts, each adept in coding. Each analyst has been given a question, a visualization, and the reasoning behind it. Their task is to solve the question step by step through their code. Your role is to evaluate their solutions, ensuring the code aligns with the summary data, effectively addresses the question, and incorporates insights from the visualization and reasoning provided. Ultimately, select the best solution among the three
+        prompt_vis = f'''You are a data analyst with coding skills and you are tasked to write a visualization code based on the provided question, visualization, reason and summary of the data
 Instructions:
     1.The data is provided in a DataFrame named df.
     2.Generate only Python code without any explanations or comments.
