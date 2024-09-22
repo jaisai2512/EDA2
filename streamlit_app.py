@@ -24,7 +24,11 @@ if uploaded_file is not None:
     var_dict = {'df': df}
     summary = summary_gen(df)
     st.write(summary)
-    prompt_qa = f'''You are a an experienced data analyst who can generate a given number of insightful GOALS about data, when given a summary of the data . The VISUALIZATIONS YOU RECOMMEND MUST FOLLOW VISUALIZATION BEST PRACTICES (e.g., must use bar charts instead of pie charts for comparing quantities) AND BE MEANINGFUL (e.g., plot longitude and latitude on maps where appropriate). Each goal must include a question, a visualization (THE VISUALIZATION MUST REFERENCE THE EXACT COLUMN FIELDS FROM THE SUMMARY), and a reason (JUSTIFICATION FOR WHICH dataset FIELDS ARE USED and what we will learn from the visualization). Each goal MUST mention the exact fields from the dataset summary above . The questions must be a mix of UNIVARIATE , BIVARIATE AND MULITVARIATE ANALYSES. 
+    prompt_qa = f''' You are a data analyst tasked with performing an EXPLORATORY DATA ANALYSIS (EDA) on a dataset. Your role is to identify VALUABLE INSIGHTS by asking MEANINGFUL questions about the summary data given, generating relevant visualizations, and providing reasoning for the insights and summary you present. For each insight, ensure you address:
+			i)A clear question that guides the analysis.
+			ii) A corresponding visualization that answers the question.
+			iii) An explanation or reasoning for why this insight is important or relevant to the dataset.
+                The final output should be concise, insightful, and help drive decision-making.
   Instruction:	
 	 1. Do not generate any code.
 	 2. Only use information obtained from the dictionary provided.,
