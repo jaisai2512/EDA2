@@ -45,10 +45,7 @@ Here is the summary of the data:
     
     data = json.loads(api(prompt_qa))
     for i in data:
-        prompt_vis = f'''You are tasked with analyzing a dataset through Exploratory Data Analysis (EDA). For this task, you will be provided with predefined imports and functions. Your job is to develop solutions for the following:
-                            i)A clear question that guides the analysis.
-                            ii)An appropriate visualization that answers the question.
-                            iii)A reasoning or explanation for the significance of the question and the insights derived from it.
+        prompt_vis = f'''You are tasked with analyzing a dataset through Exploratory Data Analysis (EDA). For this task, you will be provided with predefined imports and functions. Come up with a plan which gives the solution for the question, for the solution plan use the visualization and reason part:
 You must insert your solutions into the designated spaces within the provided function while maintaining the integrity of the overall function.
 Instructions:
     1.The data is provided in a DataFrame named df.
