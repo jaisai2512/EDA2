@@ -38,7 +38,8 @@ if uploaded_file is not None:
     }},
     ...
 ]
-
+Instruction:
+ 1. No comment should be produced.
 Here is the summary of the data:
 {summary}
 '''
