@@ -29,6 +29,7 @@ if uploaded_file is not None:
         i)Univariate Analysis Questions: Focus on individual variables.
         ii)Bivariate Analysis Questions: Explore relationships between two variables.
         iii)Multivariate Analysis Questions: Investigate interactions among three or more variables.
+        iv)Pattern Analysis Questions: Identify trends, cycles, or anomalies in the data
    
    The final output should be in valid JSON format as follows:
 
