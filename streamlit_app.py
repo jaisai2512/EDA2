@@ -49,6 +49,8 @@ Here is the summary of the data:
   data = json.loads(api(prompt_qa))
   for i in data:
     prompt_vis =''
+		with st.spinner():
+	
     with st.spinner("Executing code..."):
 		  generated_code = api(prompt_vis)
       st.code(generated_code,language='Python')
