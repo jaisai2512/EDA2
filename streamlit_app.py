@@ -24,7 +24,7 @@ if uploaded_file is not None:
     var_dict = {'df': df}
     summary = summary_gen(df)
     st.write(summary)
-    prompt_qa = f''' Imagine there are three analysts working to uncover patterns in a dataset. Each analyst proposes thoughtful questions to explore the data, focusing on those that can only be answered through visualizations (e.g., bar charts, scatter plots, heatmaps). For every question, they suggest multiple visual approaches, explaining how each one helps in identifying key insights.
+    prompt_qa = f''' Imagine there are three analysts working to uncover patterns in a dataset. Each analyst proposes thoughtful questions to explore the data. For every question, they suggest multiple visual approaches, explaining how each one helps in identifying key insights.
 		Your role is to act as a supervisor who reviews the questions and visualization suggestions from all three analysts and come up with the following:
   			i)A clear question that guides the analysis.
 			ii) A corresponding visualization that answers the question.
@@ -49,7 +49,7 @@ Here is the summary of the data:
     
     data = json.loads(api(prompt_qa))
     for i in data:
-        prompt_vis = f'''You are a supervisor overseeing three skilled analysts who excel at coding. Each analyst has been provided with a question, a visualization, and the reason behind the visualization. Their task is to solve the question step by step through their code. Your role is to evaluate their solutions, ensuring the code aligns with the summary data provided and that it effectively addresses the question, while considering the given visualization and reasoning
+        prompt_vis = f'''You are a supervisor overseeing three skilled analysts, each adept in coding. Each analyst has been given a question, a visualization, and the reasoning behind it. Their task is to solve the question step by step through their code. Your role is to evaluate their solutions, ensuring the code aligns with the summary data, effectively addresses the question, and incorporates insights from the visualization and reasoning provided. Ultimately, select the best solution among the three
 Instructions:
     1.The data is provided in a DataFrame named df.
     2.Generate only Python code without any explanations or comments.
