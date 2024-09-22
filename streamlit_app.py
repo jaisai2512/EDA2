@@ -42,7 +42,8 @@ Here is the summary of the data:
 {summary}
 '''
     st.write("Basic Information:")
-    
+    st.write(api(prompt_qa))
+    exit()
     data = json.loads(api(prompt_qa))
     for i in data:
         prompt_vis = f'''You are tasked with analyzing a dataset through Exploratory Data Analysis (EDA). For this task, you will be provided with predefined imports and functions. Come up with a plan which gives the solution for the question, for the solution plan use the visualization and reason part:
@@ -80,7 +81,7 @@ def plot_and_save(df: pd.DataFrame):
     return buf'''
         with st.spinner("Executing code..."):
             generated_code = api(prompt_vis)
-        st.code(generated_code, language='Python')
+        #st.code(generated_code, language='Python')
         local_vars = {}
         try:
             exec(generated_code.replace('```python', '').replace('```', ''), globals(), local_vars)
