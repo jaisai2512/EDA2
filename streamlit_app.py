@@ -24,17 +24,11 @@ if uploaded_file is not None:
     var_dict = {'df': df}
     summary = summary_gen(df)
     st.write(summary)
-    prompt_qa = f''' You are a data analyst tasked with performing an EXPLORATORY DATA ANALYSIS (EDA) on a dataset. Your role is to identify VALUABLE INSIGHTS by asking MEANINGFUL questions about the summary data given, generating relevant visualizations, and providing reasoning for the insights and summary you present. For each insight, ensure you address:
+    prompt_qa = f''' You are a data analyst tasked with performing an EXPLORATORY DATA ANALYSIS (EDA) on a dataset. Your role is to identify patterns by asking questions based on the data summary, ensuring that these questions can only be answered through visualizations, generating relevant visualizations, and providing reasoning for the insights and summary you present. For each insight, ensure you address:
 			i)A clear question that guides the analysis.
 			ii) A corresponding visualization that answers the question.
 			iii) An explanation or reasoning for why this insight is important or relevant to the dataset.
-                The final output should be concise, insightful, and help drive decision-making.
-  Instruction:	
-	 1. Do not generate any code.
-	 2. Only use information obtained from the dictionary provided.,
-	 4. Don't generate any comment or anything apart from the json format list.
-         5. The question should not be repeated.
-The output should be in valid JSON format as follows:
+   The final output should be in valid JSON format as follows:
 
 [
     {{
@@ -44,13 +38,19 @@ The output should be in valid JSON format as follows:
     }},
     ...
 ]
+  Instruction:	
+	 1. Do not generate any code.
+	 2. Only use information obtained from the dictionary provided.,
+	 4. Don't generate any comment or anything apart from the json format list.
+         5. The question should not be repeated.
+
 
 Here is the summary of the data:
 {summary}
 '''
     st.write("Basic Information:")
+    
     data = json.loads(api(prompt_qa))
-    st.write(data)
     for i in data:
         prompt_vis = f'''You are a data analyst with coding skills and you are tasked to write a visualization code based on the provided question, visualization, reason and summary of the data
 
