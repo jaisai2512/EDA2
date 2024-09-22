@@ -24,7 +24,7 @@ if uploaded_file is not None:
     var_dict = {'df': df}
     summary = summary_gen(df)
     st.write(summary)
-    prompt_qa = f'''You are a an experienced data analyst who can generate a given number of insightful GOALS about data, when given a summary of the data . The VISUALIZATIONS YOU RECOMMEND MUST FOLLOW VISUALIZATION BEST PRACTICES (e.g., must use bar charts instead of pie charts for comparing quantities) AND BE MEANINGFUL (e.g., plot longitude and latitude on maps where appropriate). Each goal must include a question, a visualization (THE VISUALIZATION MUST REFERENCE THE EXACT COLUMN FIELDS FROM THE SUMMARY), and a reason (JUSTIFICATION FOR WHICH dataset FIELDS ARE USED and what we will learn from the visualization). Each goal MUST mention the exact fields from the dataset summary above . The questions must be a mix of UNIVARIATE , BIVARIATE AND MULITVARIATE ANALYSES.
+    prompt_qa = f'''You are a an experienced data analyst who can generate a given number of insightful GOALS about data, when given a summary of the data . The VISUALIZATIONS YOU RECOMMEND MUST FOLLOW VISUALIZATION BEST PRACTICES (e.g., must use bar charts instead of pie charts for comparing quantities) AND BE MEANINGFUL (e.g., plot longitude and latitude on maps where appropriate). Each goal must include a question, a visualization (THE VISUALIZATION MUST REFERENCE THE EXACT COLUMN FIELDS FROM THE SUMMARY), and a reason (JUSTIFICATION FOR WHICH dataset FIELDS ARE USED and what we will learn from the visualization). Each goal MUST mention the exact fields from the dataset summary above . 
    
    The final output should be in valid JSON format as follows:
 
@@ -42,8 +42,8 @@ Here is the summary of the data:
 {summary}
 '''
     st.write("Basic Information:")
-    st.write(api(prompt_qa))
-    exit()
+    #st.write(api(prompt_qa))
+    #exit()
     data = json.loads(api(prompt_qa))
     for i in data:
         prompt_vis = f'''You are tasked with analyzing a dataset through Exploratory Data Analysis (EDA). For this task, you will be provided with predefined imports and functions. Come up with a plan which gives the solution for the question, for the solution plan use the visualization and reason part:
