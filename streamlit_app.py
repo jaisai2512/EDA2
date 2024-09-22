@@ -57,12 +57,6 @@ Instructions:
     2.Generate only Python code without any explanations or comments.
     3.Don't import anything apart from given.
 Here are the details:
-
-Question, visualization, and reason:
-“”"
-{i}
-“”"
-
 Summary of the data:
 “”"
 {summary}
