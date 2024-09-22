@@ -68,6 +68,7 @@ Summary of the data:
 
 import seaborn as sns
 import pandas as pd
+import altair as alt
 import matplotlib.pyplot as plt
 <imports>
 # solution plan
