@@ -38,12 +38,6 @@ if uploaded_file is not None:
     }},
     ...
 ]
-  Instruction:	
-	 1. Do not generate any code.
-	 2. Only use information obtained from the dictionary provided.,
-	 4. Don't generate any comment or anything apart from the json format list.
-         5. The question should not be repeated.
-
 
 Here is the summary of the data:
 {summary}
