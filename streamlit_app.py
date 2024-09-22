@@ -53,6 +53,7 @@ Here is the summary of the data:
 Instructions:
     1.The data is provided in a DataFrame named df.
     2.Generate only Python code without any explanations or comments.
+    3.Don't import anything apart from given.
 Here are the details:
 
 Question, visualization, and reason:
