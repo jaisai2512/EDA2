@@ -48,38 +48,7 @@ Here is the summary of the data:
   st.write("Basic Information:")
   data = json.loads(api(prompt_qa))
   for i in data:
-    prompt_vis =f'''You are a data analyst with coding skills and you are tasked to write a visualization code based on the provided question, visualization, reason and summary of the data
-
-Instructions:
-    1.The data is provided in a DataFrame named df.
-    2.Generate only Python code without any explanations or comments.
-    3.Do not modify any part of the provided code structure below 
-Here are the details:
-
-Question, visualization, and reason:
-“”"
-{i}
-“”"
-
-Summary of the data:
-“”"
-{summary}
-“”"
-
-
-import seaborn as sns
-import pandas as pd
-import matplotlib.pyplot as plt
-<imports>
-# solution plan
-# i.  ..
-def plot_and_save(df: pd.DataFrame):
-
-    <stub> # only modify this section
-    buf = io.BytesIO()
-    plt.savefig(buf, format='png') 
-    buf.seek(0)  # Move the cursor to the start of the stream
-    return buf'''
+    prompt_vis =''
     with st.spinner("Executing code..."):
 		  generated_code = api(prompt_vis)
       st.code(generated_code,language='Python')
