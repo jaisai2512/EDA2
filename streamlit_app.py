@@ -52,7 +52,7 @@ Instructions:
     1.The data is provided in a DataFrame named df.
     2.Generate only Python code without any explanations or comments.
     3.Do not modify any part of the provided code structure below .
-    4.Generate only 6 questions.
+    4. Only Generate 5 Question, visualization, and reason.
 Here are the details:
 
 Question, visualization, and reason:
