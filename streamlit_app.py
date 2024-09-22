@@ -86,7 +86,7 @@ def plot_and_save(df: pd.DataFrame):
 	try:
             exec(generated_code.replace('```python', '').replace('```', ''), globals(), local_vars)
 	except:
-		continue
+	    continue
         plot_and_save = local_vars['plot_and_save']
         try:
             plot_buffer = plot_and_save(df)
