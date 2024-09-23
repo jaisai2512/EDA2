@@ -68,6 +68,7 @@ Here is the summary of the data:
                             ii) If there are any missing value in the data handle them.
                             iii)Handle exceptions gracefully, such as cases where the data might be missing or the input format is incorrect.
                             iv)Ensure flexibility, modularity, and exception handling for missing or incorrect data.
+                            v)Make sure to save the plot in the buffer and return the buffer.
 Instruction
     1.The data is provided in a DataFrame named temp.
     2.Generate only Python code without any explanations or comments.
