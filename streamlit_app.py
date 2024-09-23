@@ -90,10 +90,10 @@ import matplotlib.pyplot as plt
 def plot_and_save(temp: pd.DataFrame):
 
     <stub> # only modify this section
-    buf = io.BytesIO() # Don't modify
-    plt.savefig(buf, format='png') # Don;t modify 
-    buf.seek(0) # Don't modify
-    return buf # Don't modify
+    buf = io.BytesIO()
+    plt.savefig(buf, format='png')
+    buf.seek(0)
+    return buf
     '''
         with st.spinner("Executing code..."):
             generated_code = api(prompt_vis)
