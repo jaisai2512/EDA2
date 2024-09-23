@@ -54,8 +54,9 @@ Here is the summary of the data:
     for i in data:
         temp = df
         prompt_vis = f'''You are given:
-                                i)A question (insight from the summary data)
-                                ii)A specific visualization (the recommended chart type for the question)
+                                i)A question - {i['question']}.
+                                ii)A specific visualization (the recommended chart type for the question) - {i['visualization']}.
+                                ii)A summary of the whole data. 
                         Your Objective:
                             Create a plan to improve and complete the plot_and_save(temp) function, which should:
                                     i)Dynamically generate the appropriate visualization based on the given question and corresponding visualization type.
@@ -72,10 +73,7 @@ Instruction
     2.Generate only Python code without any explanations or comments.
     3.Don't import anything apart from given.
 Here are the details:
-Question,Visualization and reason:
-“”"
-{i}
-“”"
+
 Summary of the data:
 “”"
 {summary}
