@@ -66,8 +66,9 @@ Here is the summary of the data:
                         Key Considerations:
                             i)The type of visualization must match the one specified for the question (e.g., bar chart, scatter plot, heatmap).
                             ii)The function should be modular and flexible enough to accommodate different types of visualizations based on future questions.
-                            iii)Handle exceptions gracefully, such as cases where the data might be missing or the input format is incorrect.
-                            iv)Ensure flexibility, modularity, and exception handling for missing or incorrect data.
+                            iii) If there are any missing value in the data handle them.
+                            iv)Handle exceptions gracefully, such as cases where the data might be missing or the input format is incorrect.
+                            v)Ensure flexibility, modularity, and exception handling for missing or incorrect data.
 Instruction
     1.The data is provided in a DataFrame named temp.
     2.Generate only Python code without any explanations or comments.
