@@ -68,6 +68,11 @@ Here is the summary of the data:
                             ii) If there are any missing value in the data handle them.
                             iii)Handle exceptions gracefully, such as cases where the data might be missing or the input format is incorrect.
                             iv)Ensure flexibility, modularity, and exception handling for missing or incorrect data.
+                            V) Make sure the plot created should be returned as buffer by executing the following code below:
+                                                buf = io.BytesIO()
+                                                plt.savefig(buf, format='png')
+                                                buf.seek(0)
+                                                return buf
 Instruction
     1.The data is provided in a DataFrame named temp.
     2.Generate only Python code without any explanations or comments.
@@ -90,10 +95,6 @@ import matplotlib.pyplot as plt
 def plot_and_save(temp: pd.DataFrame):
 
     <stub> # only modify this section
-    buf = io.BytesIO()
-    plt.savefig(buf, format='png')
-    buf.seek(0)
-    return buf
     '''
         with st.spinner("Executing code..."):
             generated_code = api(prompt_vis)
