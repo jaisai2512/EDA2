@@ -24,12 +24,11 @@ if uploaded_file is not None:
     var_dict = {'df': df}
     summary = summary_gen(df)
     st.write(summary)
-    prompt_qa = f'''You are a an experienced data analyst who can generate a given number of insightful GOALS about data, when given a summary of the data . The VISUALIZATIONS YOU RECOMMEND MUST FOLLOW VISUALIZATION BEST PRACTICES (e.g., must use bar charts instead of pie charts for comparing quantities) AND BE MEANINGFUL (e.g., plot longitude and latitude on maps where appropriate). Each goal must include a question, a visualization (THE VISUALIZATION MUST REFERENCE THE EXACT COLUMN FIELDS FROM THE SUMMARY), and a reason (JUSTIFICATION FOR WHICH dataset FIELDS ARE USED and what we will learn from the visualization). Each goal MUST mention the exact fields from the dataset summary above .
-    The question should be based on the mix of the following:
-        i)Univariate Analysis Questions: Focus on individual variables.
-        ii)Bivariate Analysis Questions: Explore relationships between two variables.
-        iii)Multivariate Analysis Questions: Investigate interactions among three or more variables.
-        iv)Pattern Analysis Questions: Identify trends, cycles, or anomalies in the data
+    prompt_qa = f'''You are an advanced EDA agent, your role is to perform exploratory data analysis (EDA) on the given data summary . Your task is to break down your findings into univariate, bivariate, and multivariate analysis, and present the results in the form of:
+                i)Question: What insight or hypothesis are you exploring based on the analysis?
+                ii)Visualization: Create or suggest a specific visualization (e.g., histogram, scatter plot, correlation matrix) using the exact dataset column names from the provided summary to illustrate the insight.
+                iii)Reason: Justify why you are using those specific fields and what we can learn from the visualization. Explain the significance of the relationships or patterns being revealed.
+
    
    The final output should be in valid JSON format as follows:
 
