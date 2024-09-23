@@ -43,7 +43,7 @@ if uploaded_file is not None:
 ]
 Instruction:
  1. No comment should be produced.
- 2.Generate 10 questions.
+ 2.Generate 5 questions.
 Here is the summary of the data:
 {summary}
 '''
@@ -53,7 +53,7 @@ Here is the summary of the data:
     data = json.loads(api(prompt_qa))
     for i in data:
         temp = df
-        prompt_vis = f'''If the solution requires a single value (e.g. max, min, median, first, last etc), ALWAYS add a line (axvline or axhline) to the chart, ALWAYS with a legend containing the single value (formatted with 0.2F). If using a <field> where semantic_type=date, YOU MUST APPLY the following transform before using that column i) convert date fields to date types using temp[''] = pd.to_datetime(temp[<field>], errors='coerce'), ALWAYS use  errors='coerce' ii) drop the rows with NaT values temp = temp[pd.notna(temp[<field>])] iii) convert field to right time format for plotting.  ALWAYS make sure the x-axis labels are legible (e.g., rotate when needed). Solve the task  carefully by completing ONLY the <imports> AND <stub> section. Given the dataset summary, the plot_and_save(temp) method should generate a chart ({i['visualization']}) that addresses this goal: {i['question']}. DO NOT WRITE ANY CODE TO LOAD THE DATA. The data is already loaded and available in the variable data.
+        prompt_vis = f'''If the solution requires a single value (e.g. max, min, median, first, last etc), ALWAYS add a line (axvline or axhline) to the chart, ALWAYS with a legend containing the single value (formatted with 0.2F). If using a <field> where semantic_type=date, YOU MUST APPLY the following transform before using that column i) convert date fields to date types using temp[''] = pd.to_datetime(temp[<field>], errors='coerce'), ALWAYS use  errors='coerce' ii) drop the rows with NaT values temp = temp[pd.notna(temp[<field>])] iii) convert field to right time format for plotting.  ALWAYS make sure the x-axis labels are legible (e.g., rotate when needed). Solve the task  carefully by completing ONLY the <stub> section. Given the dataset summary, the plot_and_save(temp) method should generate a chart ({i['visualization']}) that addresses this goal: {i['question']}. DO NOT WRITE ANY CODE TO LOAD THE DATA. The data is already loaded and available in the variable data.
 Instructions:
     1.The data is provided in a DataFrame named temp.
     2.Generate only Python code without any explanations or comments.
