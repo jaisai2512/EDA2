@@ -53,12 +53,29 @@ Here is the summary of the data:
     st.write(data)
     for i in data:
         temp = df
-        prompt_vis = f'''If the solution requires a single value (e.g. max, min, median, first, last etc), ALWAYS add a line (axvline or axhline) to the chart, ALWAYS with a legend containing the single value (formatted with 0.2F). If using a <field> where semantic_type=date, YOU MUST APPLY the following transform before using that column i) convert date fields to date types using temp[''] = pd.to_datetime(temp[<field>], errors='coerce'), ALWAYS use  errors='coerce' ii) drop the rows with NaT values temp = temp[pd.notna(temp[<field>])] iii) convert field to right time format for plotting.  ALWAYS make sure the x-axis labels are legible (e.g., rotate when needed). Solve the task  carefully by completing ONLY the <stub> section. Given the dataset summary, the plot_and_save(temp) method should generate a chart ({i['visualization']}) that addresses this goal: {i['question']}. DO NOT WRITE ANY CODE TO LOAD THE DATA. The data is already loaded and available in the variable data.
-Instructions:
+        prompt_vis = f'''You are given:
+                                i)A question (insight from the summary data)
+                                ii)A specific visualization (the recommended chart type for the question)
+                        Your Objective:
+                            Create a plan to improve and complete the plot_and_save(temp) function, which should:
+                                    i)Dynamically generate the appropriate visualization based on the given question and corresponding visualization type.
+                                    ii)Ensure that the function handles and processes the input temp (which contains the data) efficiently.
+                                    iii)Implement appropriate labels, titles, and legends as needed for better readability.
+                                    iv)Ensure the visualization is clear, relevant, and accurate for the question asked.
+                        Key Considerations:
+                            i)The type of visualization must match the one specified for the question (e.g., bar chart, scatter plot, heatmap).
+                            ii)The function should be modular and flexible enough to accommodate different types of visualizations based on future questions.
+                            iii)Handle exceptions gracefully, such as cases where the data might be missing or the input format is incorrect.
+                            iv)Ensure flexibility, modularity, and exception handling for missing or incorrect data.
+Instruction
     1.The data is provided in a DataFrame named temp.
     2.Generate only Python code without any explanations or comments.
     3.Don't import anything apart from given.
 Here are the details:
+Question,Visualization and reason:
+“”"
+{i}
+“”"
 Summary of the data:
 “”"
 {summary}
