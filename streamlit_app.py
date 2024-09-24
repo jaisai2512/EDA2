@@ -60,9 +60,9 @@ THE OUTPUT SHOULD ONLY USE THE JSON FORMAT ABOVE.
     st.write(data)
     for i in data:
         temp = df
-        system_prompt = f'''You are an expert data visualization agent. You are given the following:\ni)Question: {i['question']}.\nii)Visualization Type: {i['visualization']}.\niii)Data: Provided in a DataFrame named temp.\niv)Summary of the data: "{summary}".\nv) And a function to Complete.'''
+        system_prompt = f'''You are an expert data visualization person who knows to code well. You are given the following:\ni)Question: {i['question']}.\nii)Visualization Type: {i['visualization']}.\niii)Data: Provided in a DataFrame named temp.\niv)Summary of the data: "{summary}".\nv) And a function to Complete.'''
         user_prompt = '''Your Objective is to Create a plan to improve and complete the plot_and_save(temp) function, which should:
-                                    i) Generate a Simple plan so that Completing the function won't be a big hustle.
+                                    i) Come up with different plan , atlast choose the optimal one.
                                     ii)Ensure that the function handles and processes the input temp (which contains the data) efficiently.
                                     iii)Implement appropriate labels, titles, and legends as needed for better readability.
                                     iv)Ensure the visualization is clear, relevant, and accurate for the question asked.
