@@ -73,7 +73,8 @@ THE OUTPUT SHOULD ONLY USE THE JSON FORMAT ABOVE.
                             ii) If there are any missing value in the data handle them.
                             iii)Handle exceptions gracefully, such as cases where the data might be missing or the input format is incorrect.
                             iv)Ensure flexibility, modularity, and exception handling for missing or incorrect data.
-                            V) Make sure the plot created should be returned as buffer by executing the following code below:
+                            v) Use greographical map when the visualization specifies map or geography.
+                            vi) Make sure the plot created should be returned as buffer by executing the following code below:
                                                 buf = io.BytesIO()
                                                 plt.savefig(buf, format='png')
                                                 buf.seek(0)
