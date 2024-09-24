@@ -24,25 +24,12 @@ if uploaded_file is not None:
     var_dict = {'df': df}
     summary = summary_gen(df)
     st.write(summary)
-    prompt_qa = f'''You are given:
-                         i) Summary of the data
-                    Your Objective:
-                        Create a goal , Each goal must include a question(THE INSIGHT OBTAINED FROM THE SUMMARY DATA), a visualization (THE VISUALIZATION MUST REFERENCE THE EXACT COLUMN FIELDS FROM THE SUMMARY), and a reason (JUSTIFICATION FOR WHICH dataset FIELDS ARE USED and what we will learn from the visualization). Each goal MUST mention the exact fields from the dataset summary
-                    Criteria for Each Goal:
-                            Question:
-                                i)The question must arise directly from the summary's key insights.
-                                ii)It should be actionable, correct, and of high value to the user, offering critical insights into the data.
-                                iii)For example, "What is the relationship between road type (road_type) and damage severity (damage_severity) in the dataset?"
-                            Visualization:
-                                i)The visualization should clearly represent the question in graphical form.
-                                ii)It should reference specific column fields from the dataset that directly contribute to the insight.
-                                iii)Specify the chart type (e.g., bar chart, scatter plot, heatmap) and explain the process: "A bar chart with road_type on the X-axis and the average damage_severity on the Y-axis will illustrate the relationship."
-                                iv)Ensure the visualization method chosen is the best way to showcase the data (e.g., use a heatmap for correlations, bar chart for categories, scatter plots for continuous variables).
-                            Reason:
-                                i)Justify why the specific dataset fields were used and how the visualization will reveal new insights.
-                                ii)Mention the learning outcome from this visualization: "This visualization will help identify if certain road types are more prone to severe damage, which can guide future maintenance priorities."
+    SYSTEM_INSTRUCTIONS = """
+You are a an experienced data analyst who can generate a given number of insightful GOALS about data, when given a summary of the data, and a specified persona. The VISUALIZATIONS YOU RECOMMEND MUST FOLLOW VISUALIZATION BEST PRACTICES (e.g., must use bar charts instead of pie charts for comparing quantities) AND BE MEANINGFUL (e.g., plot longitude and latitude on maps where appropriate). They must also be relevant to the specified persona. Each goal must include a question, a visualization (THE VISUALIZATION MUST REFERENCE THE EXACT COLUMN FIELDS FROM THE SUMMARY), and a rationale (JUSTIFICATION FOR WHICH dataset FIELDS ARE USED and what we will learn from the visualization). Each goal MUST mention the exact fields from the dataset summary above
+"""
 
-The Goal Structure should be in valid JSON format as follows:
+FORMAT_INSTRUCTIONS = """
+THE OUTPUT MUST BE A CODE SNIPPET OF A VALID LIST OF JSON OBJECTS. IT MUST USE THE FOLLOWING FORMAT:
 
 [
     {{
@@ -52,15 +39,19 @@ The Goal Structure should be in valid JSON format as follows:
     }},
     ...
 ]
-Instruction:
- 1. No comment should be produced.
- 2.Generate 10 questions.
-Here is the summary of the data:
-{summary}
-'''
+
+THE OUTPUT SHOULD ONLY USE THE JSON FORMAT ABOVE.
+"""
+    persona = "A highly skilled data analyst who can come up with complex, insightful goals about data"
+    user_prompt += f"""\n The generated goals SHOULD BE FOCUSED ON THE INTERESTS AND PERSPECTIVE of a {persona} persona, who is insterested in complex, insightful goals about the data. \n"""
+    messages = [
+            {"role": "system", "content": SYSTEM_INSTRUCTIONS},
+            {"role": "assistant",
+             "content":
+             f"{user_prompt}\n\n {FORMAT_INSTRUCTIONS} \n\n. The generated {5} goals are: \n "}]
     st.write("Basic Information:")
-    #st.write(api(prompt_qa))
-    #exit()
+    st.write(api(messages))
+    exit()
     data = json.loads(api(prompt_qa))
     st.write(data)
     for i in data:
