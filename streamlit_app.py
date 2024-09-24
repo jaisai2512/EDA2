@@ -61,24 +61,7 @@ THE OUTPUT SHOULD ONLY USE THE JSON FORMAT ABOVE.
     for i in data:
         temp = df
         system_prompt = f'''You are an expert data visualization agent. You are given the following:\ni)Question: {i['question']}.\nii)Visualization Type: {i['visualization']}.\niii)Data: Provided in a DataFrame named temp.\niv)Summary of the data: "{summary}".\nv) And a function to Complete.'''
-        user_prompt = '''Your Objective is to Create a plan to improve and complete the plot_and_save(temp) function, which should:
-                                    i) Generate a Simple plan so that Completing the function won't be a big hustle.
-                                    ii)Ensure that the function handles and processes the input temp (which contains the data) efficiently.
-                                    iii)Implement appropriate labels, titles, and legends as needed for better readability.
-                                    iv)Ensure the visualization is clear, relevant, and accurate for the question asked.
-                        Key Considerations:
-                            i) If there are any missing value in the data handle them.
-                            ii)Handle exceptions gracefully, such as cases where the data might be missing or the input format is incorrect.
-                            iii)Ensure flexibility, modularity, and exception handling for missing or incorrect data.
-                            iv) Make sure the plot created should be returned as buffer by executing the following code below:
-                                                buf = io.BytesIO()
-                                                plt.savefig(buf, format='png')
-                                                buf.seek(0)
-                                                return buf
-Instruction
-    1.The data is provided in a DataFrame named temp.
-    2.Generate only Python code without any explanations or comments.
-    3.Don't import anything apart from given.
+        user_prompt = '''If using a <field> where semantic_type=date, YOU MUST APPLY the following transform before using that column i) convert date fields to date types using data[''] = pd.to_datetime(data[<field>], errors='coerce'), ALWAYS use  errors='coerce' ii) drop the rows with NaT values data = data[pd.notna(data[<field>])] iii) convert field to right time format for plotting.  ALWAYS make sure the x-axis labels are legible (e.g., rotate when needed). Your Objective is to Create a plan to improve and complete the plot_and_save(temp) function by filling the <stub> section .Given the dataset summary, the plot_and_save(temp) method should generate a chart ({i['visualization']}) that addresses this goal: {i['question']}. DO NOT WRITE ANY CODE TO LOAD THE DATA. The data is already loaded and available in the variable data.
     '''
         function ='''
 import seaborn as sns
@@ -94,7 +77,7 @@ def plot_and_save(temp: pd.DataFrame):
     <stub> # only modify this section
     '''
         messages = [
-            {"role": "system", "content": SYSTEM_INSTRUCTIONS},
+            {"role": "system", "content": system_prompt},
             {"role": "assistant",
              "content":
              f'''{user_prompt} \n The FUNCTION TO COMPLETE IS :\n{function}'''}]
