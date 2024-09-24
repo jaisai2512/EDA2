@@ -80,7 +80,7 @@ Instruction
     2.Generate only Python code without any explanations or comments.
     3.Don't import anything apart from given.
     '''
-function ='''
+        function ='''
 import seaborn as sns
 import pandas as pd
 import altair as alt
