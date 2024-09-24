@@ -63,8 +63,8 @@ Here is the summary of the data:
 {summary}
 '''
     st.write("Basic Information:")
-    st.write(api(prompt_qa))
-    exit()
+    #st.write(api(prompt_qa))
+    #exit()
     data = json.loads(api(prompt_qa))
     st.write(data)
     for i in data:
