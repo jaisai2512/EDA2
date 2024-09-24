@@ -52,7 +52,7 @@ THE OUTPUT SHOULD ONLY USE THE JSON FORMAT ABOVE.
     st.write("Basic Information:")
     #st.write(api(messages))
     #exit()
-    data = json.loads(api(prompt_qa))
+    data = json.loads(api(messages))
     st.write(data)
     for i in data:
         temp = df
