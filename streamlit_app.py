@@ -42,8 +42,10 @@ THE OUTPUT MUST BE A CODE SNIPPET OF A VALID LIST OF JSON OBJECTS. IT MUST USE T
 
 THE OUTPUT SHOULD ONLY USE THE JSON FORMAT ABOVE.
 """
+    user_prompt = f"""The number of GOALS to generate is {n}. The goals should be based on the data summary below, \n\n .
+        {summary} \n\n"""
     persona = "A highly skilled data analyst who can come up with complex, insightful goals about data"
-    user_prompt = f"""\n The generated goals SHOULD BE FOCUSED ON THE INTERESTS AND PERSPECTIVE of a {persona} persona, who is insterested in complex, insightful goals about the data. \n"""
+    user_prompt += f"""\n The generated goals SHOULD BE FOCUSED ON THE INTERESTS AND PERSPECTIVE of a {persona} persona, who is insterested in complex, insightful goals about the data. \n"""
     messages = [
             {"role": "system", "content": SYSTEM_INSTRUCTIONS},
             {"role": "assistant",
