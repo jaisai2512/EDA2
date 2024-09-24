@@ -61,10 +61,25 @@ THE OUTPUT SHOULD ONLY USE THE JSON FORMAT ABOVE.
     for i in data:
         temp = df
         system_prompt = f'''You are an expert data visualization agent. You are given the following:\ni)Question: {i['question']}.\nii)Visualization Type: {i['visualization']}.\niii)Data: Provided in a DataFrame named temp.\niv)Summary of the data: "{summary}".\nv) And a function to Complete.'''
-        user_prompt = '''If using a <field> where semantic_type=date, YOU MUST APPLY the following transform before using that column i) convert date fields to date types using temp[''] = pd.to_datetime(temp[<field>], errors='coerce'), ALWAYS use  errors='coerce' ii) drop the rows with NaT values data = temp[pd.notna(temp[<field>])] iii) convert field to right time format for plotting.  ALWAYS make sure the x-axis labels are legible (e.g., rotate when needed). Your Objective is to Create a plan to improve and complete the plot_and_save(temp) function by filling the <stub> section .Given the dataset summary, the plot_and_save(temp) method should generate a chart ({i['visualization']}) that addresses this goal: {i['question']}. DO NOT WRITE ANY CODE TO LOAD THE DATA. The data is already loaded and available in the variable data.
+        user_prompt = '''Your Objective is to Create a plan to improve and complete the plot_and_save(temp) function, which should:
+                                    i) Generate a Simple plan so that Completing the function won't be a big hustle.
+                                    ii)Ensure that the function handles and processes the input temp (which contains the data) efficiently.
+                                    iii)Implement appropriate labels, titles, and legends as needed for better readability.
+                                    iv)Ensure the visualization is clear, relevant, and accurate for the question asked.
+                        Key Considerations:
+                            i) If there are any missing value in the data handle them.
+                            ii)Handle exceptions gracefully, such as cases where the data might be missing or the input format is incorrect.
+                            iii)Ensure flexibility, modularity, and exception handling for missing or incorrect data.
+                            iv) Make sure the plot created should be returned as buffer by executing the following code below:
+                                                buf = io.BytesIO()
+                                                plt.savefig(buf, format='png')
+                                                buf.seek(0)
+                                                return buf
+Instruction
+    1.The data is provided in a DataFrame named temp.
+    2.Generate only Python code without any explanations or comments.
+    3.Don't import anything apart from given.
     '''
-        key_consideration='''Make sure the plot created should be returned as buffer by executing the following code below:\nbuf = io.BytesIO()\nplt.savefig(buf, format='png')\nbuf.seek(0)\nreturn buf \n\n ii)Don't import anything apart from given.\niii) While writting the code make sure the data field used is in the summray.\n iv) Generate only Python code without any explanations or comments.
-'''
         function ='''
 import seaborn as sns
 import pandas as pd
@@ -82,7 +97,7 @@ def plot_and_save(temp: pd.DataFrame):
             {"role": "system", "content": system_prompt},
             {"role": "assistant",
              "content":
-             f'''{user_prompt} \n\n Key Consideration: {key_consideration} The FUNCTION TO COMPLETE IS :\n{function}'''}]
+             f'''{user_prompt} \n\nThe FUNCTION TO COMPLETE IS :\n{function}'''}]
         with st.spinner("Executing code..."):
             generated_code = api(messages)
         st.code(generated_code, language='Python')
