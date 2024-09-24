@@ -42,6 +42,46 @@ THE OUTPUT MUST BE A CODE SNIPPET OF A VALID LIST OF JSON OBJECTS. IT MUST USE T
 
 THE OUTPUT SHOULD ONLY USE THE JSON FORMAT ABOVE.
 """
+    Categorical_format = {
+  "visualization_options": [
+    {
+      "type": "Bar Chart",
+      "description": "Best for comparing the frequency or count of different categories.",
+      "example": "Distribution of restaurants by country."
+    },
+    {
+      "type": "Pie Chart",
+      "description": "Used to show proportions or percentages of categories within a whole.",
+      "example": "Percentage of different types of cuisine in a dataset."
+    },
+    {
+      "type": "Stacked Bar Chart",
+      "description": "Useful for comparing parts of a whole across multiple categories.",
+      "example": "Stacked bars showing restaurant ratings (1 to 5 stars) across cities."
+    },
+    {
+      "type": "Count Plot",
+      "description": "Similar to a bar chart but shows counts of occurrences.",
+      "example": "Count of restaurants per city."
+    },
+    {
+      "type": "Mosaic Plot",
+      "description": "Displays the relationship between two or more categorical variables.",
+      "example": "Restaurants categorized by cuisine type and city."
+    },
+    {
+      "type": "Heatmap (Categorical)",
+      "description": "Visualizes the frequency of combinations between two categorical variables using color intensity.",
+      "example": "A heatmap showing the co-occurrence of brands and cities."
+    },
+    {
+      "type": "Dot Plot",
+      "description": "Used to compare counts across categories, but with dots instead of bars.",
+      "example": "Number of restaurants in different cities represented by dots."
+    }
+  ]
+}
+
     user_prompt = f"""The number of GOALS to generate is 5. The goals should be based on the data summary below, \n\n .
         {summary} \n\n"""
     persona = "A highly skilled data analyst who can come up with complex, insightful goals about data"
@@ -50,7 +90,7 @@ THE OUTPUT SHOULD ONLY USE THE JSON FORMAT ABOVE.
             {"role": "system", "content": SYSTEM_INSTRUCTIONS},
             {"role": "assistant",
              "content":
-             f"{user_prompt}\n\n {FORMAT_INSTRUCTIONS} \n\n Key Consideration:\n i) Select only the goals that can be visualized \n ii) Generate multiple visualization possibilities for the question, and select the one that adheres best to visualization best practices. \n\n; exclude goals that gives only single-line answers. The generated 5 goals are: \n "}]
+             f"{user_prompt}\n\n {FORMAT_INSTRUCTIONS} \n\n Key Consideration:\n\n i) Generate multiple visualization possibilities for the question, and select the one that adheres best to visualization best practices\n ii) When choosing a visualization for a question involving a categorical value, use the Categorical_format provided to generate the appropriate visualization. \niii)exclude goals that gives only single-line answers.\n\nCategorical_format:\n{Categorical_format}\n\nThe generated 5 goals are: \n "}]
     st.write("Basic Information:")
     #st.write(api(messages))
     #exit()
