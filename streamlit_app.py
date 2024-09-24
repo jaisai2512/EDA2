@@ -58,7 +58,7 @@ THE OUTPUT SHOULD ONLY USE THE JSON FORMAT ABOVE.
     st.write(data)
     for i in data:
         temp = df
-        System_Instruction = f'''You are an expert data visualization agent. You are given the following:
+        prompt_vis = f'''You are an expert data visualization agent. You are given the following:
                                     i)Question: {i['question']}.
                                     ii)Visualization Type: {i['visualization']}.
                                     iii)Data: Provided in a DataFrame named temp.
