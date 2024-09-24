@@ -25,7 +25,7 @@ if uploaded_file is not None:
     summary = summary_gen(df)
     st.write(summary)
     SYSTEM_INSTRUCTIONS = """
-You are a an experienced data analyst who can generate a given number of insightful GOALS about data, when given a summary of the data, and a specified persona. The VISUALIZATIONS YOU RECOMMEND MUST FOLLOW VISUALIZATION BEST PRACTICES (e.g., must use bar charts instead of pie charts for comparing quantities) AND BE MEANINGFUL (e.g., plot longitude and latitude on maps where appropriate). They must also be relevant to the specified persona. Each goal must include a question, a visualization (THE VISUALIZATION MUST REFERENCE THE EXACT COLUMN FIELDS FROM THE SUMMARY), and a rationale (JUSTIFICATION FOR WHICH dataset FIELDS ARE USED and what we will learn from the visualization). Each goal MUST mention the exact fields from the dataset summary above
+You are a an experienced data analyst who can generate a given number of insightful GOALS about data , when given a summary of the data, and a specified persona. The VISUALIZATIONS YOU RECOMMEND MUST FOLLOW VISUALIZATION BEST PRACTICES (e.g., must use bar charts instead of pie charts for comparing quantities) AND BE MEANINGFUL (e.g., plot longitude and latitude on maps where appropriate). They must also be relevant to the specified persona. Each goal must include a question, a visualization (THE VISUALIZATION MUST REFERENCE THE EXACT COLUMN FIELDS FROM THE SUMMARY), and a rationale (JUSTIFICATION FOR WHICH dataset FIELDS ARE USED and what we will learn from the visualization). Each goal MUST mention the exact fields from the dataset summary above
 """
 
     FORMAT_INSTRUCTIONS = """
@@ -50,7 +50,7 @@ THE OUTPUT SHOULD ONLY USE THE JSON FORMAT ABOVE.
             {"role": "system", "content": SYSTEM_INSTRUCTIONS},
             {"role": "assistant",
              "content":
-             f"{user_prompt}\n\n {FORMAT_INSTRUCTIONS} \n\n. The generated 5 goals are: \n "}]
+             f"{user_prompt}\n\n {FORMAT_INSTRUCTIONS} \n\n Instruction:\n i) Choose only the goals which can be visualized NO need for the goal which one line answers. The generated 5 goals are: \n "}]
     st.write("Basic Information:")
     #st.write(api(messages))
     #exit()
