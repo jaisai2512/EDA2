@@ -63,6 +63,8 @@ THE OUTPUT SHOULD ONLY USE THE JSON FORMAT ABOVE.
         system_prompt = f'''You are an expert data visualization agent. You are given the following:\ni)Question: {i['question']}.\nii)Visualization Type: {i['visualization']}.\niii)Data: Provided in a DataFrame named temp.\niv)Summary of the data: "{summary}".\nv) And a function to Complete.'''
         user_prompt = '''If using a <field> where semantic_type=date, YOU MUST APPLY the following transform before using that column i) convert date fields to date types using data[''] = pd.to_datetime(data[<field>], errors='coerce'), ALWAYS use  errors='coerce' ii) drop the rows with NaT values data = data[pd.notna(data[<field>])] iii) convert field to right time format for plotting.  ALWAYS make sure the x-axis labels are legible (e.g., rotate when needed). Your Objective is to Create a plan to improve and complete the plot_and_save(temp) function by filling the <stub> section .Given the dataset summary, the plot_and_save(temp) method should generate a chart ({i['visualization']}) that addresses this goal: {i['question']}. DO NOT WRITE ANY CODE TO LOAD THE DATA. The data is already loaded and available in the variable data.
     '''
+        key_consideration='''Make sure the plot created should be returned as buffer by executing the following code below:\nbuf = io.BytesIO()\nplt.savefig(buf, format='png')\nbuf.seek(0)\nreturn buf \n\n ii)Don't import anything apart from given.\niii) DO NOT GENERATE ANY EXTRA SENTENCES.
+'''
         function ='''
 import seaborn as sns
 import pandas as pd
@@ -80,7 +82,7 @@ def plot_and_save(temp: pd.DataFrame):
             {"role": "system", "content": system_prompt},
             {"role": "assistant",
              "content":
-             f'''{user_prompt} \n The FUNCTION TO COMPLETE IS :\n{function}'''}]
+             f'''{user_prompt} \n\n Key Consideration: {key_consideration} The FUNCTION TO COMPLETE IS :\n{function}'''}]
         with st.spinner("Executing code..."):
             generated_code = api(messages)
         st.code(generated_code, language='Python')
