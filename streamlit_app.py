@@ -83,7 +83,6 @@ Instruction
         function ='''
 import seaborn as sns
 import pandas as pd
-import altair as alt
 import matplotlib.pyplot as plt
 import plotly.express as px
 <imports>
