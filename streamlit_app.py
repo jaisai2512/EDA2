@@ -41,12 +41,8 @@ if uploaded_file is not None:
                             Reason:
                                 i)Justify why the specific dataset fields were used and how the visualization will reveal new insights.
                                 ii)Mention the learning outcome from this visualization: "This visualization will help identify if certain road types are more prone to severe damage, which can guide future maintenance priorities."
-                    Key Consideration:
-                        i) Your are allowed to use only the altair,seaborn, matplotlib and plotly libraries for visualization.
-                        ii) Be cautious when selecting graphs for categorical data types.
-                        iii) No comment should be created.
 
-   The Goal Structure should be in valid JSON format as follows:
+The Goal Structure should be in valid JSON format as follows:
 
 [
     {{
