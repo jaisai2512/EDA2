@@ -29,10 +29,11 @@ if uploaded_file is not None:
                     Your Objective:
                         Create a goal , Each goal must include a question(THE INSIGHT OBTAINED FROM THE SUMMARY DATA), a visualization (THE VISUALIZATION MUST REFERENCE THE EXACT COLUMN FIELDS FROM THE SUMMARY), and a reason (JUSTIFICATION FOR WHICH dataset FIELDS ARE USED and what we will learn from the visualization). Each goal MUST mention the exact fields from the dataset summary
                     Key Consideration:
-                        i) Select the most appropriate visualization for the question by analyzing the data types of the attributes involved.
-                        ii) If the selected visuzlization is geographical used geography related graph.
-                        iii) Your are allowed to use only the altair,seaborn and matplotlib libraries for visualization.
-                        iv) Be cautious when selecting graphs for categorical data types.
+                        i)The question should be created considering the data types too.
+                        ii) Select the most appropriate visualization for the question by analyzing the data types of the attributes involved.
+                        iii) If the selected visuzlization is geographical used geography related graph.
+                        iv) Your are allowed to use only the altair,seaborn, matplotlib and plotly libraries for visualization.
+                        v) Be cautious when selecting graphs for categorical data types.
 
    The Goal Structure should be in valid JSON format as follows:
 
@@ -93,6 +94,7 @@ import seaborn as sns
 import pandas as pd
 import altair as alt
 import matplotlib.pyplot as plt
+import plotly.express as px
 <imports>
 # solution plan
 # i.  ..
