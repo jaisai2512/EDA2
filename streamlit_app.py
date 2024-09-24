@@ -52,7 +52,7 @@ THE OUTPUT SHOULD ONLY USE THE JSON FORMAT ABOVE.
             {"role": "system", "content": SYSTEM_INSTRUCTIONS},
             {"role": "assistant",
              "content":
-             f"{user_prompt}\n\n {FORMAT_INSTRUCTIONS} \n\n Key Consideration:\n\n i) Generate multiple visualization possibilities for the question, and select the one that adheres best to visualization best practices.\n\n ii) Specify the fields used for the visualization along with their data types in the visualization section.\nThe generated 5 goals are: \n "}]
+             f"{user_prompt}\n\n {FORMAT_INSTRUCTIONS} \n\n Instruction:\n\n i) Generate multiple visualization possibilities for the question, and select the one that adheres best to visualization best practices.\n\n ii) SPECIFY THE FIELDS USED FOR THE VISUALIZATION ALONG WITH THEIR DATA TYPES IN THE VISUALIZATION SECTION.\nThe generated 5 goals are: \n "}]
     st.write("Basic Information:")
     #st.write(api(messages))
     #exit()
