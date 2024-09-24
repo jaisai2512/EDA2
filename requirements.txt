@@ -7,3 +7,4 @@ temp
 os-sys
 Python-IO
 altair
+plotly-express
