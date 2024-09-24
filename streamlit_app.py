@@ -43,12 +43,12 @@ THE OUTPUT MUST BE A CODE SNIPPET OF A VALID LIST OF JSON OBJECTS. IT MUST USE T
 THE OUTPUT SHOULD ONLY USE THE JSON FORMAT ABOVE.
 """
     persona = "A highly skilled data analyst who can come up with complex, insightful goals about data"
-    user_prompt += f"""\n The generated goals SHOULD BE FOCUSED ON THE INTERESTS AND PERSPECTIVE of a {persona} persona, who is insterested in complex, insightful goals about the data. \n"""
+    user_prompt = f"""\n The generated goals SHOULD BE FOCUSED ON THE INTERESTS AND PERSPECTIVE of a {persona} persona, who is insterested in complex, insightful goals about the data. \n"""
     messages = [
             {"role": "system", "content": SYSTEM_INSTRUCTIONS},
             {"role": "assistant",
              "content":
-             f"{user_prompt}\n\n {FORMAT_INSTRUCTIONS} \n\n. The generated {5} goals are: \n "}]
+             f"{user_prompt}\n\n {FORMAT_INSTRUCTIONS} \n\n. The generated 5 goals are: \n "}]
     st.write("Basic Information:")
     st.write(api(messages))
     exit()
