@@ -28,12 +28,23 @@ if uploaded_file is not None:
                          i) Summary of the data
                     Your Objective:
                         Create a goal , Each goal must include a question(THE INSIGHT OBTAINED FROM THE SUMMARY DATA), a visualization (THE VISUALIZATION MUST REFERENCE THE EXACT COLUMN FIELDS FROM THE SUMMARY), and a reason (JUSTIFICATION FOR WHICH dataset FIELDS ARE USED and what we will learn from the visualization). Each goal MUST mention the exact fields from the dataset summary
+                    Criteria for Each Goal:
+                            Question:
+                                i)The question must arise directly from the summary's key insights.
+                                ii)It should be actionable, correct, and of high value to the user, offering critical insights into the data.
+                                iii)For example, "What is the relationship between road type (road_type) and damage severity (damage_severity) in the dataset?"
+                            Visualization:
+                                i)The visualization should clearly represent the question in graphical form.
+                                ii)It should reference specific column fields from the dataset that directly contribute to the insight.
+                                iii)Specify the chart type (e.g., bar chart, scatter plot, heatmap) and explain the process: "A bar chart with road_type on the X-axis and the average damage_severity on the Y-axis will illustrate the relationship."
+                                iv)Ensure the visualization method chosen is the best way to showcase the data (e.g., use a heatmap for correlations, bar chart for categories, scatter plots for continuous variables).
+                            Reason:
+                                i)Justify why the specific dataset fields were used and how the visualization will reveal new insights.
+                                ii)Mention the learning outcome from this visualization: "This visualization will help identify if certain road types are more prone to severe damage, which can guide future maintenance priorities."
                     Key Consideration:
-                        i)The question should be created considering the data types too.
-                        ii) Select the most appropriate visualization for the question by analyzing the data types of the attributes involved.
-                        iii) If the selected visuzlization is geographical used geography related graph.
-                        iv) Your are allowed to use only the altair,seaborn, matplotlib and plotly libraries for visualization.
-                        v) Be cautious when selecting graphs for categorical data types.
+                        i) Your are allowed to use only the altair,seaborn, matplotlib and plotly libraries for visualization.
+                        ii) Be cautious when selecting graphs for categorical data types.
+                        iii) No comment should be created.
 
    The Goal Structure should be in valid JSON format as follows:
 
