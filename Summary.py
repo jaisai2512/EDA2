@@ -28,6 +28,6 @@ You must return an updated JSON dictionary without any preamble or explanation.
         {summary}
         """},
         ]
-  summary = json.loads(api(message))
+  summary = json.loads(api(messages))
   return summary
   
