@@ -58,10 +58,12 @@ THE OUTPUT SHOULD ONLY USE THE JSON FORMAT ABOVE.
     st.write(data)
     for i in data:
         temp = df
-        prompt_vis = f'''You are given:
-                                i)A question - {i['question']}.
-                                ii)A specific visualization (the recommended chart type for the question) - {i['visualization']}.
-                                ii)A summary of the whole data. 
+        System_Instruction = f'''You are an expert data visualization agent. You are given the following:
+                                    i)Question: {i['question']}.
+                                    ii)Visualization Type: {i['visualization']}.
+                                    iii)Data: Provided in a DataFrame named temp.
+                                    iv)Summary of the data: "{summary}".
+                                    v) And a function to Complete.
                         Your Objective:
                             Create a plan to improve and complete the plot_and_save(temp) function, which should:
                                     i)Dynamically generate the appropriate visualization based on the given question and corresponding visualization type.
@@ -69,11 +71,10 @@ THE OUTPUT SHOULD ONLY USE THE JSON FORMAT ABOVE.
                                     iii)Implement appropriate labels, titles, and legends as needed for better readability.
                                     iv)Ensure the visualization is clear, relevant, and accurate for the question asked.
                         Key Considerations:
-                            i)The function should be modular and flexible enough to accommodate different types of visualizations based on future questions.
-                            ii) If there are any missing value in the data handle them.
-                            iii)Handle exceptions gracefully, such as cases where the data might be missing or the input format is incorrect.
-                            iv)Ensure flexibility, modularity, and exception handling for missing or incorrect data.
-                            vi) Make sure the plot created should be returned as buffer by executing the following code below:
+                            i) If there are any missing value in the data handle them.
+                            ii)Handle exceptions gracefully, such as cases where the data might be missing or the input format is incorrect.
+                            iii)Ensure flexibility, modularity, and exception handling for missing or incorrect data.
+                            iv) Make sure the plot created should be returned as buffer by executing the following code below:
                                                 buf = io.BytesIO()
                                                 plt.savefig(buf, format='png')
                                                 buf.seek(0)
@@ -82,13 +83,6 @@ Instruction
     1.The data is provided in a DataFrame named temp.
     2.Generate only Python code without any explanations or comments.
     3.Don't import anything apart from given.
-Here are the details:
-
-Summary of the data:
-“”"
-{summary}
-“”"
-
 
 import seaborn as sns
 import pandas as pd
