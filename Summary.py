@@ -20,7 +20,6 @@ ii) ALWAYS generate a field description.
 iii.) ALWAYS generate a semantic_type (a single word) for each field given its values e.g. company, city, number, supplier, location, gender, longitude, latitude, url, ip address, zip code, email, etc
 You must return an updated JSON dictionary without any preamble or explanation.
 iv) ALWAYS generate a field named DATA TYPE which specifies the data types of the column, the data type should be taken form the DICTIONARY.
- Here is the dictionary for annonating:{summary}
 '''
   messages = [
             {"role": "system", "content": system_prompt},
