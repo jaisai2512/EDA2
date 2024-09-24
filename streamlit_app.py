@@ -24,13 +24,17 @@ if uploaded_file is not None:
     var_dict = {'df': df}
     summary = summary_gen(df)
     st.write(summary)
-    prompt_qa = f'''You are an advanced EDA agent, your role is to perform exploratory data analysis (EDA) on the given data summary . Your task is to break down your findings and present the results in the form of:
-                i)Question: What insight or hypothesis are you exploring based on the analysis?
-                ii)Visualization: Create or suggest a specific visualization (e.g., histogram, scatter plot, correlation matrix) using the exact dataset column names from the provided summary to illustrate the insight.
-                iii)Reason: Justify why you are using those specific fields and what we can learn from the visualization. Explain the significance of the relationships or patterns being revealed.
+    prompt_qa = f'''You are given:
+                         i) Summary of the data
+                    Your Objective:
+                        Create a goal , Each goal must include a question(THE INSIGHT OBTAINED FROM THE SUMMARY DATA), a visualization (THE VISUALIZATION MUST REFERENCE THE EXACT COLUMN FIELDS FROM THE SUMMARY), and a reason (JUSTIFICATION FOR WHICH dataset FIELDS ARE USED and what we will learn from the visualization). Each goal MUST mention the exact fields from the dataset summary
+                    Key Consideration:
+                        i) Select the most appropriate visualization for the question by analyzing the data types of the attributes involved.
+                        ii) If the selected visuzlization is geographical used geography related graph.
+                        iii) Your are allowed to use only the altair,seaborn and matplotlib libraries for visualization.
+                        iv) Be cautious when selecting graphs for categorical data types.
 
-   
-   The final output should be in valid JSON format as follows:
+   The Goal Structure should be in valid JSON format as follows:
 
 [
     {{
