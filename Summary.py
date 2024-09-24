@@ -21,24 +21,11 @@ iii.) ALWAYS generate a semantic_type (a single word) for each field given its v
 You must return an updated JSON dictionary without any preamble or explanation.
 iv) ALWAYS generate a field named DATA TYPE which specifies the data types of the column, the data type should be taken form the DICTIONARY.
 '''
-  OUTPUT = '''{'name': 'cars.csv',
-            'file_name': 'cars.csv',
-            'dataset_description': '',
-            'fields': [{'column': 'Name',
-            'properties': {'dtype': 'string',
-                'samples': ['Nissan Altima S 4dr',
-                'Mercury Marauder 4dr',
-                'Toyota Prius 4dr (gas/electric)'],
-                'num_unique_values': 385,
-                'semantic_type': '',
-                'description': ''}}'''
   messages = [
             {"role": "system", "content": system_prompt},
             {"role": "assistant", "content": f"""
         Annotate the dictionary below. Only return a JSON object.
         {summary}
-        OUTPUT SUMMARY SHOULD BE LIKE:
-        {OUTPUT}
         """},
         ]
   summary = json.loads(api(messages))
