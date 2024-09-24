@@ -52,7 +52,7 @@ THE OUTPUT SHOULD ONLY USE THE JSON FORMAT ABOVE.
             {"role": "system", "content": SYSTEM_INSTRUCTIONS},
             {"role": "assistant",
              "content":
-             f"{user_prompt}\n\n Key Consideration :\n i)Generate multiple visualization possibilities for the question, and select the one that adheres best to visualization best practices.\n\n {FORMAT_INSTRUCTIONS} \n\nThe generated 5 goals are: \n "}]
+             f"{user_prompt}\n\n Key Consideration :\n i)Generate multiple visualization possibilities for the question, and select the one that adheres best to visualization best practices.ii) Leave the Question which produce single line answer (eg:The question which does not require Visualization).\n\n {FORMAT_INSTRUCTIONS} \n\nThe generated 5 goals are: \n "}]
     st.write("Basic Information:")
     #st.write(api(messages))
     #exit()
