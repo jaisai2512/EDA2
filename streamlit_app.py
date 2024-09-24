@@ -88,7 +88,6 @@ import matplotlib.pyplot as plt
 import plotly.express as px
 <imports>
 # solution plan
-# i.  ..
 def plot_and_save(temp: pd.DataFrame):
 
     <stub> # only modify this section
