@@ -50,8 +50,8 @@ THE OUTPUT SHOULD ONLY USE THE JSON FORMAT ABOVE.
              "content":
              f"{user_prompt}\n\n {FORMAT_INSTRUCTIONS} \n\n. The generated 5 goals are: \n "}]
     st.write("Basic Information:")
-    st.write(api(messages))
-    exit()
+    #st.write(api(messages))
+    #exit()
     data = json.loads(api(prompt_qa))
     st.write(data)
     for i in data:
