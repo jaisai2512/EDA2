@@ -90,7 +90,7 @@ THE OUTPUT SHOULD ONLY USE THE JSON FORMAT ABOVE.
             {"role": "system", "content": SYSTEM_INSTRUCTIONS},
             {"role": "assistant",
              "content":
-             f"{user_prompt}\n\n {FORMAT_INSTRUCTIONS} \n\n Key Consideration:\n\n i) Generate multiple visualization possibilities for the question, and select the one that adheres best to visualization best practices\n ii) When choosing a visualization for a question involving a categorical value, use the Categorical_format provided to generate the appropriate visualization. \niii)exclude goals that gives only single-line answers.\n\nCategorical_format:\n{Categorical_format}\n\nThe generated 5 goals are: \n "}]
+             f"{user_prompt}\n\n {FORMAT_INSTRUCTIONS} \n\n Key Consideration:\n\n i) Generate multiple visualization possibilities for the question, and select the one that adheres best to visualization best practices\n ii) IF the question invloves Categorical data type fields then make sure the visualization is created by coonsidering the categorical_format below. \niii)exclude goals that gives only single-line answers.\n\nCategorical_format:\n{Categorical_format}\n\nThe generated 5 goals are: \n "}]
     st.write("Basic Information:")
     #st.write(api(messages))
     #exit()
