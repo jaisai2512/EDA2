@@ -1,3 +1,4 @@
+import streamlit as st
 def Tabs(summary,df):
   l = []
   for i in summary['fields']:
