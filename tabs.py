@@ -6,5 +6,5 @@ def Tabs(summary,df):
   for j in st.tabs(l):
     with j:
       st.header("field_Name")
-      st.write(j)
+      st.write(summary['fields'][0])
   
