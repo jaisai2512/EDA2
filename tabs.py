@@ -5,5 +5,6 @@ def Tabs(summary,df):
     l.append(i['field_name'])
   for j in st.tabs(l):
     with j:
-      st.header("A cat")
+      st.header("field_Name")
+      st.write(j)
   
