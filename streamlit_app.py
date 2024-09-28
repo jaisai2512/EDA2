@@ -19,6 +19,8 @@ uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
 # Check if a file has been uploaded
 if uploaded_file is not None:
     # Read the CSV file
+    if not uploaded_file.name.endswith(".csv"):
+        st.write("Wrong file uploaded")
     df = pd.read_csv(uploaded_file)
     # Display the content of the CSV file
     st.write("Summary of the CSV file:")
