@@ -9,9 +9,12 @@ def validate_obj(column):
     return "categorical" if  unique_values< (total_values*threshold) else "textual"
 
 def sample(column,dt):
+    unique_values = column.nunique()
+    total_values = len(column)
+    threshold = 0.5
     if((dt != 'categorical') and (dt !='textual')):
         return column[:6].tolist()
-    if(dt == 'categorical'):
+    if(dt == 'categorical' and (unique_values< (total_values*threshold))):
         return list(column.unique())
     else:
         return column[:6].tolist()
