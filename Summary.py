@@ -20,7 +20,6 @@ def summary_gen(df):
   ii) ALWAYS generate a field description.
 iii) ALWAYS generate a semantic_type (a single word) for each field given its values e.g. company, city, number, supplier, location, gender, longitude, latitude, url, ip address, zip code, email, etc
 You must return an updated JSON dictionary without any preamble or explanation.
-iv) Based on the column_names_data_types select the DATA TYPE.
 '''
   template = '''{
               dataset_name: ...
