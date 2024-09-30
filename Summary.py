@@ -21,7 +21,6 @@ def summary_gen(df):
 iii) ALWAYS generate a semantic_type (a single word) for each field given its values e.g. company, city, number, supplier, location, gender, longitude, latitude, url, ip address, zip code, email, etc
 You must return an updated JSON dictionary without any preamble or explanation.
 iv) The DICTIONARY provided has mean  and no of null values add this in the json if mean is dtype('O') then write not applicable.
-v) Using sample_elements and column_names_data_types, introduce a new parameter that categorizes the data as either ordinal or nominal. For numeric data, determine whether it is discrete or continuous.
 '''
   template = '''{
               dataset_name: ...
