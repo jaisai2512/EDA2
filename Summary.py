@@ -30,8 +30,8 @@ v) The DICTIONARY provided has mean  and no of null values add this in the json 
                         field_description: ...
                         semantic_type: ...
                         data_type: ...
-                        mean: ...
-                        num_of_null: ... }
+                        mean(int if not applicable): ...
+                        num_of_null(int): ... }
                       1: ...
               ]
                 }'''
@@ -40,6 +40,8 @@ v) The DICTIONARY provided has mean  and no of null values add this in the json 
             {"role": "assistant", "content": f"""
         Annotate the dictionary below. .
         {rules}
+        Follow the below template for json,Only return a JSON object:
+        {template}
         """},
         ]
   summary = json.loads(api(messages))
