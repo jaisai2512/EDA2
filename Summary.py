@@ -75,7 +75,7 @@ Return the updated JSON dictionary directly, without any explanation.
     {temp}
     """},
 ]
-  st.write(sum)
+  st.write(api(sum))
   
   return summary
   
