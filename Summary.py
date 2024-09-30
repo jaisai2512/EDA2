@@ -40,7 +40,7 @@ You must return an updated JSON dictionary without any preamble or explanation.
             {"role": "assistant", "content": f"""
         Annotate the dictionary below. .
         {rules}
-        Follow the below template,Only return a JSON object:
+        Follow the below template:
         {template}
         """},
         ]
