@@ -26,6 +26,8 @@ if uploaded_file is not None:
     st.write("Summary of the CSV file:")
     var_dict = {'df': df}
     summary = summary_gen(df)
+    st.write(summary)
+    exit()
     Tabs(summary,df)
     #st.write(summary)
     SYSTEM_INSTRUCTIONS = """
