@@ -3,7 +3,7 @@ import Rules
 import json
 
 def summary_gen(df):
-  summary = Rules.extract_data(df)
+  rules = Rules.extract_data(df)
   prompt = f'''You are a data analyst with expertise in data interpretation using pandas dataframe. You are provided with a dataframe represented as a dictionary. Thoroughly analyze this data and provide a comprehensive summary in a single paragraph. The summary should be rich, compact, and concise, capturing all key information and insights from the data. Ensure that no critical details are omitted while keeping the text engaging.
 
   Please adhere to the following instructions:
@@ -22,11 +22,26 @@ You must return an updated JSON dictionary without any preamble or explanation.
 iv) ALWAYS generate a field named DATA TYPE which specifies the data types of the column, the data type should be taken form the DICTIONARY.
 v) The DICTIONARY provided has mean  and no of null values add this in the json if mean is dtype('O') then write not applicable.
 '''
+  template = '''{
+              dataset_name: ...
+              dataset_description: ...
+              fields:[
+                      0:{field_name: ...,
+                        field_description: ...
+                        semantic_type: ...
+                        data_type: ...
+                        mean: ...
+                        num_of_null: ... }
+                      1: ...
+              ]
+                }'''
   messages = [
             {"role": "system", "content": system_prompt},
             {"role": "assistant", "content": f"""
         Annotate the dictionary below. Only return a JSON object.
-        {summary}
+        {rules}
+        Follow the below template for json:
+        {template}
         """},
         ]
   summary = json.loads(api(messages))
