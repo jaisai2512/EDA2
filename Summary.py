@@ -46,5 +46,36 @@ Return the updated JSON dictionary directly, without any explanation.
     """},
 ]
   summary = json.loads(api(messages))
+  system_prompt ='''As an experienced data analyst, your task is to create a structured dataset annotation based on the provided template. Follow these instructions:
+      1. Fill in the dataset title and description accurately, ensuring clarity about the dataset's purpose and context.
+      2. For each field in the dataset:
+        i)Provide a concise description of the field's properties.
+  '''
+  temp = '''
+      Dataset Title: 
+      [Provide the title of the dataset here]
+
+      Dataset Description: 
+      [Provide a brief description of the dataset, including its purpose and any relevant context]
+
+      Fields:
+          - Field 1 Name: 
+                A summry on this field covering all the properties
+          - Field 2 Name: 
+                 A summry on this field covering all the properties
+            [Continue for additional fields as necessary]
+            ...
+      '''
+  sum = messages = [
+    {"role": "system", "content": system_prompt},
+    {"role": "assistant", "content": f"""
+    Please Create a summary based on the json given below:
+    {summary}
+    Output template:
+    {temp}
+    """},
+]
+  st.write(sum)
+  
   return summary
   
