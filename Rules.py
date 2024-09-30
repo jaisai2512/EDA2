@@ -44,7 +44,7 @@ def extract_data(data: pd.DataFrame) -> dict:
         'column_names_data_types': column_data_types,
         'mean' : mean,
         'num_of_null' : no_null,
-        'sample_elements':sample_elements
+        
         
     }
 
