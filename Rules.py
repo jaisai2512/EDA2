@@ -12,7 +12,7 @@ def sample(column,dt):
     if((dt != 'categorical') and (dt !='textual')):
         return column[:6].tolist()
     if(dt == 'categorical'):
-        return column.unique()
+        return list(column.unique())
     else:
         return column[:6].tolist()
 
