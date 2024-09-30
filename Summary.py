@@ -64,9 +64,9 @@ Return the updated JSON dictionary directly, without any explanation.
       [Provide a brief description of the dataset, including its purpose and any relevant context]
 
       Fields:
-          - Field 1 Name: 
+          - Field 1: 
                 A summry on this field covering all the properties
-          - Field 2 Name: 
+          - Field 2: 
                  A summry on this field covering all the properties
             [Continue for additional fields as necessary]
             ...
