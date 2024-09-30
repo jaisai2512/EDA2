@@ -16,10 +16,8 @@ def summary_gen(df):
     '''
 
   system_prompt = '''As an experienced data analyst, your task is to annotate datasets based on the following instructions
-  i) ALWAYS generate the name of the dataset and the dataset_description
-  ii) ALWAYS generate a field description.
-  iii) ALWAYS generate a semantic_type (a single word) for each field given its values e.g. company, city, number, supplier, location, gender, longitude, latitude, url, ip address, zip code, email, etc
-  iv) Based on the sample_elements update the DATA TYPE by using either ordinal,nominal,discrete or continous.
+  i) ALWAYS generate a semantic_type (a single word) for each field given its values e.g. company, city, number, supplier, location, gender, longitude, latitude, url, ip address, zip code, email, etc
+  ii) Based on the sample_elements update the DATA TYPE by using either ordinal,nominal,discrete or continous.
 You must return an updated JSON dictionary without any preamble or explanation.
 '''
   template = '''{
@@ -38,10 +36,10 @@ You must return an updated JSON dictionary without any preamble or explanation.
   messages = [
             {"role": "system", "content": system_prompt},
             {"role": "assistant", "content": f"""
-        Output template:
-        {template}
         Annotate the dictionary below.
         {rules}
+        Output template:
+        {template}
         """},
         ]
   summary = json.loads(api(messages))
