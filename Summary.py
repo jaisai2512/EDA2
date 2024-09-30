@@ -21,6 +21,7 @@ def summary_gen(df):
   4.ALWAYS specify the data_type as either ordinal, nominal, discrete, or continuous, based on the sample elements.
   5.ALWAYS specify mean values if it object then specify it as not numeric.
   6.ALWAYS specify num_of_null keep it has integer.
+  7.ALWAYS include sample_elements, this should same as in the dictionary.
 Return the updated JSON dictionary directly, without any explanation.
 '''
   template = '''{
@@ -33,7 +34,8 @@ Return the updated JSON dictionary directly, without any explanation.
       "semantic_type": "...",
       "data_type": "...",
       "mean": "...",
-      "num_of_null": "..."
+      "num_of_null": "...",
+      "sample_elements": "..."
     },
     ...
   ]
