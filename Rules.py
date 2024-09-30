@@ -26,7 +26,7 @@ def extract_data(data: pd.DataFrame) -> dict:
         column: data[column].isnull().sum() for column in data.columns
     }
 
-    summary = {
+    Rules = {
         'num_rows': num_rows,
         'num_columns': num_columns,
         'column_names_data_types': column_data_types,
@@ -34,4 +34,4 @@ def extract_data(data: pd.DataFrame) -> dict:
         'num_of_null' : no_null
     }
 
-    return summary
+    return Rules
