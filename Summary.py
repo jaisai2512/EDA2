@@ -15,8 +15,12 @@ def summary_gen(df):
     '''
 
   system_prompt = '''As an experienced data analyst, your task is to annotate datasets based on the following instructions:
-  1. Generate a semantic_type (a single word) for each field, based on its values (e.g., company, city, number, supplier, location, gender, longitude, latitude, URL, IP address, zip code, email, etc.).
-  2. Determine the data_type as either ordinal, nominal, discrete, or continuous, based on the sample elements.
+  1.ALWAYS specify the field name.
+  2.ALWAYS specify the field description should be consice.
+  3.Generate a semantic_type (a single word) for each field, based on its values (e.g., company, city, number, supplier, location, gender, longitude, latitude, URL, IP address, zip code, email, etc.).
+  4.ALWAYS specify the data_type as either ordinal, nominal, discrete, or continuous, based on the sample elements.
+  5.ALWAYS specify mean values if it object then specify it as not numeric.
+  6.ALWAYS specify num_of_null keep it has integer.
 Return the updated JSON dictionary directly, without any explanation.
 '''
   template = '''{
