@@ -5,8 +5,16 @@ def validate_obj(column):
         return 'All rows are null'
     unique_values = column.nunique()
     total_values = len(column)
-    threshold = 0.05
-    return "categorical" if (unique_values / total_values) < threshold else "textual"
+    threshold = 0.5
+    return "categorical" if unique_values <= total_values*threshold else "textual"
+
+def sample(column,dt):
+    if((dt != 'categorical') and (dt !='textual')):
+        return column[:6].tolist()
+    if(dt == 'categorical'):
+        return column.unique()
+    else:
+        return column[:6].tolist()
 
 
 def extract_data(data: pd.DataFrame) -> dict:
@@ -26,12 +34,17 @@ def extract_data(data: pd.DataFrame) -> dict:
         column: data[column].isnull().sum() for column in data.columns
     }
 
+    sample_elements = {
+        column:sample(data[column],column_data_types[column]) for column in data.columns
+    }
+
     rules = {
         'num_rows': num_rows,
         'num_columns': num_columns,
         'column_names_data_types': column_data_types,
         'mean' : mean,
-        'num_of_null' : no_null
+        'num_of_null' : no_null,
+        'sample_elements':sample_elements
     }
 
     return rules
