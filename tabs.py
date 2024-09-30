@@ -13,6 +13,6 @@ def Tabs(summary,df):
       st.header("semantic_type")
       st.write(summary['fields'][count]['semantic_type'])
       st.header("DATA TYPE")
-      st.write(summary['fields'][count]['DATA TYPE'])
+      st.write(summary['fields'][count]['data_type'])
       count = count +1
   
