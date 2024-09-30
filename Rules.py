@@ -14,7 +14,7 @@ def sample(column,dt):
     threshold = 0.5
     if((dt != 'categorical') and (dt !='textual')):
         return column[:6].tolist()
-    if(dt == 'categorical' and (unique_values< (total_values*threshold))):
+    if(dt == 'categorical' and (unique_values< (total_values*threshold)) and (len(unique_values)<20 )):
         return list(column.unique())
     else:
         return column[:6].tolist()
