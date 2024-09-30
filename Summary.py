@@ -15,33 +15,36 @@ def summary_gen(df):
   Here is the dictionary for analysis:{rules}
     '''
 
-  system_prompt = '''As an experienced data analyst, your task is to annotate datasets based on the following instructions
-  i) ALWAYS generate a semantic_type (a single word) for each field given its values e.g. company, city, number, supplier, location, gender, longitude, latitude, url, ip address, zip code, email, etc
-  ii) Based on the sample_elements update the data_type by using either ordinal,nominal,discrete or continous.
-You must return an updated JSON dictionary without any preamble or explanation.
+  system_prompt = '''As an experienced data analyst, your task is to annotate datasets based on the following instructions:
+  1. Generate a semantic_type (a single word) for each field, based on its values (e.g., company, city, number, supplier, location, gender, longitude, latitude, URL, IP address, zip code, email, etc.).
+  2. Determine the data_type as either ordinal, nominal, discrete, or continuous, based on the sample elements.
+Return the updated JSON dictionary directly, without any explanation.
 '''
   template = '''{
-              dataset_name: ...
-              dataset_description: ...
-              fields:[
-                      0:{field_name: ...,
-                        field_description: ...
-                        semantic_type: ...
-                        data_type: ...
-                        mean: ...
-                        num_of_null: ... }
-                      1: ...
-              ]
-                }'''
+  "dataset_name": "...",
+  "dataset_description": "...",
+  "fields": [
+    {
+      "field_name": "...",
+      "field_description": "...",
+      "semantic_type": "...",
+      "data_type": "...",
+      "mean": "...",
+      "num_of_null": "..."
+    },
+    ...
+  ]
+}'''
   messages = [
-            {"role": "system", "content": system_prompt},
-            {"role": "assistant", "content": f"""
-        Annotate the dictionary below.
-        {rules}
-        Output template:
-        {template}
-        """},
-        ]
+    {"role": "system", "content": system_prompt},
+    {"role": "assistant", "content": f"""
+    Please annotate the dictionary below using the provided instructions:
+    {rules}
+    
+    Output template:
+    {template}
+    """},
+]
   summary = json.loads(api(messages))
   return summary
   
