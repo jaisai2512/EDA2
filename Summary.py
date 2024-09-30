@@ -38,9 +38,9 @@ v) The DICTIONARY provided has mean  and no of null values add this in the json 
   messages = [
             {"role": "system", "content": system_prompt},
             {"role": "assistant", "content": f"""
-        Annotate the dictionary below. Only return a JSON object.
+        Annotate the dictionary below. .
         {rules}
-        Follow the below template for json:
+        Follow the below template for json,Only return a JSON object:
         {template}
         """},
         ]
