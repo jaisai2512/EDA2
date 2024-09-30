@@ -38,10 +38,10 @@ You must return an updated JSON dictionary without any preamble or explanation.
   messages = [
             {"role": "system", "content": system_prompt},
             {"role": "assistant", "content": f"""
-        Annotate the dictionary below. .
-        {rules}
-        Follow the below template:
+        Output template:
         {template}
+        Annotate the dictionary below.
+        {rules}
         """},
         ]
   summary = json.loads(api(messages))
