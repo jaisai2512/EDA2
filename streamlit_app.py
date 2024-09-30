@@ -27,7 +27,6 @@ if uploaded_file is not None:
     var_dict = {'df': df}
     summary = summary_gen(df)
     st.write(summary)
-    exit()
     Tabs(summary,df)
     #st.write(summary)
     SYSTEM_INSTRUCTIONS = """
