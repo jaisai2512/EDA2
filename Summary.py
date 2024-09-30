@@ -11,7 +11,7 @@ def summary_gen(df):
     2.Do not generate tabular columns.
     3.Only use information obtained from the dictionary provided.
     
-  Here is the dictionary for analysis:{summary}
+  Here is the dictionary for analysis:{rules}
     '''
 
   system_prompt = '''You are an experienced data analyst that can annotate datasets. Your instructions are as follows:
