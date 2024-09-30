@@ -15,7 +15,9 @@ def summary_gen(df):
     '''
 
   system_prompt = '''You are an experienced data analyst that can annotate datasets. Your instructions are as follows:
-i.) ALWAYS generate a semantic_type (a single word) for each field given its values e.g. company, city, number, supplier, location, gender, longitude, latitude, url, ip address, zip code, email, etc
+  i) ALWAYS generate the name of the dataset and the dataset_description
+  ii) ALWAYS generate a field description.
+iii) ALWAYS generate a semantic_type (a single word) for each field given its values e.g. company, city, number, supplier, location, gender, longitude, latitude, url, ip address, zip code, email, etc
 You must return an updated JSON dictionary without any preamble or explanation.
 ii) The DICTIONARY provided has mean  and no of null values add this in the json if mean is dtype('O') then write not applicable.
 '''
