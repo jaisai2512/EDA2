@@ -13,6 +13,7 @@ def pdf_parser(uploaded_file):
 
     # Display the file path
   st.write("File saved at:", file_path)
+  source_type = 'github'
   additional_metadata = {'key': 'value'}
   texts, metadata_list, langchain_docs = parse_doc_universal(file_path,additional_metadata,source_type, additional_metadata)
   for i in langchain_docs:
