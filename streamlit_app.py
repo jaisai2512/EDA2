@@ -22,6 +22,8 @@ uploaded_file = st.file_uploader("Choose a CSV or pdf file",type=["csv", "pdf"])
 if uploaded_file is not None:
     if uploaded_file.name.endswith(".pdf"):
         pdf_parser(uploaded_file)
+    if not uploaded_file.name.endswith(".pdf"):
+        st.write("Wrong file uploaded.Please upload a pdf file")
     # Read the CSV file
     if not uploaded_file.name.endswith(".csv"):
         st.write("Wrong file uploaded.Please upload a csv file")
