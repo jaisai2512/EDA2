@@ -1,5 +1,6 @@
 from sambaparse import parse_doc_universal
 import os
+import streamlit as st
 def pdf_parser(uploaded_file):
   temp_dir = "tempDir"
   if not os.path.exists(temp_dir):
