@@ -9,6 +9,8 @@ import matplotlib.pyplot as plt
 import io
 from Summary import summary_gen
 from tabs import Tabs
+from PDF import pdf_parser
+import os
 
 # Title of the Streamlit app
 st.title("EDA Report Generator")
@@ -18,6 +20,8 @@ uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
 
 # Check if a file has been uploaded
 if uploaded_file is not None:
+    if uploaded_file.name.endswith(".pdf"):
+        pdf_parser(uploaded_file.name)
     # Read the CSV file
     if not uploaded_file.name.endswith(".csv"):
         st.write("Wrong file uploaded.Please upload a csv file")
