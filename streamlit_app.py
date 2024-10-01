@@ -16,7 +16,7 @@ import os
 st.title("EDA Report Generator")
 
 # File uploader widget
-uploaded_file = st.file_uploader("Choose a CSV file", type="csv")
+uploaded_file = st.file_uploader("Choose a CSV or pdf file")
 
 # Check if a file has been uploaded
 if uploaded_file is not None:
