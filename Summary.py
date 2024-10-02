@@ -22,11 +22,6 @@ def summary_gen(df):
   5.ALWAYS specify mean values if it object then specify it as not numeric.
   6.ALWAYS specify num_of_null keep it has integer.
   7.ALWAYS include sample_elements, this should same as in the dictionary.
-  Information on data_type:
-  nominal :a type of qualitative data that categorizes items or variables into distinct groups without any inherent order or ranking
-  ordinal :classifies data while introducing an order, or ranking. For instance, measuring economic status using the hierarchy: ‘wealthy’, ‘middle income’ or ‘poor.’ However, there is no clearly defined interval between these categories.
-  discrete : Discrete data is a count that involves integers, and can't be divided into smaller parts.
-  continous : Continuous data is information that could be meaningfully divided into finer levels example 3.25 kg of weight.
 Return the updated JSON dictionary directly, without any explanation.
 '''
   template = '''{
@@ -45,11 +40,19 @@ Return the updated JSON dictionary directly, without any explanation.
     ...
   ]
 }'''
+  information ='''Information on data_type:
+  nominal :a type of qualitative data that categorizes items or variables into distinct groups without any inherent order or ranking
+  ordinal :classifies data while introducing an order, or ranking. For instance, measuring economic status using the hierarchy: ‘wealthy’, ‘middle income’ or ‘poor.’ However, there is no clearly defined interval between these categories.
+  discrete : Discrete data is a count that involves integers, and can't be divided into smaller parts.
+  continous : Continuous data is information that could be meaningfully divided into finer levels example 3.25 kg of weight.'''
   messages = [
     {"role": "system", "content": system_prompt},
     {"role": "assistant", "content": f"""
     Please annotate the dictionary below using the provided instructions:
     {rules}
+    
+    Information on data_type:
+    {information}
     
     Output template:
     {template}
