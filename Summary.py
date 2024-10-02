@@ -18,10 +18,15 @@ def summary_gen(df):
   1.ALWAYS specify the field name.
   2.ALWAYS specify the field description should be consice.
   3.Generate a semantic_type (a single word) for each field, based on its values (e.g., company, city, number, supplier, location, gender, longitude, latitude, URL, IP address, zip code, email, etc.).
-  4.ALWAYS specify the data_type as either ordinal, nominal, discrete, or continuous, based on the sample elements.
+  4.ALWAYS specify the data_type as either ordinal, nominal, discrete, or continuous, based on the sample elements and semantic_type.
   5.ALWAYS specify mean values if it object then specify it as not numeric.
   6.ALWAYS specify num_of_null keep it has integer.
   7.ALWAYS include sample_elements, this should same as in the dictionary.
+  Information on data_type:
+  nominal :a type of qualitative data that categorizes items or variables into distinct groups without any inherent order or ranking
+  ordinal :classifies data while introducing an order, or ranking. For instance, measuring economic status using the hierarchy: ‘wealthy’, ‘middle income’ or ‘poor.’ However, there is no clearly defined interval between these categories.
+  discrete : Discrete data is a count that involves integers, and can't be divided into smaller parts.
+  continous : Continuous data is information that could be meaningfully divided into finer levels example 3.25 kg of weight.
 Return the updated JSON dictionary directly, without any explanation.
 '''
   template = '''{
