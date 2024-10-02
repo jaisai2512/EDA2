@@ -31,7 +31,7 @@ def summary_gen(df):
       "data_type": "...",
       "mean":"...",
       "num_of_null": "...",
-      "sample_elements": "..."
+      "sample_elements"(list of elements): "..."
     },
     ...
   ]
