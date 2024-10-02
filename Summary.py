@@ -29,7 +29,7 @@ Return the updated JSON dictionary directly, without any explanation.
       "field_description": "...",
       "semantic_type": "...",
       "data_type": "...",
-      "mean"(REMOVE if it object): "...",
+      "mean"(REMOVE this field if it object): "...",
       "num_of_null": "...",
       "sample_elements": "..."
     },
