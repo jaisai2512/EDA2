@@ -57,16 +57,16 @@ Return the updated JSON dictionary directly, without any explanation.
         i)Provide a concise description of the field's properties.
   '''
   temp = '''
-      Dataset Title: 
+      Dataset Title(Bold text): 
       [Provide the title of the dataset here]
 
-      Dataset Description: 
+      Dataset Description(Bold text): 
       [Provide a brief description of the dataset, including its purpose and any relevant context]
 
-      Fields:
-          - Field 1: 
+      Fields(Bold text):
+          - Field 1(Bold text): 
                 A summry on this field covering all the properties
-          - Field 2: 
+          - Field 2(Bold text): 
                  A summry on this field covering all the properties
             [Continue for additional fields as necessary]
             ...
