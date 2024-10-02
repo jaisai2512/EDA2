@@ -22,7 +22,7 @@ uploaded_file = st.file_uploader("Choose a CSV or pdf file",type=["csv", "pdf"])
 if uploaded_file is not None:
     if uploaded_file.name.endswith(".pdf"):
         pdf_parser(uploaded_file)
-    elif not uploaded_file.name.endswith([".csv",".pdf"]):
+    elif not uploaded_file.name.endswith((".csv",".pdf")):
         st.write("Wrong file uploaded.Please upload a csv file")
     df = pd.read_csv(uploaded_file)
     # Display the content of the CSV file
