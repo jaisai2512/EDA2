@@ -15,10 +15,10 @@ def summary_gen(df):
   Here is the dictionary for analysis:{rules}
     '''
 
-  system_prompt = '''As a seasoned data analyst, your responsibility is to annotate the provided dictionary according to the specified template:
+  system_prompt = '''As a seasoned data analyst, your responsibility is to annotate the provided dictionary according to the specified template,Remove mean in the dictionay if it is not numeric otherwise keep it.:
   1.Generate a semantic_type (a single word) for each field, based on its values (e.g., company, city, number, supplier, location, gender, longitude, latitude, URL, IP address, zip code, email, etc.).
   2.ALWAYS specify the data_type as either ordinal, nominal, discrete, or continuous, based on the sample elements.
-  3.ALWAYS specify mean in the dictionay if it is not textual.
+  
   
 Return the updated JSON dictionary directly, without any explanation.
 '''
@@ -31,6 +31,7 @@ Return the updated JSON dictionary directly, without any explanation.
       "field_description": "...",
       "semantic_type": "...",
       "data_type": "...",
+      "mean":"...",
       "num_of_null": "...",
       "sample_elements": "..."
     },
