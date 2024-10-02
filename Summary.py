@@ -29,8 +29,8 @@ def summary_gen(df):
       "field_description": "...",
       "semantic_type": "...",
       "data_type": "...",
-      "mean":"...",
-      "num_of_null": "...",
+      "mean"(numeric):"...",
+      "num_of_null"(numeric): "...",
       "sample_elements"(list of elements): "..."
     },
     ...
