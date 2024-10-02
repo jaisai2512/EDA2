@@ -43,8 +43,8 @@ Return the updated JSON dictionary directly, without any explanation.
   information ='''Information on data_type:
   nominal :a type of qualitative data that categorizes items or variables into distinct groups without any inherent order or ranking
   ordinal :classifies data while introducing an order, or ranking. For instance, measuring economic status using the hierarchy: ‘wealthy’, ‘middle income’ or ‘poor.’ However, there is no clearly defined interval between these categories.
-  discrete : Discrete data is a count that involves integers, and can't be divided into smaller parts.
-  continous : Continuous data is information that could be meaningfully divided into finer levels example 3.25 kg of weight.'''
+  discrete : Discrete data is a count that involves integers, and can't be divided into smaller part , For instance a column having id(123) which is discrete.
+  continous : Continuous data is information that could be meaningfully divided into finer levels , For instance a column having weight values(3.25 kg) this continous.'''
   messages = [
     {"role": "system", "content": system_prompt},
     {"role": "assistant", "content": f"""
