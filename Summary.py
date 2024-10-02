@@ -29,13 +29,13 @@ Return the updated JSON dictionary directly, without any explanation.
   "dataset_description": "...",
   "fields": [
     {
-      "field_name": "...",
-      "field_description": "...",
-      "semantic_type": "...",
-      "data_type": "...",
-      "mean": "...",
-      "num_of_null": "...",
-      "sample_elements": "..."
+      "field_name"(string): "...",
+      "field_description"(string): "...",
+      "semantic_type"(string): "...",
+      "data_type"(string): "...",
+      "mean"(numeric): "...",
+      "num_of_null"(numeric): "...",
+      "sample_elements"(list of elements): "..."
     },
     ...
   ]
