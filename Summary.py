@@ -56,6 +56,7 @@ Return the updated JSON dictionary directly, without any explanation.
     """},
 ]
   o_summary = api(messages)
+  st.write(o_summary)
   count = 0
   while count <2:
     try:
