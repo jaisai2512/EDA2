@@ -40,11 +40,10 @@ Return the updated JSON dictionary directly, without any explanation.
     ...
   ]
 }'''
-  information ='''Information on data_type:
-  nominal :a type of qualitative data that categorizes items or variables into distinct groups without any inherent order or ranking
-  ordinal :classifies data while introducing an order, or ranking. For instance, measuring economic status using the hierarchy: ‘wealthy’, ‘middle income’ or ‘poor.’ However, there is no clearly defined interval between these categories.
-  discrete : Discrete data is a count that involves integers, and can't be divided into smaller part . Example : 1,2,3
-  continous : Continuous data is information that could be meaningfully divided into finer levels. Example :1.1,2.3'''
+  information ='''Nominal: Qualitative data that categorizes variables into distinct, non-ordered groups. Example: categories like "red," "blue," or "green."
+  Ordinal: Qualitative data that classifies variables into ordered categories. While there is a ranking, the intervals between categories are not defined. Example: "poor," "middle income," "wealthy."
+  Discrete: Quantitative data that represents countable values, typically whole numbers that cannot be meaningfully subdivided. Example: number of students in a class.
+  Continuous: Quantitative data that can be divided into smaller, meaningful parts. Values can exist within any range on a spectrum. Example: height, temperature'''
   messages = [
     {"role": "system", "content": system_prompt},
     {"role": "assistant", "content": f"""
