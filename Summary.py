@@ -50,9 +50,6 @@ Return the updated JSON dictionary directly, without any explanation.
     Please annotate the dictionary below using the provided instructions:
     {rules}
     
-    Information on data_type:
-    {information}
-    
     Output template:
     {template}
     """},
