@@ -1,6 +1,6 @@
 from API import api
 def format_correction(summary,format):
-  system_prompt = "You are an expert in correcting and optimizing JSON outputs. Given the following JSON format, ensure that all fields have the correct data types and structure, maintaining the intended format.'
+  system_prompt = "You are an expert in correcting and optimizing JSON outputs. Given the following JSON format, ensure that all fields have the correct data types and structure, maintaining the intended format."
   messages = [
     {"role": "system", "content": system_prompt},
     {"role": "assistant", "content": f'''
