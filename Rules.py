@@ -13,11 +13,11 @@ def sample(column,dt):
     total_values = len(column)
     threshold = 0.5
     if((dt != 'categorical') and (dt !='textual')):
-        return column[:5].tolist()
+        return column[:6].tolist()
     if(dt == 'categorical' and (unique_values< (total_values*threshold)) and (unique_values<20 )):
         return list(column.unique())
     else:
-        return column[:5].tolist()
+        return column[:6].tolist()
 
 
 def extract_data(data: pd.DataFrame) -> dict:
