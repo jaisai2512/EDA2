@@ -5,32 +5,24 @@ import streamlit as st
 from json_correction import format_correction
 def summary_gen(df):
   rules = Rules.extract_data(df)
-  prompt = f'''You are a data analyst with expertise in data interpretation using pandas dataframe. You are provided with a dataframe represented as a dictionary. Thoroughly analyze this data and provide a comprehensive summary in a single paragraph. The summary should be rich, compact, and concise, capturing all key information and insights from the data. Ensure that no critical details are omitted while keeping the text engaging.
-
-  Please adhere to the following instructions:
-    1.Do not generate any code.
-    2.Do not generate tabular columns.
-    3.Only use information obtained from the dictionary provided.
-    
-  Here is the dictionary for analysis:{rules}
-    '''
 
   system_prompt = '''As a seasoned data analyst, your responsibility is to annotate the provided dictionary according to the specified template and follow this instructions below:
   1.Generate a semantic_type (a single word) for each field, based on its values (e.g., company, city, number, supplier, location, gender, longitude, latitude, URL, IP address, zip code, email, etc.).
   2.ALWAYS specify the data_type as either ordinal, nominal, discrete, or continuous, based on the sample elements.
-  3.Remove the mean from the template if the mean is None in the dictionary.
   Return the updated JSON dictionary directly, without any explanation.
 '''
   template = '''{
   "dataset_name": "...",
   "dataset_description": "...",
-  "fields": [
+  "Number of Fields" : "...",
+  "Number of Rows" : "...",
+  "fields_properties": [
     {
       "field_name": "...",
       "field_description": "...",
       "semantic_type": "...",
       "data_type": "...",
-      "mean"(should be numeric):"...",
+      "mean"(should be numeric):"..."  -- Remove this field if the mean in the dictionary is none,
       "num_of_null"(should be numeric): "...",
       "sample_elements"(list of elements): "..."
     },
