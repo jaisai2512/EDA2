@@ -50,7 +50,7 @@ def summary_gen(df):
     {template}
     """},
 ]
-  o_summary = api(messages)
+  summary = api(messages)
   #st.write(o_summary)
   count = 0
   '''while count <2:
