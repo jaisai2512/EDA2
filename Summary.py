@@ -39,7 +39,8 @@ def summary_gen(df):
     {"role": "assistant", "content": f"""
     Please annotate the dictionary below using the provided instructions:
     {rules}
-    
+    Please Consider the following information for choosing data_type:
+    {information}
     Output template:
     {template}
     """},
