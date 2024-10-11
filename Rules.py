@@ -29,7 +29,7 @@ def extract_data(data: pd.DataFrame) -> dict:
     }
 
     mean = {
-        column:round(data[column].mean(),2)  if data[column].dtype in ['int64','float64',int,float] 
+        column:round(data[column].mean(),2)  if data[column].dtype in ['int64','float64',int,float] else None
         for column in data.columns
     }
 
