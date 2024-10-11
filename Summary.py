@@ -22,7 +22,7 @@ def summary_gen(df):
       "field_description": "string",
       "semantic_type": "string",
       "data_type": "string",
-      "mean": "number",  // Include only if applicable (not null)
+      "mean": "number",  // INCLUDE ONLY IF APPLICABLE (NOT NULL)
       "num_of_nulls": "integer",
       "sample_elements": ["element_1", "element_2", "..."]  // A list of sample values for the field
     },
@@ -39,7 +39,7 @@ def summary_gen(df):
     {"role": "assistant", "content": f"""
     Please annotate the dictionary below using the provided instructions:
     {rules}
-    Please Consider the following information for choosing data_type:
+    Please Consider the following information and sample elements for choosing data_type:
     {information}
     Output template:
     {template}
