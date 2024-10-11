@@ -32,8 +32,7 @@ def summary_gen(df):
 '''
   information ='''Nominal: Qualitative data that categorizes variables into distinct, non-ordered groups. Example: categories like "red," "blue," or "green."
   Ordinal: Qualitative data that classifies variables into ordered categories. While there is a ranking, the intervals between categories are not defined. Example: "poor," "middle income," "wealthy."
-  Discrete: Quantitative data that represents countable values, typically whole numbers that cannot be meaningfully subdivided. Example: number of students in a class.
-  Continuous: Quantitative data that can be divided into smaller, meaningful parts. Values can exist within any range on a spectrum. Example: height, temperature'''
+  Interval/Ratio:interval data has equal intervals but no true zero point (e.g., temperature in Celsius), while ratio data has a meaningful zero point (e.g., height, weight).'''
   messages = [
     {"role": "system", "content": system_prompt},
     {"role": "assistant", "content": f"""
