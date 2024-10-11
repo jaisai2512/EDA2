@@ -22,7 +22,7 @@ def summary_gen(df):
       "field_description": "...",
       "semantic_type": "...",
       "data_type": "...",
-      "mean"(should be numeric):"..."  -- Remove this field if the mean in the dictionary is none,
+      "mean"(should be numeric):"..."  -- Remove this field if the mean in the dictionary is NULL,
       "num_of_null"(should be numeric): "...",
       "sample_elements"(list of elements): "..."
     },
