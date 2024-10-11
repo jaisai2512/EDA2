@@ -48,13 +48,12 @@ def summary_gen(df):
     
     Output template:
     {template}
-    Please provide the ouput in json format.
     """},
 ]
-  summary = api(messages)
+  o_summary = api(messages)
   #st.write(o_summary)
   count = 0
-  '''while count <2:
+  while count <2:
     try:
       count = count +1
       summary = json.loads(o_summary)
@@ -63,7 +62,7 @@ def summary_gen(df):
       o_summary = format_correction(o_summary,template)
   if(count == 2):
     st.write("reupload")
-    exit()'''
+    exit()
   system_prompt ='''As an experienced data analyst, your task is to create a structured dataset annotation based on the provided template. Follow these instructions:
       1. Fill in the dataset title and description accurately, ensuring clarity about the dataset's purpose and context.
       2. For each field in the dataset:
