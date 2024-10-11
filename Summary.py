@@ -86,7 +86,8 @@ def summary_gen(df):
     {temp}
     """},
 ]
-  st.write(api(sum))
+  s = api(sum)
+  st.write(s)
   
-  return summary
+  return s
   
