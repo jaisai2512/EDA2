@@ -83,7 +83,7 @@ def summary_gen(df):
             [Continue for additional fields as necessary]
             ...
       '''
-  sum = messages = [
+  sum = [
     {"role": "system", "content": system_prompt},
     {"role": "assistant", "content": f"""
     Please Create a summary based on the json given below:
