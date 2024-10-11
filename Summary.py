@@ -12,23 +12,24 @@ def summary_gen(df):
   Return the updated JSON dictionary directly, without any explanation.
 '''
   template = '''{
-  "dataset_name": "...",
-  "dataset_description": "...",
-  "Number of Fields" : "...",
-  "Number of Rows" : "...",
+  "dataset_name": "string",
+  "dataset_description": "string",
+  "number_of_fields": "integer",
+  "number_of_rows": "integer",
   "fields_properties": [
     {
-      "field_name": "...",
-      "field_description": "...",
-      "semantic_type": "...",
-      "data_type": "...",
-      "mean"(should be numeric):"..."  -- Remove this field if the mean in the dictionary is NULL,
-      "num_of_null"(should be numeric): "...",
-      "sample_elements"(list of elements): "..."
+      "field_name": "string",
+      "field_description": "string",
+      "semantic_type": "string",
+      "data_type": "string",
+      "mean": "number",  // Include only if applicable (not null)
+      "num_of_nulls": "integer",
+      "sample_elements": ["element_1", "element_2", "..."]  // A list of sample values for the field
     },
-    ...
+    // More fields...
   ]
-}'''
+}
+'''
   information ='''Nominal: Qualitative data that categorizes variables into distinct, non-ordered groups. Example: categories like "red," "blue," or "green."
   Ordinal: Qualitative data that classifies variables into ordered categories. While there is a ranking, the intervals between categories are not defined. Example: "poor," "middle income," "wealthy."
   Discrete: Quantitative data that represents countable values, typically whole numbers that cannot be meaningfully subdivided. Example: number of students in a class.
