@@ -90,7 +90,6 @@ def summary_gen(df):
     {summary}
     Output template:
     {temp}
-    Please provide the ouput in a json format.
     """},
 ]
   st.write(api(sum))
