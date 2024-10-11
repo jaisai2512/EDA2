@@ -48,6 +48,7 @@ def summary_gen(df):
     
     Output template:
     {template}
+    Please provide the ouput in json format.
     """},
 ]
   summary = api(messages)
