@@ -75,7 +75,7 @@ When classifying, prioritize the semantic type and description to understand the
       summary = json.loads(o_summary)
       break
     except:
-      o_summary = format_correction(o_summary,template)
+      o_summary = format_correction(o_summary,new_template)
   if(count == 2):
     st.write("reupload")
     exit()
