@@ -17,4 +17,4 @@ PyMuPDFb
 python-dotenv
 langchain-community
 langchain-core
-warnings
+pytest-warnings
