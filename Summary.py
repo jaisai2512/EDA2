@@ -48,12 +48,12 @@ def summary_gen(df):
   ]
 }
 '''
-  information ='''Classify dataset fields into nominal, ordinal, discrete, or continuous based on the following rules:
-Nominal: Categories or labels with no inherent order, including numeric values like codes or IDs.
-Ordinal: Ordered categories without consistent intervals, such as ranks or satisfaction levels.
-Discrete: Countable numeric values with specific meanings, like whole numbers (e.g., area codes, counts).
-Continuous: Measurable values with consistent intervals, such as heights or temperatures.
-Prioritize semantic type and description for classification. Numeric values like area codes should be discrete, not continuous.'''
+  information ='''Given a dataset field with the following properties: column name, data type, semantic type, description, unique value count, and sample values, classify the field into one of four categories: nominal, ordinal, discrete, or continuous. Use the following rules:
+Nominal: If the data represents categories or labels that have no inherent order, even if numeric (e.g., codes, IDs, or categorical values).
+Ordinal: If the data represents categories with a meaningful order but without consistent intervals (e.g., ranks or satisfaction levels).
+Discrete: If the data represents countable, distinct numeric values (e.g., whole numbers with specific meanings like area codes or counts).
+Continuous: If the data represents measurable, continuous values with consistent intervals (e.g., heights, temperatures, or time).
+When classifying, prioritize the semantic type and description to understand the data's purpose. For example, numeric values representing categorical or countable data like area codes should be classified as discrete, not continuous'''
   messages = [
     {"role": "system", "content": system_prompt},
     {"role": "assistant", "content": f"""
