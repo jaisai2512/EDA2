@@ -8,7 +8,8 @@ def summary_gen(df):
 
   system_prompt = '''As a seasoned data analyst, your responsibility is to annotate the provided dictionary according to the specified template and follow this instructions below:
   1.Generate a semantic_type (a single word) for each field, based on its values (e.g., company, city, number, supplier, location, gender, longitude, latitude, URL, IP address, zip code, email, etc.).
-  2.ALWAYS specify the data_type as either ordinal, nominal, discrete, or continuous, based on the sample elements.
+  2.ALWAYS specify the type_of_data.
+  3.ALWAYS specify the description.
   Return the updated JSON dictionary directly, without any explanation.
 '''
   template = '''{
