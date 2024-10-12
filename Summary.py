@@ -21,7 +21,7 @@ def summary_gen(df):
       "field_name": "string",
       "field_description": "string",
       "semantic_type": "string",
-      "data_type": "string",
+      "type_of_data": "string",
       "mean": "number",  // INCLUDE ONLY IF APPLICABLE (NOT NULL)
       "num_of_nulls": "integer",
       "sample_elements": ["element_1", "element_2", "..."]  // A list of sample values for the field
@@ -30,18 +30,39 @@ def summary_gen(df):
   ]
 }
 '''
-  information ='''Nominal: Qualitative data that categorizes variables into distinct, non-ordered groups. Example: categories like "red," "blue," or "green."
-  Ordinal: Qualitative data that classifies variables into ordered categories. While there is a ranking, the intervals between categories are not defined. Example: "poor," "middle income," "wealthy."
-  Interval/Ratio:interval data has equal intervals but no true zero point (e.g., temperature in Celsius), while ratio data has a meaningful zero point (e.g., height, weight).'''
+  new_template = '''{
+  "dataset_name": "string",
+  "dataset_description": "string",
+  "fields_properties": [
+    {
+      "Name": "string",
+      "Description": "string",
+      "Dtype":"string",
+      "Semantic_type": "string",
+      "type_of_data": "string",
+      "mean": "number",  // INCLUDE ONLY IF APPLICABLE (NOT NULL)
+      "num_of_nulls": "integer",
+      "sample_elements": ["element_1", "element_2", "..."]  // A list of sample values for the field
+    },
+    // More fields...
+  ]
+}
+'''
+  information ='''Given a dataset field with the following properties: column name, data type, semantic type, description, unique value count, and sample values, classify the field into one of four categories: nominal, ordinal, discrete, or continuous. Use the following rules:
+Nominal: If the data represents categories or labels that have no inherent order, even if numeric (e.g., codes, IDs, or categorical values).
+Ordinal: If the data represents categories with a meaningful order but without consistent intervals (e.g., ranks or satisfaction levels).
+Discrete: If the data represents countable, distinct numeric values (e.g., whole numbers with specific meanings like area codes or counts).
+Continuous: If the data represents measurable, continuous values with consistent intervals (e.g., heights, temperatures, or time).
+When classifying, prioritize the semantic type and description to understand the data's purpose. For example, numeric values representing categorical or countable data like area codes should be classified as discrete, not continuous.'''
   messages = [
     {"role": "system", "content": system_prompt},
     {"role": "assistant", "content": f"""
     Please annotate the dictionary below using the provided instructions:
     {rules}
-    Please Consider the following information and sample elements for choosing data_type:
+    Please Consider the following information and sample elements for choosing type_of_data:
     {information}
     Output template:
-    {template}
+    {new_template}
     """},
 ]
   o_summary = api(messages)
