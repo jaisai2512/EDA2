@@ -10,7 +10,6 @@ def summary_gen(df):
   1.Generate a semantic_type (a single word) for each field, based on its values (e.g., company, city, number, supplier, location, gender, longitude, latitude, URL, IP address, zip code, email, etc.).
   2.ALWAYS specify the type_of_data.
   3.ALWAYS specify the description.
-  Return the updated JSON dictionary directly, without any explanation.
 '''
   template = '''{
   "dataset_name": "string",
@@ -64,6 +63,7 @@ When classifying, prioritize the semantic type and description to understand the
     {information}
     Output template:
     {new_template}
+    Return the updated JSON dictionary directly, without any explanation.
     """},
 ]
   o_summary = api(messages)
@@ -111,5 +111,5 @@ When classifying, prioritize the semantic type and description to understand the
   s = api(sum)
   st.write(s)
   
-  return s
+  return o_summary
   
