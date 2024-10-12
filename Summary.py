@@ -39,7 +39,7 @@ def summary_gen(df):
       "Description": "string",
       "Dtype":"string",
       "Semantic_type": "string",
-      "type_of_data": "string",
+      "type_of_data": "string", // ONLY INCLUDE ANY OF THESE NOMINAL,ORDINAL,DISCRETE,CONTINOUS
       "mean": "number",  // INCLUDE ONLY IF APPLICABLE (NOT NULL)
       "num_of_nulls": "integer",
       "sample_elements": ["element_1", "element_2", "..."]  // A list of sample values for the field
