@@ -36,7 +36,7 @@ You are an experienced data analyst who generates a specified number of insightf
     U_SYSTEM_INSTRUCTIONS = """You are an expert data analyst. The user will provide a summary of a dataset, and your task is to generate goals which only focuses on the distribution and behaviour of the data. From the summary, generate\nQuestions: What are the important questions you should ask about this variable to understand its distribution and behavior?\nSuggested Visualizations: Recommend the most effective visualizations (e.g., histograms, box plots) that would help analyze this variable. Explain why these visualizations are useful.\nRationale: Provide a rationale for the insights you expect to uncover through these visualizations and questions. Why do these questions and visualizations matter for understanding the dataset? """
 
     FORMAT_INSTRUCTIONS = """
-THE OUTPUT MUST BE A CODE SNIPPET OF A VALID LIST OF JSON OBJECTS. IT MUST USE THE FOLLOWING FORMAT:
+THE OUTPUT MUST BE JSON OBJECTS. IT MUST USE THE FOLLOWING FORMAT:
 
 [
     {{
