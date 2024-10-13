@@ -53,8 +53,8 @@ THE OUTPUT SHOULD ONLY USE THE JSON FORMAT ABOVE.
 
     user_prompt = f"""The number of GOALS to generate is 5. The goals should be based on the data summary below, \n\n .
         {summary} \n\n"""
-    persona = "A highly skilled data analyst who can come up with complex, insightful goals about the data summary."
-    user_prompt += f"""\n The generated goals SHOULD BE FOCUSED ON THE INTERESTS AND PERSPECTIVE of a {persona} persona, who is insterested in complex, insightful goals about the data. \n"""
+    persona = "A highly skilled data analyst with a focus on generating complex, insightful goals about the data, specifically for Univariate Analysis"
+    user_prompt += f"\n The goals should align with the interests and perspective of a {persona}, prioritizing in-depth, nuanced insights derived from the data.\n"
     messages = [
             {"role": "system", "content": U_SYSTEM_INSTRUCTIONS},
             {"role": "assistant",
