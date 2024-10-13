@@ -46,7 +46,7 @@ The output must follow the exact JSON format below:
     ...
 ]
 
-Ensure that the JSON format is strictly followed with no additional text outside of the JSON structure. Focus on generating high-quality questions, visualizations, and rationales to maximize understanding of the dataset's distribution and behavior.
+Ensure that the JSON format is strictly followed with no additional text outside of the JSON structure.
 """
     
 
