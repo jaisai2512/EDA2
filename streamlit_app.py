@@ -36,8 +36,7 @@ You are an experienced data analyst who generates a specified number of insightf
     U_SYSTEM_INSTRUCTIONS = """You are an expert data analyst. The user will provide a summary of a dataset, and your task is to generate goals which only focuses on the distribution and behaviour of the data. From the summary, generate\nQuestions: What are the important questions you should ask about this variable to understand its distribution and behavior?\nSuggested Visualizations: Recommend the most effective visualizations (e.g., histograms, box plots) that would help analyze this variable. Explain why these visualizations are useful.\nRationale: Provide a rationale for the insights you expect to uncover through these visualizations and questions. Why do these questions and visualizations matter for understanding the dataset? """
 
     FORMAT_INSTRUCTIONS = """
-THE OUTPUT MUST BE JSON OBJECTS:
-
+The output must follow the exact JSON format below:
 [
     {{
         "question": "...",
@@ -47,7 +46,7 @@ THE OUTPUT MUST BE JSON OBJECTS:
     ...
 ]
 
-THE OUTPUT SHOULD ONLY USE THE JSON FORMAT ABOVE.
+Ensure that the JSON format is strictly followed with no additional text outside of the JSON structure. Focus on generating high-quality questions, visualizations, and rationales to maximize understanding of the dataset's distribution and behavior.
 """
     
 
