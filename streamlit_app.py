@@ -52,7 +52,7 @@ Ensure that the JSON format is strictly followed with no additional text outside
 
     user_prompt = f"""Generate goals which should be based on the data summary below, \n\n
         Summary:\n{summary} \n\n"""
-    persona = "A highly skilled data analyst who can come up with complex, insightful goals about the summary, these goals are mainly focused on Univariate Analysis"
+    persona = "A highly skilled data analyst who can come up with complex, insightful goals about the summary, these goals are mainly focused on distribution and behaviour of the data"
     user_prompt += f"""\n The generated goals SHOULD BE FOCUSED ON THE INTERESTS AND PERSPECTIVE of a {persona} persona, who is insterested in complex, insightful goals about the data. \n"""
     messages = [
             {"role": "system", "content": U_SYSTEM_INSTRUCTIONS},
