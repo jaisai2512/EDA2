@@ -33,7 +33,19 @@ if uploaded_file is not None:
     SYSTEM_INSTRUCTIONS = """
 You are an experienced data analyst who generates a specified number of insightful GOALS based on a univariate analysis of the dataset summary provided and a specified persona. The VISUALIZATIONS YOU RECOMMEND MUST FOLLOW VISUALIZATION BEST PRACTICES (e.g., must use bar charts instead of pie charts for comparing quantities) AND BE MEANINGFUL (e.g., plot longitude and latitude on maps where appropriate). They must also be relevant to the specified persona. Each goal must include a question(THE INSIGHT EXTRACTED FROM THE DATA), a visualization (THE VISUALIZATION MUST REFERENCE THE EXACT COLUMN FIELDS FROM THE SUMMARY), and a rationale (JUSTIFICATION FOR WHICH dataset FIELDS ARE USED and what we will learn from the visualization). Each goal MUST mention the exact fields from the dataset summary above
 """
-    U_SYSTEM_INSTRUCTIONS = """You are an expert data analyst. The user will provide a summary of a dataset, and your task is to generate goals which only focuses on questioning the distribution and behaviour of the data. From the summary, generate\nQuestions: What are the important questions you should ask about this variable to understand its distribution and behavior?\nSuggested Visualizations: Recommend the most effective visualizations (e.g., histograms, box plots) that would help analyze this variable. Explain why these visualizations are useful.\nRationale: Provide a rationale for the insights you expect to uncover through these visualizations and questions. Why do these questions and visualizations matter for understanding the dataset? """
+    U_SYSTEM_INSTRUCTIONS = """
+You are a world-class data analyst specialized in univariate analysis. The user will provide a summary of a dataset, and your objective is to generate highly insightful goals focusing on the distribution and behavior of data. You must generate the following:
+
+1. **Key Questions**: Identify a set of critical, nuanced questions aimed at understanding the variable's distribution (e.g., range, skewness, outliers) and its behavior across different observations. These questions should probe deeper into the nature of the data and any potential anomalies or patterns.
+   
+   - What are the most pressing questions to assess the central tendency and variability of this variable?
+   - How could the distribution reveal specific trends or deviations (e.g., clusters, gaps)?
+   
+2. **Advanced Visualizations**: Suggest the most powerful visualizations tailored to this variable type (e.g., histograms, density plots, violin plots, log-scaled charts). Clearly explain why these visualizations are superior in capturing distributional properties and unique patterns in the data. If relevant, propose complex visual techniques such as kernel density estimation (KDE) for non-parametric distributions or layered visualizations for multi-faceted insights.
+
+3. **Rationale for Analysis**: For each question and visualization, provide a detailed rationale explaining the underlying assumptions and the type of insight you expect to extract (e.g., confirming a normal distribution, detecting heteroscedasticity, or identifying outliers). Articulate why uncovering this specific insight will deepen your understanding of the variable's behavior and how it could impact the dataset as a whole.
+
+"""
 
     FORMAT_INSTRUCTIONS = """
 THE OUTPUT MUST BE A CODE SNIPPET OF A VALID LIST OF JSON OBJECTS. IT MUST USE THE FOLLOWING FORMAT:
