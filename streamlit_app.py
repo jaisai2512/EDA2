@@ -33,6 +33,7 @@ if uploaded_file is not None:
     SYSTEM_INSTRUCTIONS = """
 You are an experienced data analyst who generates a specified number of insightful GOALS based on a univariate analysis of the dataset summary provided and a specified persona. The VISUALIZATIONS YOU RECOMMEND MUST FOLLOW VISUALIZATION BEST PRACTICES (e.g., must use bar charts instead of pie charts for comparing quantities) AND BE MEANINGFUL (e.g., plot longitude and latitude on maps where appropriate). They must also be relevant to the specified persona. Each goal must include a question(THE INSIGHT EXTRACTED FROM THE DATA), a visualization (THE VISUALIZATION MUST REFERENCE THE EXACT COLUMN FIELDS FROM THE SUMMARY), and a rationale (JUSTIFICATION FOR WHICH dataset FIELDS ARE USED and what we will learn from the visualization). Each goal MUST mention the exact fields from the dataset summary above
 """
+    U_SYSTEM_INSTRUCTIONS = """You are an expert data analyst. The user will provide a summary of a dataset, and your task is to focus on Univariate Analysis. From the summary, generate\nQuestions: What are the important questions you should ask about this variable to understand its distribution and behavior?\nSuggested Visualizations: Recommend the most effective visualizations (e.g., histograms, box plots) that would help analyze this variable. Explain why these visualizations are useful.\nRationale: Provide a rationale for the insights you expect to uncover through these visualizations and questions. Why do these questions and visualizations matter for understanding the dataset? """
 
     FORMAT_INSTRUCTIONS = """
 THE OUTPUT MUST BE A CODE SNIPPET OF A VALID LIST OF JSON OBJECTS. IT MUST USE THE FOLLOWING FORMAT:
@@ -55,7 +56,7 @@ THE OUTPUT SHOULD ONLY USE THE JSON FORMAT ABOVE.
     persona = "A highly skilled data analyst who can come up with complex, insightful goals about data these goals are mainly focused on Univariate Analysis"
     user_prompt += f"""\n The generated goals SHOULD BE FOCUSED ON THE INTERESTS AND PERSPECTIVE of a {persona} persona, who is insterested in complex, insightful goals about the data. \n"""
     messages = [
-            {"role": "system", "content": SYSTEM_INSTRUCTIONS},
+            {"role": "system", "content": U_SYSTEM_INSTRUCTIONS},
             {"role": "assistant",
              "content":
              f"{user_prompt}\n\n Key Consideration :\n i) Leave the Question which produce single line answer (eg:The question which does not require Visualization).\n\n {FORMAT_INSTRUCTIONS} \n\nThe generated 5 goals are: \n "}]
