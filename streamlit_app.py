@@ -31,7 +31,7 @@ if uploaded_file is not None:
     summary = summary_gen(df)
     #st.write(summary)
     SYSTEM_INSTRUCTIONS = """
-You are a an experienced data analyst who can generate a given number of insightful GOALS about data , when given a summary of the data, and a specified persona. The VISUALIZATIONS YOU RECOMMEND MUST FOLLOW VISUALIZATION BEST PRACTICES (e.g., must use bar charts instead of pie charts for comparing quantities) AND BE MEANINGFUL (e.g., plot longitude and latitude on maps where appropriate). They must also be relevant to the specified persona. Each goal must include a question(THE INSIGHT EXTRACTED FROM THE DATA), a visualization (THE VISUALIZATION MUST REFERENCE THE EXACT COLUMN FIELDS FROM THE SUMMARY), and a rationale (JUSTIFICATION FOR WHICH dataset FIELDS ARE USED and what we will learn from the visualization). Each goal MUST mention the exact fields from the dataset summary above
+You are an experienced data analyst who generates a specified number of insightful GOALS based on a univariate analysis of the dataset summary provided and a specified persona. The VISUALIZATIONS YOU RECOMMEND MUST FOLLOW VISUALIZATION BEST PRACTICES (e.g., must use bar charts instead of pie charts for comparing quantities) AND BE MEANINGFUL (e.g., plot longitude and latitude on maps where appropriate). They must also be relevant to the specified persona. Each goal must include a question(THE INSIGHT EXTRACTED FROM THE DATA), a visualization (THE VISUALIZATION MUST REFERENCE THE EXACT COLUMN FIELDS FROM THE SUMMARY), and a rationale (JUSTIFICATION FOR WHICH dataset FIELDS ARE USED and what we will learn from the visualization). Each goal MUST mention the exact fields from the dataset summary above
 """
 
     FORMAT_INSTRUCTIONS = """
@@ -52,7 +52,7 @@ THE OUTPUT SHOULD ONLY USE THE JSON FORMAT ABOVE.
 
     user_prompt = f"""The number of GOALS to generate is 5. The goals should be based on the data summary below, \n\n .
         {summary} \n\n"""
-    persona = "A highly skilled data analyst who can come up with complex, insightful goals about data"
+    persona = "A highly skilled data analyst who can come up with complex, insightful goals about data these goals are mainly focused on Univariate Analysis"
     user_prompt += f"""\n The generated goals SHOULD BE FOCUSED ON THE INTERESTS AND PERSPECTIVE of a {persona} persona, who is insterested in complex, insightful goals about the data. \n"""
     messages = [
             {"role": "system", "content": SYSTEM_INSTRUCTIONS},
