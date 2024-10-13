@@ -36,7 +36,7 @@ You are an experienced data analyst who generates a specified number of insightf
     U_SYSTEM_INSTRUCTIONS = """You are an expert data analyst. The user will provide a summary of a dataset, and your task is to generate goals which only focuses on the distribution and behaviour of the data. From the summary, generate\nQuestions: What are the important questions you should ask about this variable to understand its distribution and behavior?\nSuggested Visualizations: Recommend the most effective visualizations (e.g., histograms, box plots) that would help analyze this variable. Explain why these visualizations are useful.\nRationale: Provide a rationale for the insights you expect to uncover through these visualizations and questions. Why do these questions and visualizations matter for understanding the dataset? """
 
     FORMAT_INSTRUCTIONS = """
-THE OUTPUT MUST BE JSON OBJECTS. IT MUST USE THE FOLLOWING FORMAT:
+THE OUTPUT MUST BE JSON OBJECTS:
 
 [
     {{
@@ -59,7 +59,7 @@ THE OUTPUT SHOULD ONLY USE THE JSON FORMAT ABOVE.
             {"role": "system", "content": U_SYSTEM_INSTRUCTIONS},
             {"role": "assistant",
              "content":
-             f"{user_prompt}\n\n Key Consideration :\n\ni) Leave the Question which produce single line answer (eg:The question which does not require Visualization).\nii)Generate Only 5 goals.\n\n {FORMAT_INSTRUCTIONS} \n\nThe generated 5 goals are: \n "}]
+             f"{user_prompt}\n\n Key Consideration :\n\ni) Leave the Question which produce single line answer (eg:The question which does not require Visualization).\nii)Generate Only 5 goals.\n\n {FORMAT_INSTRUCTIONS} \n\n"}]
     st.write("Basic Information:")
     #st.write(api(messages))
     #exit()
