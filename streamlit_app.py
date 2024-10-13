@@ -51,7 +51,7 @@ THE OUTPUT SHOULD ONLY USE THE JSON FORMAT ABOVE.
 """
     
 
-    user_prompt = f"""The number of GOALS to generate is 5. The goals should be based on the data summary below, \n\n .
+    user_prompt = f"""Generate goals which should be based on the data summary below, \n\n .
         {summary} \n\n"""
     persona = "A highly skilled data analyst who can come up with complex, insightful goals about the data these goals are mainly focused on Univariate Analysis"
     user_prompt += f"""\n The generated goals SHOULD BE FOCUSED ON THE INTERESTS AND PERSPECTIVE of a {persona} persona, who is insterested in complex, insightful goals about the data. \n"""
@@ -59,7 +59,7 @@ THE OUTPUT SHOULD ONLY USE THE JSON FORMAT ABOVE.
             {"role": "system", "content": U_SYSTEM_INSTRUCTIONS},
             {"role": "assistant",
              "content":
-             f"{user_prompt}\n\n Key Consideration :\n i) Make sure you won't repeat the questions.\n\n {FORMAT_INSTRUCTIONS} \n\nThe generated 5 goals are: \n "}]
+             f"{user_prompt}\n\n Key Consideration :\n i) Leave the Question which produce single line answer (eg:The question which does not require Visualization).\nii)Generate Only 5 goals.\n\n {FORMAT_INSTRUCTIONS} \n\nThe generated 5 goals are: \n "}]
     st.write("Basic Information:")
     #st.write(api(messages))
     #exit()
