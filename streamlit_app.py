@@ -59,7 +59,7 @@ THE OUTPUT SHOULD ONLY USE THE JSON FORMAT ABOVE.
             {"role": "system", "content": U_SYSTEM_INSTRUCTIONS},
             {"role": "assistant",
              "content":
-             f"{user_prompt}\n\n Key Consideration :\n i) Leave the Question which produce single line answer (eg:The question which does not require Visualization).\n\n {FORMAT_INSTRUCTIONS} \n\nThe generated 5 goals are: \n "}]
+             f"{user_prompt}\n\n Key Consideration :\n i) Make sure you won't repeat the questions.\n\n {FORMAT_INSTRUCTIONS} \n\nThe generated 5 goals are: \n "}]
     st.write("Basic Information:")
     #st.write(api(messages))
     #exit()
