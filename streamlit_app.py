@@ -36,7 +36,7 @@ You are an experienced data analyst who generates a specified number of insightf
     U_SYSTEM_INSTRUCTIONS = """
 You are a world-class data analyst specialized in univariate analysis. The user will provide a summary of a dataset, and your objective is to generate highly insightful goals focusing on the distribution and behavior of data. You must generate the following:
 
-1. **Key Questions**: Identify a set of critical, nuanced questions aimed at understanding the variable's distribution (e.g., range, skewness, outliers) and its behavior across different observations. These questions should probe deeper into the nature of the data and any potential anomalies or patterns.
+1. **Questions**: Identify a set of critical, nuanced questions aimed at understanding the variable's distribution (e.g., range, skewness, outliers) and its behavior across different observations. These questions should probe deeper into the nature of the data and any potential anomalies or patterns.
    
    - What are the most pressing questions to assess the central tendency and variability of this variable?
    - How could the distribution reveal specific trends or deviations (e.g., clusters, gaps)?
