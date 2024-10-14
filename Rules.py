@@ -93,8 +93,8 @@ def get_column_properties(df: pd.DataFrame, n_samples: int = 3) -> list[dict]:
           #properties["var"] = check_type(dtype, df[column].var())
           properties["min"] = check_type(dtype, df[column].min())
           properties["max"] = check_type(dtype, df[column].max())
-          #properties["skewness"] = skewness(df[column])
-          #properties["kurtosis"] = kurtosis(df[column])
+          properties["skewness"] = skewness(df[column])
+          properties["kurtosis"] = kurtosis(df[column])
 
       elif dtype == bool:
           properties["dtype"] = "boolean"
