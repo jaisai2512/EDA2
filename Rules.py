@@ -70,9 +70,9 @@ def get_column_properties(df: pd.DataFrame, n_samples: int = 3) -> list[dict]:
       properties = {}
       if dtype in [int, float, complex]:
           properties["dtype"] = "number"
-          properties["std"] = check_type(dtype, df[column].std())
-          properties["min"] = check_type(dtype, df[column].min())
-          properties["max"] = check_type(dtype, df[column].max())
+          #properties["std"] = check_type(dtype, df[column].std())
+          #properties["min"] = check_type(dtype, df[column].min())
+          #properties["max"] = check_type(dtype, df[column].max())
 
       elif dtype == bool:
           properties["dtype"] = "boolean"
