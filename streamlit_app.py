@@ -71,7 +71,8 @@ Ensure that the JSON format is strictly followed with no additional text outside
                                     i) Come up with a optimal plan and used this plan to complete the function.
                                     ii)Ensure that the function handles and processes the input temp (which contains the data) efficiently.
                                     iii)Implement appropriate labels, titles, and legends as needed for better readability.
-                                    iv)Ensure the visualization is clear, relevant, and accurate for the question asked.
+                                    iv)Ensure the visualization is CLEAR, RELEVANT, and ACCURATE for the question asked.
+                                    v) Rember to add spacing between the legends in the graph.
                         Key Considerations:
                             i) If there are any missing value in the data handle them.
                             ii)Handle exceptions gracefully, such as cases where the data might be missing or the input format is incorrect.
