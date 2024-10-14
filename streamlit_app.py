@@ -58,7 +58,7 @@ Ensure that the JSON format is strictly followed with no additional text outside
             {"role": "system", "content": U_SYSTEM_INSTRUCTIONS},
             {"role": "assistant",
              "content":
-             f"{user_prompt}\n\n Key Consideration :\n\ni) Leave the Question which produce single line answer (eg:The question which does not require Visualization).\n\n {FORMAT_INSTRUCTIONS} \n\n"}]
+             f"{user_prompt}\n\n Key Consideration :\n\ni) Leave the Question which produce single line answer (eg:The question which does not require Visualization).ii)Generate question for each fields in the summary if possible.\n\n {FORMAT_INSTRUCTIONS} \n\n"}]
     st.write("Basic Information:")
     #st.write(api(messages))
     #exit()
