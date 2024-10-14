@@ -61,6 +61,25 @@ def check_type(dtype: str, value):
     else:
         return value
 
+def kurtosis(df):
+    kurt_value = df.kurt()
+    if kurt_value > 3:
+        return 'Leptokurtic'
+    elif kurt_value < 3:
+        return 'Platykurtic'
+    else kurt_value = 3:
+        return 'Mesokurtic'
+
+def skewness(df):
+    skew_value = df.skew()
+    if -0.5 < skew_value < 0.5:
+        return 'fairly symmetrical'
+    if -1 < skew_value < -0.5 or 0.5 < skew_value < 1:
+        return 'Moderately Skewed'
+    elif skew_value <= -1 or skew_value >= 1:
+        return 'Highly Skewed'
+    else:
+        return 'Approximately Symmetric'
 
 def get_column_properties(df: pd.DataFrame, n_samples: int = 3) -> list[dict]:
   """Get properties of each column in a pandas DataFrame"""
@@ -71,8 +90,11 @@ def get_column_properties(df: pd.DataFrame, n_samples: int = 3) -> list[dict]:
       if dtype in [int, float, complex]:
           properties["dtype"] = "number"
           properties["std"] = check_type(dtype, df[column].std())
+          properties["var"] = check_type(dtype, df[column].var())
           properties["min"] = check_type(dtype, df[column].min())
           properties["max"] = check_type(dtype, df[column].max())
+          properties["skewness"] = skewness(df[column])
+          properties["kurtosis"] = kurtosis(df[column])
 
       elif dtype == bool:
           properties["dtype"] = "boolean"
