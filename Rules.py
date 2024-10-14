@@ -90,7 +90,7 @@ def get_column_properties(df: pd.DataFrame, n_samples: int = 3) -> list[dict]:
       if dtype in [int, float, complex]:
           properties["dtype"] = "number"
           properties["std"] = check_type(dtype, df[column].std())
-          properties["var"] = check_type(dtype, df[column].var())
+          #properties["var"] = check_type(dtype, df[column].var())
           properties["min"] = check_type(dtype, df[column].min())
           properties["max"] = check_type(dtype, df[column].max())
           #properties["skewness"] = skewness(df[column])
