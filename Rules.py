@@ -67,7 +67,7 @@ def kurtosis(df):
         return 'Leptokurtic'
     elif kurt_value < 3:
         return 'Platykurtic'
-    else kurt_value = 3:
+    else kurt_value == 3:
         return 'Mesokurtic'
 
 def skewness(df):
