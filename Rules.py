@@ -63,11 +63,11 @@ def check_type(dtype: str, value):
 
 def kurtosis(df):
     kurt_value = df.kurt()
-    if kurt_value > 3:
+    if(kurt_value > 3):
         return 'Leptokurtic'
-    elif kurt_value < 3:
+    elif(kurt_value < 3):
         return 'Platykurtic'
-    else kurt_value == 3:
+    else(kurt_value == 3):
         return 'Mesokurtic'
 
 def skewness(df):
