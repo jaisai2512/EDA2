@@ -4,7 +4,7 @@ import json
 import streamlit as st
 from json_correction import format_correction
 def summary_gen(df):
-  rules = Rules.extract_data(df)
+  rules = Rules.get_column_properties(df)
 
   system_prompt = '''As a seasoned data analyst, your responsibility is to annotate the provided dictionary according to the specified template and follow this instructions below:
   1.Generate a semantic_type (a single word) for each field, based on its values (e.g., company, city, number, supplier, location, gender, longitude, latitude, URL, IP address, zip code, email, etc.).
