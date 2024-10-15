@@ -78,7 +78,7 @@ You are an experienced data analyst who generates a specified number of insightf
     #exit()
     data = json.loads(api(messages))
     st.write(data)
-    for i in p_data:
+    for i in data:
         temp = df
         system_prompt = f'''You are an expert data visualization person who knows to code well. You are given the following:\ni)Question: {i['question']}.\nii)Visualization Type: {i['visualization']}.\niii)Data: Provided in a DataFrame named temp.\niv)Summary of the data: "{summary}".\nv) And a function to Complete.'''
         user_prompt = '''Your Objective is to Create a plan to improve and complete the plot_and_save(temp) function, which should:
