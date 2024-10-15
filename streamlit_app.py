@@ -61,9 +61,10 @@ Ensure that the JSON format is strictly followed with no additional text outside
     #exit()
     data = json.loads(api(messages))
     st.write(data)
-    Q_system_prompt = '''You are a highly skilled data analyst tasked with critically evaluating and improving data analysis goals. For each goal, your job is to assess whether the provided question and visualization effectively contribute to understanding the variables in the data summary. Follow these steps:
-    1. Critical Evaluation:\nFor each goal, ask:\n"Is this the right question to ask in order to understand the variable(s) and gain meaningful insights from the data summary?"\ni)Assess whether the question appropriately targets the key aspects of the variable.\nii)Evaluate if the visualization supports understanding of the variable based on the question.
-    2. Improvement:\nIf the question and/or visualization are not optimal:\nGenerate a new, more relevant question that better helps understand the variable.\nSuggest a more suitable visualization that enhances the insight gained from the data.\nProvide a new reason explaining how the updated question and visualization are better suited for understanding the variable.
+    Q_system_prompt = '''You are a highly skilled data analyst tasked with critically evaluating and improving data analysis goals. For each goal, Your task is to assess whether the provided question and visualization effectively provide an insight of the variables in the data summary. If they do not, please correct them accordingly. Follow these steps:
+    1. Critical Evaluation:\nFor each goal, ask:\n"Is this the right question to ask in order to understand the variable(s) and gain meaningful insights from the data summary?"\ni)Assess whether the question is capable of extracting meaningful insights from the variable that are useful for the user.\nii)Evaluate if the visualization supports understanding of the variable based on the question.
+    2. Improvement:\nIf the question and/or visualization are not optimal:\nGenerate a new, more relevant question that extract meaningful information about the variable.\nSuggest a more suitable visualization that enhances the insight gained from the data.\nProvide a new reason explaining how the updated question and visualization are better suited for understanding the variable.
+    3. Correction :\nBased on the improvement update the repective goal.
     GENERATE ONLY THE UPDATED GOALS IN FOLLWOING THE BELOW FORMAT:\n{FORMAT_INSTRUCTIONS}\n
     '''
 
