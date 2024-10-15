@@ -73,8 +73,8 @@ Ensure that the JSON format is strictly followed with no additional text outside
     st.write("New Information:")
     #st.write(api(messages))
     #exit()
+    st.write(messages)
     data = json.loads(api(messages))
-    st.write(data)
     for i in data:
         temp = df
         system_prompt = f'''You are an expert data visualization person who knows to code well. You are given the following:\ni)Question: {i['question']}.\nii)Visualization Type: {i['visualization']}.\niii)Data: Provided in a DataFrame named temp.\niv)Summary of the data: "{summary}".\nv) And a function to Complete.'''
