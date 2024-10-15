@@ -61,11 +61,10 @@ Ensure that the JSON format is strictly followed with no additional text outside
     #exit()
     data = json.loads(api(messages))
     st.write(data)
-    Q_system_prompt = '''You are a highly skilled data analyst tasked with critically evaluating and improving data analysis goals. For each goal, Your task is to assess whether the provided question and visualization effectively provide an insight of the variables in the data summary. If they do not, please correct them accordingly. Follow these steps:
-    1. Critical Evaluation:\nFor each goal, ask:\n"Is this the right question to ask in order to understand the variable(s) and gain meaningful insights from the data summary?"\ni)Assess whether the question is capable of extracting meaningful insights from the variable that are useful for the user.\nii)Evaluate if the visualization supports understanding of the variable based on the question.
+    Q_system_prompt = '''You are a highly skilled data analyst tasked with critically evaluating and improving data analysis goals. For each goal, Your task is to assess whether the provided question and visualization effectively able to extract an insight of the variables based on  the data summary. If they do not, please correct them accordingly. Follow these steps:
+    1. Critical Evaluation:\nFor each goal, ask:\n"Is this the right question to ask in order to understand the variable(s) and gain meaningful insights based on the data summary?"\ni)Assess whether the question is capable of extracting meaningful insights from the variable that are useful for the user.\nii)Evaluate if the visualization supports understanding of the variable based on the question.
     2. Improvement:\nIf the question and/or visualization are not optimal:\nGenerate a new, more relevant question that extract meaningful information about the variable.\nSuggest a more suitable visualization that enhances the insight gained from the data.\nProvide a new reason explaining how the updated question and visualization are better suited for understanding the variable.
-    3. Correction :\nBased on the improvement update the repective goal.
-    GENERATE ONLY THE UPDATED GOALS IN FOLLWOING THE BELOW FORMAT:\n{FORMAT_INSTRUCTIONS}\n
+    3. Correction :\nBased on the improvement update the repective goal and GENERATE ONLY THE UPDATED GOALS IN FOLLWOING THE BELOW FORMAT:\n{FORMAT_INSTRUCTIONS}\n.
     '''
 
     user_prompt = f'Evaluate the goals\nGoals: {data}\n\nSummary of the Data: {summary}'
