@@ -59,6 +59,7 @@ Ensure that the JSON format is strictly followed with no additional text outside
     st.write("Basic Information:")
     #st.write(api(messages))
     #exit()
+    st.write(data)
     data = json.loads(api(messages))
     Q_system_prompt = '''You are a highly skilled data analyst tasked with critically evaluating and improving data analysis goals. For each goal, your job is to assess whether the provided question and visualization effectively contribute to understanding the variables in the data summary. Follow these steps:
     1. Critical Evaluation:\nFor each goal, ask:\n"Is this the right question to ask in order to understand the variable(s) and gain meaningful insights from the data summary?"\ni)Assess whether the question appropriately targets the key aspects of the variable.\nii)Evaluate if the visualization supports understanding of the variable based on the question.
