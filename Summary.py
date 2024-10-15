@@ -59,7 +59,7 @@ When classifying, prioritize the semantic type and description to understand the
     {"role": "user", "content": f"""
     Please annotate the dictionary below using the provided instructions:
     {rules}
-    Please Consider the following information and sample elements for choosing type_of_data:
+    Please Consider the below Context and sample elements for choosing type_of_data:
     {information}
     Output template:
     {new_template}
