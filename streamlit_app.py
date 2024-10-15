@@ -61,15 +61,17 @@ Ensure that the JSON format is strictly followed with no additional text outside
     #exit()
     data = json.loads(api(messages))
     st.write(data)
-    Q_system_prompt = '''You are a highly skilled data analyst tasked with improving data analysis goals. For each goal, ENHANCE question and visualization interms of extracting insights from the data summary. If they are not effective, correct them as follows:
-    1.Improvement:\nBased on the evaluation do the improvement :\nGenerate a new, more relevant question that extract meaningful information about the variable.\nSuggest a more suitable visualization that enhances the insight gained from the data.\nProvide a new reason explaining how the updated question and visualization are better suited for understanding the variable.
-    2.OUTPUT:Based on the improvements, update the respective goal and generate only the updated goals using the following format:{FORMAT_INSTRUCTIONS}
+    Q_system_prompt = '''You are a highly skilled data analyst tasked with critically evaluating and improving data analysis goals. For each goal, Your task is to assess whether the provided question and visualization effectively able to extract an insight of the variables based on  the data summary. If they do not, please correct them accordingly. Follow these steps:
+    1. Critical Evaluation:\nFor each goal, ask:\n"Is this the right question to ask in order to understand the variable(s) and gain meaningful insights based on the data summary?"\ni)Assess whether the question is capable of extracting meaningful insights from the variable that are useful for the user.\nii)Evaluate if the visualization supports understanding of the variable based on the question\.
+    2. Improvement:\nBased on the evaluation do the improvement :\nGenerate a new, more relevant question that extract meaningful information about the variable.\nSuggest a more suitable visualization that enhances the insight gained from the data.\nProvide a new reason explaining how the updated question and visualization are better suited for understanding the variable.
+    3. Correction :\nBased on the improvement update the repective goal.
+    Rules:\nGENERATE ONLY THE UPDATED GOALS IN FOLLWOING THE BELOW FORMAT:\n{FORMAT_INSTRUCTIONS}\n
     '''
 
-    user_prompt = f'Evaluate the goals\nGoals: {data}\n\nSummary of the Data: {summary}'
+    user_prompt = f'Evaluate and improve the goals\nGoals: {data}\n\nSummary of the Data: {summary}'
     messages = [
             {"role": "system", "content": Q_system_prompt},
-            {"role": "assistant","content":f"{user_prompt}\n\n Rules:\ni)Remember that the new questions should be only focused on univariate analysis\n"}]
+            {"role": "assistant","content":f"{user_prompt}\n"}]
     st.write("New Information:")
     #st.write(api(messages))
     #exit()
