@@ -55,7 +55,7 @@ Ensure that the JSON format is strictly followed with no additional text outside
     #user_prompt += f"""\n The generated goals SHOULD BE FOCUSED ON THE INTERESTS AND PERSPECTIVE of a {persona} persona \n"""
     messages = [
             {"role": "system", "content": U_SYSTEM_INSTRUCTIONS},
-            {"role": "User","content":f"{user_prompt}\n\n Rules :\ni) The goals should be only focused on Univariate Analysis(Strictly no bivariate or multivariate analysis)\nii)For now don;t generate goals which deals with date\niii) Choose appropriate chart types that best represent the data and make the information easy to understand(ex:For distributions: Histograms or box plots) \n\n{FORMAT_INSTRUCTIONS} \n\n"}]
+            {"role": "User","content":f"{user_prompt}\n\n Rules :\ni) The goals should be only focused on Univariate Analysis(Strictly no bivariate or multivariate analysis)\nii)For now don;t generate goals which deals with date\niii) Choose appropriate chart types that best represent the data and make the information easy to understand(ex:For distributions: Histograms or box plots)\niv)Generate Only five goals\n\n{FORMAT_INSTRUCTIONS} \n\n"}]
     st.write("Basic Information:")
     #st.write(api(messages))
     #exit()
@@ -65,15 +65,15 @@ Ensure that the JSON format is strictly followed with no additional text outside
     2. Improvement:\nIf the question and/or visualization are not optimal:\nGenerate a new, more relevant question that better helps understand the variable.\nSuggest a more suitable visualization that enhances the insight gained from the data.\nProvide a new reason explaining how the updated question and visualization are better suited for understanding the variable.
     3. Iterate for Each Goal:\nRepeat this process for each goal, ensuring that any revisions (questions, visualizations, and reasoning) improve the overall analysis and understanding of the variables in the summary.'''
 
-    user_prompt = 'Evaluate the goals here is the summary of the data:\n{Summary}'
+    user_prompt = f'Evaluate the goals\nGoals: {data}\n\nSummary of the Data: {Summary}'
     messages = [
             {"role": "system", "content": Q_system_prompt},
             {"role": "User","content":f"{user_prompt}\n\n Rules:\ni)Remember that the new questions should be only focused on univariate analysis\nii)Always ensure that the output is provided in JSON format, matching the structure of the input."}]
     st.write("New Information:")
     #st.write(api(messages))
     #exit()
-    data = json.loads(api(messages))
     st.write(data)
+    data = json.loads(api(messages))
     for i in data:
         temp = df
         system_prompt = f'''You are an expert data visualization person who knows to code well. You are given the following:\ni)Question: {i['question']}.\nii)Visualization Type: {i['visualization']}.\niii)Data: Provided in a DataFrame named temp.\niv)Summary of the data: "{summary}".\nv) And a function to Complete.'''
