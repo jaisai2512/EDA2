@@ -68,7 +68,7 @@ Ensure that the JSON format is strictly followed with no additional text outside
     Based on your evaluation:
     1)If the answers to both questions are yes, then keep the goal unchanged.
     2)If the answer to any of the questions is no, modify the goal to make it optimal for univariate analysis.
-    The newly generated goal, if any, should be based on univariate analysis only.\nOutput the goals in the following format:{FORMAT_INSTRUCTIONS}'''
+    The newly generated goal, if any, should be based on univariate analysis only.\nOIUPUT THE GOALS IN THE FOLLOWING FOMRAT:{FORMAT_INSTRUCTIONS}'''
     user_prompt = f'Evaluate and improve the goals\nGoals: {data}\n\nSummary of the Data: {summary}'
     messages = [
             {"role": "system", "content": Q_system_prompt},
