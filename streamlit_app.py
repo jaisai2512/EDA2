@@ -55,7 +55,7 @@ Ensure that the JSON format is strictly followed with no additional text outside
     #user_prompt += f"""\n The generated goals SHOULD BE FOCUSED ON THE INTERESTS AND PERSPECTIVE of a {persona} persona \n"""
     messages = [
             {"role": "system", "content": U_SYSTEM_INSTRUCTIONS},
-            {"role": "User","content":f"{user_prompt}\n\n Rules :\ni) The goals should be only focused on Univariate Analysis(Strictly no bivariate or multivariate analysis)\nii)For now, don't generate goals that deal with dates.\niii) Choose appropriate chart types that best represent the data and make the information easy to understand(ex:For distributions: Histograms or box plots)\n\n{FORMAT_INSTRUCTIONS} \n\n"}]
+            {"role": "user","content":f"{user_prompt}\n\n Rules :\ni) The goals should be only focused on Univariate Analysis(Strictly no bivariate or multivariate analysis)\niii) Choose appropriate chart types that best represent the data and make the information easy to understand(ex:For distributions: Histograms or box plots)\n\n{FORMAT_INSTRUCTIONS} \n\n"}]
     st.write("Basic Information:")
     #st.write(api(messages))
     #exit()
@@ -70,7 +70,7 @@ Ensure that the JSON format is strictly followed with no additional text outside
     user_prompt = f'Evaluate and improve the goals\nGoals: {data}\n\nSummary of the Data: {summary}'
     messages = [
             {"role": "system", "content": Q_system_prompt},
-            {"role": "assistant","content":f"{user_prompt}\n"}]
+            {"role": "user","content":f"{user_prompt}"}]
     st.write("New Information:")
     #st.write(api(messages))
     #exit()
