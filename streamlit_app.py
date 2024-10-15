@@ -57,7 +57,7 @@ Ensure that the JSON format is strictly followed with no additional text outside
             {"role": "system", "content": U_SYSTEM_INSTRUCTIONS},
             {"role": "user","content":f"{user_prompt}\n\n Rules :\ni) The goals should be only focused on Univariate Analysis(Strictly no bivariate or multivariate analysis)\nii) Choose appropriate chart types that best represent the data and make the information easy to understand(ex:For distributions: Histograms or box plots)\n\n{FORMAT_INSTRUCTIONS} \n\n"}]
     st.write("Basic Information:")
-    st.write(api(messages))
+    #st.write(api(messages))
     #exit()
     data = json.loads(api(messages))
     st.write(data)
@@ -68,7 +68,7 @@ Ensure that the JSON format is strictly followed with no additional text outside
             {"role": "system", "content": Q_system_prompt},
             {"role": "user","content":f"{user_prompt}"}]
     st.write("New Information:")
-    #st.write(api(messages))
+    st.write(api(messages))
     #exit()
     data = json.loads(api(messages))
     st.write(data)
