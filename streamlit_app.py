@@ -51,13 +51,13 @@ Ensure that the JSON format is strictly followed with no additional text outside
     
 
     user_prompt = f"""Generate goals which should be based on the data summary below, \n\nSummary:\n{summary} \n\n"""
-    persona = "A highly skilled data analyst who can come up with complex, insightful goals about the summary, and those goals are mainly focused on Univariate Analysis"
+    #persona = "A highly skilled data analyst who can come up with complex, insightful goals about the summary, and those goals are mainly focused on Univariate Analysis"
     #user_prompt += f"""\n The generated goals SHOULD BE FOCUSED ON THE INTERESTS AND PERSPECTIVE of a {persona} persona \n"""
     messages = [
             {"role": "system", "content": U_SYSTEM_INSTRUCTIONS},
             {"role": "assistant",
              "content":
-             f"{user_prompt}\n\n Rules :\ni) The goals should be only focused on Univariate Analysis\nii)For now don;t generate goals which deals with date.\n\n{FORMAT_INSTRUCTIONS} \n\n"}]
+             f"{user_prompt}\n\n Rules :\ni) The goals should be only focused on Univariate Analysis\nii)For now don;t generate goals which deals with date\niii) Choose appropriate chart types that best represent the data and make the information easy to understand(ex:For distributions: Histograms or box plots) \n\n{FORMAT_INSTRUCTIONS} \n\n"}]
     st.write("Basic Information:")
     #st.write(api(messages))
     #exit()
