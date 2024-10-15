@@ -65,7 +65,7 @@ Ensure that the JSON format is strictly followed with no additional text outside
     1. Critical Evaluation:\nFor each goal, ask:\n"Is this the right question to ask in order to understand the variable(s) and gain meaningful insights based on the data summary?"\ni)Assess whether the question is capable of extracting meaningful insights from the variable that are useful for the user.\nii)Evaluate if the visualization supports understanding of the variable based on the question\.
     2. Improvement:\nBased on the evaluation do the improvement :\nGenerate a new, more relevant question that extract meaningful information about the variable.\nSuggest a more suitable visualization that enhances the insight gained from the data.\nProvide a new reason explaining how the updated question and visualization are better suited for understanding the variable.
     3. Correction :\nBased on the improvement update the repective goal.
-    Rules:\CONSOLIDATED ALL THE UPDATED GOALS AND OUPUT THEM BY FOLLWOING THE BELOW FORMAT:\n{FORMAT_INSTRUCTIONS}\n
+    Rules:\i)The new goals should be only focused on Univariate Analysis(Strictly no bivariate or multivariate analysis)\nii)CONSOLIDATED ALL THE UPDATED GOALS AND OUPUT THEM BY FOLLWOING THE BELOW FORMAT:\n{FORMAT_INSTRUCTIONS}\n
     '''
 
     user_prompt = f'Evaluate and improve the goals\nGoals: {data}\n\nSummary of the Data: {summary}'
