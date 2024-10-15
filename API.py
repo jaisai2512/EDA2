@@ -48,8 +48,8 @@ def api(prompt):
     response = client.chat.completions.create(
         model='Meta-Llama-3.1-8B-Instruct',
         messages=[{"role": "system", "content": f"{prompt}"}],
-        temperature=0.1,
-        top_p=0.1
+        temperature=0.6,
+        top_p=0.3
     )
 
     return response.choices[0].message.content
