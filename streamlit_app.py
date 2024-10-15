@@ -69,7 +69,7 @@ Ensure that the JSON format is strictly followed with no additional text outside
     user_prompt = f'Evaluate the goals\nGoals: {data}\n\nSummary of the Data: {summary}'
     messages = [
             {"role": "system", "content": Q_system_prompt},
-            {"role": "assistant","content":f"{user_prompt}\n\n Rules:\ni)Remember that the new questions should be only focused on univariate analysis\nii)GENERATE ONLY THE GOALS FOLLWOING THE BELOW FORMAT:\n{FORMAT_INSTRUCTIONS}\n"}]
+            {"role": "assistant","content":f"{user_prompt}\n\n Rules:\ni)Remember that the new questions should be only focused on univariate analysis\nii)GENERATE ONLY THE UPDATED GOALS IN FOLLWOING THE BELOW FORMAT:\n{FORMAT_INSTRUCTIONS}\n"}]
     st.write("New Information:")
     #st.write(api(messages))
     #exit()
