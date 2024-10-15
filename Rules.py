@@ -55,7 +55,7 @@ def extract_data(data: pd.DataFrame) -> dict:
 
 def check_type(dtype: str, value):
     if "float" in str(dtype):
-        return float(value)
+        return float(value).round(2)
     elif "int" in str(dtype):
         return int(value)
     else:
