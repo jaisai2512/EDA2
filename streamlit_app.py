@@ -62,9 +62,9 @@ You are an experienced data analyst who generates a specified number of insightf
     #exit()
     data = json.loads(api(messages))
     st.write(data)
-    Q_system_prompt = f'''You are a highly skilled data analyst. Your task is to evaluate the provided goals. If a goal is not appropriate, please propose a new one , the new goal can be a improved version of pervious one or a completely new one.
+    Q_system_prompt = f'''You are a highly skilled data analyst. Your task is to evaluate the provided goals. If a goal is not appropriate, please propose a new one , the new goal can either be an improved version of the previous one or a completely new goal that replaces the old one.
     Ask the following questions to evaluate each goal:
-    1)Is this an appropriate question to extract valuable information about a variable from the summary, or is there a better way to phrase it?
+    1)Is this an appropriate question to extract valuable information about a variable from the summary, or is there a better way to ask it?
     2)Does this goal provide any highly valuable information to the user?
     Based on your evaluation:
     1)If the answers to questions are yes, then keep the goal unchanged.
