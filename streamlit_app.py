@@ -61,14 +61,14 @@ Ensure that the JSON format is strictly followed with no additional text outside
     #exit()
     data = json.loads(api(messages))
     st.write(data)
-    Q_system_prompt = f''''You are a highly skilled data analyst who is here to ask questions on the goals provided to you,The question is 'is this the right question generated given summary based on a variable ?,Does the question provides high value information to the user ?', if answer to these question is yes then don't change the goal if not change the goal to a optimal one\n\nSummary:{summary}\n\nRules:i)The newly generated goal should be based on Univariate Analysis only\nii)NO REMOVAL OF GOALS\nii)OUPUT THE GOALS FOLLOWWING THIS FORMAT:\n{FORMAT_INSTRUCTIONS}'''
+    Q_system_prompt = f''''You are a highly skilled data analyst who is here to ask questions on the goals provided to you,The question is 'is this the right question generated given summary based on a variable ?,Does the question provides high value information to the user ?', if answer to these question is yes then don't change the goal if not change the goal to a optimal one\n\nSummary:{summary}\n\nRules:i)The newly generated goal should be based on Univariate Analysis only\nii)NO REMOVAL OF GOALS\nii)OUPUT THE GOALS FOLLOWWING THIS FORMAT:\n{FORMAT_INSTRUCTIONS}\nii)GENERATING ANYTHING APART FROM OUPUT GIVES YOU A PENALTY WHICH IS WRONG'''
 
     user_prompt = f'Evaluate and improve the goals\nGoals: {data}\n\nSummary of the Data: {summary}'
     messages = [
             {"role": "system", "content": Q_system_prompt},
             {"role": "user","content":f"{user_prompt}"}]
     st.write("New Information:")
-    st.write(api(messages))
+    #st.write(api(messages))
     #exit()
     data = json.loads(api(messages))
     st.write(data)
