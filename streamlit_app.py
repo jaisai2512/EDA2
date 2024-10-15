@@ -57,7 +57,8 @@ Ensure that the JSON format is strictly followed with no additional text outside
             {"role": "system", "content": U_SYSTEM_INSTRUCTIONS},
             {"role": "assistant",
              "content":
-             f"{user_prompt}\n\n Rules :\ni) The goals should be only focused on Univariate Analysis\nii)For now don;t generate goals which deals with date\niii) Choose appropriate chart types that best represent the data and make the information easy to understand(ex:For distributions: Histograms or box plots) \n\n{FORMAT_INSTRUCTIONS} \n\n"}]
+             f"{user_prompt}\n\n Rules :\ni) The goals should be only focused on Univariate Analysis(Strictly no bivariate or multivariate analysis)\nii)For now don;t generate goals which deals with date\niii) Choose appropriate chart types that best represent the data and make the information easy to understand(ex:For distributions: Histograms or box plots) \n\n{FORMAT_INSTRUCTIONS} \n\n"}]
+    
     st.write("Basic Information:")
     #st.write(api(messages))
     #exit()
