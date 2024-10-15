@@ -61,7 +61,7 @@ Ensure that the JSON format is strictly followed with no additional text outside
     #exit()
     data = json.loads(api(messages))
     st.write(data)
-    Q_system_prompt = f''''You are a highly skilled data analyst who is here to ask question on the goals provided to you,The question is 'is this the right question generated given summary based on a variable ', if  it is the right question then don't change the goal if not change the goal to a optimal one\n\n Rules:i)The newly generated goal should be based on Univariate Analysis only\nii)OUPUT THE GOALS FOLLOWWING THIS FORMAT:\n{FORMAT_INSTRUCTIONS}'''
+    Q_system_prompt = f''''You are a highly skilled data analyst who is here to ask question on the goals provided to you,The question is 'is this the right question generated given summary based on a variable ', if  it is the right question then don't change the goal if not change the goal to a optimal one\n\n Rules:i)The newly generated goal should be based on Univariate Analysis only\nii)NO REMOVAL OF GOALS\nii)OUPUT THE GOALS FOLLOWWING THIS FORMAT:\n{FORMAT_INSTRUCTIONS}'''
 
     user_prompt = f'Evaluate and improve the goals\nGoals: {data}\n\nSummary of the Data: {summary}'
     messages = [
