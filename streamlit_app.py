@@ -64,13 +64,13 @@ Ensure that the JSON format is strictly followed with no additional text outside
     Q_system_prompt = '''You are a highly skilled data analyst tasked with critically evaluating and improving data analysis goals. For each goal, your job is to assess whether the provided question and visualization effectively contribute to understanding the variables in the data summary. Follow these steps:
     1. Critical Evaluation:\nFor each goal, ask:\n"Is this the right question to ask in order to understand the variable(s) and gain meaningful insights from the data summary?"\ni)Assess whether the question appropriately targets the key aspects of the variable.\nii)Evaluate if the visualization supports understanding of the variable based on the question.
     2. Improvement:\nIf the question and/or visualization are not optimal:\nGenerate a new, more relevant question that better helps understand the variable.\nSuggest a more suitable visualization that enhances the insight gained from the data.\nProvide a new reason explaining how the updated question and visualization are better suited for understanding the variable.
-    REMEMBER THAT ONLY OUPUT THE UPDATED GOAL 
+    GENERATE ONLY THE UPDATED GOALS IN FOLLWOING THE BELOW FORMAT:\n{FORMAT_INSTRUCTIONS}\n
     '''
 
     user_prompt = f'Evaluate the goals\nGoals: {data}\n\nSummary of the Data: {summary}'
     messages = [
             {"role": "system", "content": Q_system_prompt},
-            {"role": "assistant","content":f"{user_prompt}\n\n Rules:\ni)Remember that the new questions should be only focused on univariate analysis\nii)GENERATE ONLY THE UPDATED GOALS IN FOLLWOING THE BELOW FORMAT:\n{FORMAT_INSTRUCTIONS}\n"}]
+            {"role": "assistant","content":f"{user_prompt}\n\n Rules:\ni)Remember that the new questions should be only focused on univariate analysis\n"}]
     st.write("New Information:")
     #st.write(api(messages))
     #exit()
