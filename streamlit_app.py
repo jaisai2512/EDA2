@@ -57,7 +57,7 @@ Ensure that the JSON format is strictly followed with no additional text outside
             {"role": "system", "content": U_SYSTEM_INSTRUCTIONS},
             {"role": "assistant",
              "content":
-             f"{user_prompt}\n\n Rules :\n\ni) Leave the Question which produce single line answer(eg:The question which does not require Visualization)\n\n{FORMAT_INSTRUCTIONS} \n\n"}]
+             f"{user_prompt}\n\n Rules :\ni) The goals should be only focused on Univariate Analysis\nii)For now don;t generate goals which deals with date.\n\n{FORMAT_INSTRUCTIONS} \n\n"}]
     st.write("Basic Information:")
     #st.write(api(messages))
     #exit()
