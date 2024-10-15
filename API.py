@@ -48,7 +48,7 @@ def api(prompt):
     response = client.chat.completions.create(
         model='Meta-Llama-3.1-8B-Instruct',
         messages=prompt,
-        temperature=0.1,
+        temperature=0.4,
         top_p=0.1
     )
 
