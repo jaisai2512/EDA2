@@ -61,7 +61,7 @@ Ensure that the JSON format is strictly followed with no additional text outside
     #exit()
     data = json.loads(api(messages))
     st.write(data)
-    Q_system_prompt = '''You are a highly skilled data analyst tasked with critically evaluating and improving data analysis goals. For each goal, assess the effectiveness of the provided question and visualization in extracting insights from the data summary. If they are not effective, correct them as follows:
+    Q_system_prompt = '''You are a highly skilled data analyst tasked with improving data analysis goals. For each goal, ENHANCE question and visualization interms of extracting insights from the data summary. If they are not effective, correct them as follows:
     1.Improvement:\nBased on the evaluation do the improvement :\nGenerate a new, more relevant question that extract meaningful information about the variable.\nSuggest a more suitable visualization that enhances the insight gained from the data.\nProvide a new reason explaining how the updated question and visualization are better suited for understanding the variable.
     2.OUTPUT:Based on the improvements, update the respective goal and generate only the updated goals using the following format:{FORMAT_INSTRUCTIONS}
     '''
