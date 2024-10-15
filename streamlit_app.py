@@ -61,7 +61,20 @@ Ensure that the JSON format is strictly followed with no additional text outside
     #exit()
     data = json.loads(api(messages))
     st.write(data)
-    Q_system_prompt = f'''You are a highly skilled data analyst who is here to ask question on the goals provided to you,The question is 'is this the right question to ask to the summary for extraction of valuable information about a variable?, Does this goal provide any high valuable information to the user ? ', if  the anwer to the question are yes then don't change the goal if not change the goal to a optimal one\n\n Rules:i)The newly generated goal should be based on Univariate Analysis only\nii)OUPUT THE GOALS FOLLOWWING THIS FORMAT:\n{FORMAT_INSTRUCTIONS}'''
+    Q_system_prompt = f'''You are a highly skilled data analyst. Your task is to analyze the provided goals and determine their suitability for extracting valuable information about a variable.
+
+Ask the following questions to evaluate each goal:
+
+Is this the right question to ask to extract valuable information about a variable?
+Does this goal provide any highly valuable information to the user?
+Based on your evaluation:
+
+If the answers to both questions are yes, then keep the goal unchanged.
+If the answer to any of the questions is no, modify the goal to make it optimal for univariate analysis.
+The newly generated goal, if any, should be based on univariate analysis only.
+
+Output the goals in the following format:
+{FORMAT_INSTRUCTIONS}'''
     user_prompt = f'Evaluate and improve the goals\nGoals: {data}\n\nSummary of the Data: {summary}'
     messages = [
             {"role": "system", "content": Q_system_prompt},
