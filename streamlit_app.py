@@ -55,11 +55,21 @@ Ensure that the JSON format is strictly followed with no additional text outside
     #user_prompt += f"""\n The generated goals SHOULD BE FOCUSED ON THE INTERESTS AND PERSPECTIVE of a {persona} persona \n"""
     messages = [
             {"role": "system", "content": U_SYSTEM_INSTRUCTIONS},
-            {"role": "assistant",
-             "content":
-             f"{user_prompt}\n\n Rules :\ni) The goals should be only focused on Univariate Analysis(Strictly no bivariate or multivariate analysis)\nii)For now don;t generate goals which deals with date\niii) Choose appropriate chart types that best represent the data and make the information easy to understand(ex:For distributions: Histograms or box plots) \n\n{FORMAT_INSTRUCTIONS} \n\n"}]
-    
+            {"role": "User","content":f"{user_prompt}\n\n Rules :\ni) The goals should be only focused on Univariate Analysis(Strictly no bivariate or multivariate analysis)\nii)For now don;t generate goals which deals with date\niii) Choose appropriate chart types that best represent the data and make the information easy to understand(ex:For distributions: Histograms or box plots) \n\n{FORMAT_INSTRUCTIONS} \n\n"}]
     st.write("Basic Information:")
+    #st.write(api(messages))
+    #exit()
+    data = json.loads(api(messages))
+    Q_system_prompt = '''You are a highly skilled data analyst tasked with critically evaluating and improving data analysis goals. For each goal, your job is to assess whether the provided question and visualization effectively contribute to understanding the variables in the data summary. Follow these steps:
+    1. Critical Evaluation:\nFor each goal, ask:\n"Is this the right question to ask in order to understand the variable(s) and gain meaningful insights from the data summary?"\ni)Assess whether the question appropriately targets the key aspects of the variable.\nii)Evaluate if the visualization supports understanding of the variable based on the question.
+    2. Improvement:\nIf the question and/or visualization are not optimal:\nGenerate a new, more relevant question that better helps understand the variable.\nSuggest a more suitable visualization that enhances the insight gained from the data.\nProvide a new reason explaining how the updated question and visualization are better suited for understanding the variable.
+    3. Iterate for Each Goal:\nRepeat this process for each goal, ensuring that any revisions (questions, visualizations, and reasoning) improve the overall analysis and understanding of the variables in the summary.'''
+
+    user_prompt = 'Evaluate the goals here is the summary of the data:\n{Summary}'
+    messages = [
+            {"role": "system", "content": Q_system_prompt},
+            {"role": "User","content":f"{user_prompt}\n\n Rules:\ni)Remember that the new questions should be only focused on univariate analysis\nii)Always ensure that the output is provided in JSON format, matching the structure of the input."}]
+    st.write("New Information:")
     #st.write(api(messages))
     #exit()
     data = json.loads(api(messages))
