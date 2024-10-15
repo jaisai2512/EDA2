@@ -60,8 +60,8 @@ You are an experienced data analyst who generates a specified number of insightf
     st.write("Basic Information:")
     #st.write(api(messages))
     #exit()
-    data = json.loads(api(messages))
-    st.write(data)
+    p_data = json.loads(api(messages))
+    st.write(p_data)
     Q_system_prompt = f'''You are a highly skilled data analyst. Your task is to evaluate the provided goals. If a goal is not appropriate, please propose a new one , the new goal can either be an improved version of the previous one or a completely new goal that replaces the old one.
     Ask the following questions to evaluate each goal:
     1)Is this an appropriate question to extract valuable information about a variable from the summary, or is there a better way to ask it?
@@ -69,7 +69,7 @@ You are an experienced data analyst who generates a specified number of insightf
     Based on your evaluation:
     1)If the answers to questions are yes, then keep the goal unchanged.
     2)If the answer to any of the questions is no, modify the goal to make it optimal for univariate analysis.'''
-    user_prompt = f'Evaluate and improve the goals\nGoals: {data}\n\nSummary of the Data: {summary}\n\n Rules :The newly generated goal, if any, should be based on univariate analysis only.\nOUTPUT THE GOALS IN THE FOLLOWING FOMRAT:{FORMAT_INSTRUCTIONS}'
+    user_prompt = f'Evaluate and improve the goals\nGoals: {p_data}\n\nSummary of the Data: {summary}\n\n Rules :The newly generated goal, if any, should be based on univariate analysis only.\nOUTPUT THE GOALS IN THE FOLLOWING FOMRAT:{FORMAT_INSTRUCTIONS}'
     messages = [
             {"role": "system", "content": Q_system_prompt},
             {"role": "user","content":f"{user_prompt}"}]
@@ -78,7 +78,7 @@ You are an experienced data analyst who generates a specified number of insightf
     #exit()
     data = json.loads(api(messages))
     st.write(data)
-    for i in data:
+    for i in p_data:
         temp = df
         system_prompt = f'''You are an expert data visualization person who knows to code well. You are given the following:\ni)Question: {i['question']}.\nii)Visualization Type: {i['visualization']}.\niii)Data: Provided in a DataFrame named temp.\niv)Summary of the data: "{summary}".\nv) And a function to Complete.'''
         user_prompt = '''Your Objective is to Create a plan to improve and complete the plot_and_save(temp) function, which should:
