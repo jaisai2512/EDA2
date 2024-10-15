@@ -56,7 +56,7 @@ Continuous: If the data represents measurable, continuous values with consistent
 When classifying, prioritize the semantic type and description to understand the data's purpose. For example, numeric values representing categorical or countable data like area codes should be classified as discrete, not continuous'''
   messages = [
     {"role": "system", "content": system_prompt},
-    {"role": "assistant", "content": f"""
+    {"role": "user", "content": f"""
     Please annotate the dictionary below using the provided instructions:
     {rules}
     Please Consider the following information and sample elements for choosing type_of_data:
