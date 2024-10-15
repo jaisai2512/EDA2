@@ -101,7 +101,7 @@ When classifying, prioritize the semantic type and description to understand the
       '''
   sum = [
     {"role": "system", "content": system_prompt},
-    {"role": "assistant", "content": f"""
+    {"role": "user", "content": f"""
     Please Create a summary based on the json given below:
     {summary}
     Output template:
