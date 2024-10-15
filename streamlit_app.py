@@ -65,7 +65,7 @@ Ensure that the JSON format is strictly followed with no additional text outside
     2. Improvement:\nIf the question and/or visualization are not optimal:\nGenerate a new, more relevant question that better helps understand the variable.\nSuggest a more suitable visualization that enhances the insight gained from the data.\nProvide a new reason explaining how the updated question and visualization are better suited for understanding the variable.
     3. Iterate for Each Goal:\nRepeat this process for each goal, ensuring that any revisions (questions, visualizations, and reasoning) improve the overall analysis and understanding of the variables in the summary.'''
 
-    user_prompt = f'Evaluate the goals\nGoals: {data}\n\nSummary of the Data: {Summary}'
+    user_prompt = f'Evaluate the goals\nGoals: {data}\n\nSummary of the Data: {summary}'
     messages = [
             {"role": "system", "content": Q_system_prompt},
             {"role": "User","content":f"{user_prompt}\n\n Rules:\ni)Remember that the new questions should be only focused on univariate analysis\nii)Always ensure that the output is provided in JSON format, matching the structure of the input."}]
