@@ -62,12 +62,12 @@ You are an experienced data analyst who generates a specified number of insightf
     #exit()
     data = json.loads(api(messages))
     st.write(data)
-    Q_system_prompt = f'''You are a highly skilled data analyst. Your task is to analyze the provided goals and determine their suitability for extracting valuable information about a variable.
+    Q_system_prompt = f'''You are a highly skilled data analyst. Your task is to evaluate the provided goals. If a goal is not appropriate, please propose a new one , the new goal can be a improved version of pervious one or a completely new one.
     Ask the following questions to evaluate each goal:
-    1)Is this the right question to ask the summary for extraction of valuable information about a variable?
+    1)Is this an appropriate question to extract valuable information about a variable from the summary, or is there a better way to phrase it?
     2)Does this goal provide any highly valuable information to the user?
     Based on your evaluation:
-    1)If the answers to both questions are yes, then keep the goal unchanged.
+    1)If the answers to questions are yes, then keep the goal unchanged.
     2)If the answer to any of the questions is no, modify the goal to make it optimal for univariate analysis.'''
     user_prompt = f'Evaluate and improve the goals\nGoals: {data}\n\nSummary of the Data: {summary}\n\n Rules :The newly generated goal, if any, should be based on univariate analysis only.\nOUTPUT THE GOALS IN THE FOLLOWING FOMRAT:{FORMAT_INSTRUCTIONS}'
     messages = [
