@@ -22,7 +22,6 @@ def summary_gen(df):
       "Semantic_type": "string",
       "type_of_measurement": "string", 
       "mean": "number",  // INCLUDE ONLY IF APPLICABLE (NOT NULL)
-      "Skewness":"number", // INCLUDE ONLY IF APPLICABLE (NOT NULL)
       "number_of_nulls": "integer",
       "sample_elements": ["element_1", "element_2", "..."]  // A list of sample values for the field
     },
