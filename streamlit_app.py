@@ -75,12 +75,11 @@ You are an experienced data analyst who generates a specified number of insightf
 
     M_variate = f'''You are an expert data analyst. The user will provide a summary of a dataset, and your task is to generate goals that can be only expressed through visual and also focus solely on the relationships between multiple variables and their interactions. From the summary, generate:
         1)Questions: Based on the provided dataset SUMMARY generate valuable questions which only expressed thorugh visually and mainly focuses on variable relation (ex:x vs y) , CONSIDER THE TYPE OF MEASUREMENT , DESCRIPTION  WHILE CREARTING A GOAL 
-        2)Suggested Visualizations: Come up with a visualization, which helps to answer the question , ALWAYS REMEMBER TO CONSIDER THE VARIABLE invloved in the question for creating the visualization
+        2)Suggested Visualizations: Come up with a visualization, which helps to answer the question , ALWAYS REMEMBER TO CONSIDER THE VARIABLE invloved in the question for creating the visualization , use scatter plot when it continous vs continous
         3)Rationale: Provide a rationale for the insights you expect to uncover through these questions and visualizations. Why are these questions and visualizations important for understanding the relationships between variables in the dataset? What key interactions or patterns do you hope to reveal using these techniques?
         Rules:
         1) Please AVOID UNIVARIATE ANALYSIS QUESTIONS
         2) Use Correlation analsysis, Interaction Anlysis 
-        3) Remember that use scatter plot only continous vs continous variable
 {FORMAT_INSTRUCTIONS}
 '''
     
