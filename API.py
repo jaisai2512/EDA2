@@ -49,7 +49,7 @@ def api(prompt):
         model='Meta-Llama-3.1-8B-Instruct',
         messages=prompt,
         temperature=0.1,
-        top_p=0.4
+        top_p=0.1
     )
 
     return response.choices[0].message.content
