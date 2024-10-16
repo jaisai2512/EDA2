@@ -74,11 +74,9 @@ You are an experienced data analyst who generates a specified number of insightf
     st.write("New Information:")
 
     M_variate = f'''You are an expert data analyst. The user will provide a summary of a dataset, and your task is to generate goals that focus solely on the relationships between multiple variables and their interactions, using specific multivariate analysis techniques such as Pearson correlation, Spearman correlation, or interaction effects. From the summary, generate:
-        1)Questions: Based on the provided dataset summary, formulate valuable multivariate analysis questions ,
+        1)Questions: Based on the provided dataset summary, formulate valuable multivariate analysis questions , questioning the variable relation with others 
         2)Suggested Visualizations: Come up with a visualization which is the most effective way to visually express the question.
         3)Rationale: Provide a rationale for the insights you expect to uncover through these questions and visualizations. Why are these questions and visualizations important for understanding the relationships between variables in the dataset? What key interactions or patterns do you hope to reveal using these techniques?
-        Rules:
-        1)For creating the question pick the variables you want to analyze understand them by going through the description and ask the question do they really have any kind of relation that if questioned can produce a valuble information
         Specify the variable used in the goals
 {FORMAT_INSTRUCTIONS}
 '''
