@@ -83,7 +83,7 @@ When classifying, prioritize the semantic type and description to understand the
     {"role": "system", "content": system_prompt},
     {"role": "user", "content": f"""
     Please Create a summary based on the json given below:
-    {o_summary}
+    {rules}
     Output template:
     {temp}
     """},
