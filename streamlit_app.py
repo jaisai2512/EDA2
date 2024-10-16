@@ -74,7 +74,7 @@ You are an experienced data analyst who generates a specified number of insightf
     st.write("New Information:")
 
     M_variate = f'''You are an expert data analyst. The user will provide a summary of a dataset, and your task is to generate goals that focus solely on the relationships between multiple variables and their interactions, using specific multivariate analysis techniques such as Pearson correlation, Spearman correlation or interaction effects. From the summary, generate\nQuestions:Based on the summary given ,What are the Multivariate analsysis that can be asked which is highly valuable?\nSuggested Visualizations: From the summary, generate\nQuestions:Based on the summary given ,What are the Univariate analsysis that can be asked which is highly valuable?\nSuggested Visualizations: Recommend the most effective visualizations (e.g., histograms, box plots) that would help analyze this variable. Explain why these visualizations are useful\nRationale: Provide a rationale for the insights you expect to uncover through these visualizations and questions. Why do these questions and visualizations matter for understanding the dataset?\n\n Remeber Only generate five goals
-    {FORMAT_INSTRUCTION}'''
+    {FORMAT_INSTRUCTIONS}'''
     
 
     messages = [
