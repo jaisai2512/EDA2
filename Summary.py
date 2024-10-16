@@ -18,12 +18,12 @@ def summary_gen(df):
     {
       "Name": "string",
       "Description": "string",
-      "Dtype":"string",
+      "data_type":"string",
       "Semantic_type": "string",
       "type_of_measurement": "string", 
       "mean": "number",  // INCLUDE ONLY IF APPLICABLE (NOT NULL)
       "Skewness":"number", // INCLUDE ONLY IF APPLICABLE (NOT NULL)
-      "num_of_nulls": "integer",
+      "number_of_nulls": "integer",
       "sample_elements": ["element_1", "element_2", "..."]  // A list of sample values for the field
     },
     // More fields...
