@@ -60,10 +60,7 @@ When classifying, prioritize the semantic type and description to understand the
   if(count == 2):
     st.write("reupload")
     exit()'''
-  system_prompt ='''As an experienced data analyst, your task is to create a structured dataset annotation based on the json output them in a template given , REMEMBER TO INCLUDE ALL THE PROPERTIES MENTIONED IN THE JSON. Follow these Rules:
-      1. Fill in the dataset title and description accurately, ensuring clarity about the dataset's purpose and context.
-      2. For each field in the dataset:
-        i)Provide a description of the field's properties which can be used for data analysis and should based on the json.
+  system_prompt ='''You are tasked with summarizing a json using the following template. For each field in the dataset, provide a summary covering all its key properties, such as the field name, description, data type, semantic type, type of measurement, null counts, and sample elements. Ensure the structure follows the template below:\n{temp}
   '''
   temp = '''
       Dataset Title(Bold text): 
@@ -85,8 +82,6 @@ When classifying, prioritize the semantic type and description to understand the
     {"role": "user", "content": f"""
     Please Create a summary based on the json given below:
     {o_summary}
-    Output template:
-    {temp}
     """},
 ]
   s = api(sum)
