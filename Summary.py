@@ -10,7 +10,7 @@ def summary_gen(df):
   1.Generate a semantic_type (a single word) for each field, based on its values (e.g., company, city, number, supplier, location, gender, longitude, latitude, URL, IP address, zip code, email, etc.)
   2.ALWAYS specify the description
   3.Always specify  the type of measurement based on the context
-  4.When classifying type of measurement, prioritize the semantic type and description to understand the data's purpose. For example, numeric values representing categorical or countable data like area codes should be classified as discrete, not continuous'''
+  4.When classifying type of measurement, prioritize the semantic type and description to understand the data's purpose. For example, numeric values representing categorical or countable data like area codes should be classified as discrete, not continuous
 '''
   new_template = '''{
   "dataset_name": "string",
