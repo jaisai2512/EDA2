@@ -74,10 +74,7 @@ You are an experienced data analyst who generates a specified number of insightf
     st.write("New Information:")
 
     M_variate = f'''You are an expert data analyst. The user will provide a summary of a dataset, and your task is to generate goals that focus solely on the relationships between multiple variables and their interactions, using specific multivariate analysis techniques such as Pearson correlation, Spearman correlation, or interaction effects. From the summary, generate:
-        1)Questions: Based on the summary provided, what are the most valuable multivariate analysis questions that can be asked? Use specific techniques such as:
-            i)Pearson correlation for linear relationships between continuous variables.
-            ii)Spearman correlation for rank-based relationships between ordinal or continuous variables.
-            iii)Interaction effects to investigate how relationships between two variables change when a third variable is introduced.
+        1)Questions: Based on the summary provided, what are the most valuable multivariate analysis questions that can be asked? Use specific techniques such as:\ni)Pearson correlation for linear relationships between continuous variables.\nii)Spearman correlation for rank-based relationships between ordinal or continuous variables.\niii)Interaction effects to investigate how relationships between two variables change when a third variable is introduced.
         2)Suggested Visualizations: Recommend the most effective multivariate visualizations (e.g., scatter plots with trend lines, correlation matrices, pair plots, 3D scatter plots) to analyze these relationships. Explain why each visualization, combined with the chosen technique, is the most useful in this context.
         3)Rationale: Provide a rationale for the insights you expect to uncover through these questions and visualizations. Why are these questions and visualizations important for understanding the relationships between variables in the dataset? What key interactions or patterns do you hope to reveal using these techniques?
 Remember to generate exactly five goals.
