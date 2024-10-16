@@ -6,7 +6,7 @@ from json_correction import format_correction
 def summary_gen(df):
   rules = Rules.get_column_properties(df)
 
-  system_prompt = '''As a seasoned data analyst, your responsibility is to anotate the provided dictionary then output them in the specified template while following this Rules below:
+  system_prompt = '''As a seasoned data analyst, your responsibility is to go through the dictionary provided to you and then fill the information needed in the template given to you , You are to allowed to annotate and follow these Rules below:
   1.Generate a semantic_type (a single word) for each field, based on its values (e.g., company, city, number, supplier, location, gender, longitude, latitude, URL, IP address, zip code, email, etc.).
   2.ALWAYS specify the description.
   3.Always specify  the type of data.
