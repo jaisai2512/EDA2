@@ -63,7 +63,8 @@ When classifying, prioritize the semantic type and description to understand the
   system_prompt ='''As an experienced data analyst, your task is to create a structured dataset annotation based on template. Follow these Rules:
       1. Fill in the dataset title and description accurately, ensuring clarity about the dataset's purpose and context.
       2. For each field in the dataset:
-        i)Provide a description of the field's properties which can be used for data analysis and should based on the json.'''
+        i)Provide a description of the field's properties which can be used for data analysis and should based on the json.
+        ii)Alays rember to specify type of measurement'''
   temp = '''
       Dataset Title(Bold text): 
       [Provide the title of the dataset here]
@@ -73,9 +74,9 @@ When classifying, prioritize the semantic type and description to understand the
 
       Fields(Bold text):
           - Field 1(Bold text): 
-                A summary on this field covering all the properties,not in pointts
+                A summary on this field covering all the properties
           - Field 2(Bold text): 
-                 A summary on this field covering all the properties,not in points
+                 A summary on this field covering all the properties
             [Continue for additional fields as necessary]
             ...
       '''
