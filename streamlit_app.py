@@ -28,18 +28,7 @@ if uploaded_file is not None:
     # Display the content of the CSV file
     st.write("Summary of the CSV file:")
     var_dict = {'df': df}
-    summary,d_summary = summary_gen(df)
-    summary = '''The Invoice Data dataset contains detailed information regarding invoices, customers, and products. Each invoice is assigned a unique identifier, known as the invoice number, which is a string and categorized as an identifier. Similarly, each customer has a unique customer ID that serves the same purpose.
-
-The dataset includes customer gender, categorized as demographic, with values of Male and Female. Additionally, customer age is recorded as a discrete number, with an average age of 35 years.
-
-Products in the dataset are classified into various categories such as Clothing, Shoes, Books, and others, which fall under the categorical semantic type. The quantity of items purchased per transaction is noted as a discrete number, with an average quantity of 2.6.
-
-Prices for each item are recorded as continuous numbers, with an average price of 1234.9, categorized as monetary. The dataset also specifies the payment method used, with options like Credit Card, Debit Card, and Cash, categorized as categorical.
-
-Each invoice includes an invoice date, categorized as a date, facilitating time-based analysis. Finally, the dataset provides information about the shopping mall where each purchase was made, with various mall names listed as locations.
-
-'''
+    summary= summary_gen(df)
     FORMAT_INSTRUCTIONS = """
 The output must follow the exact JSON format below:
 [
