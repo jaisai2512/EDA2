@@ -11,7 +11,7 @@ def summary_gen(df):
   2.ALWAYS specify the description
   3.Always specify  the type of measurement based on the context
   '''
-  temp = '''
+  new_template= '''
   "dataset_name": "string",
   "dataset_description": "string",
   "fields_properties": [
