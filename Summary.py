@@ -9,7 +9,7 @@ def summary_gen(df):
   system_prompt = '''As a seasoned data analyst,your responsibility is to go through a dictionary given to you , understand it and ouput the information in the template given to you while following the rules below:  
   1.Generate a semantic_type (a single word) for each field, based on its values (e.g., company, city, number, supplier, location, gender, longitude, latitude, URL, IP address, zip code, email, etc.).
   2.ALWAYS specify the description.
-  3.Always specify  the type of data.
+  3.Always specify  the type of measurement.
 '''
   new_template = '''{
   "dataset_name": "string",
@@ -20,7 +20,7 @@ def summary_gen(df):
       "Description": "string",
       "Dtype":"string",
       "Semantic_type": "string",
-      "type_of_data": "string", 
+      "type_of_measurement": "string", 
       "mean": "number",  // INCLUDE ONLY IF APPLICABLE (NOT NULL)
       "Skewness":"number", // INCLUDE ONLY IF APPLICABLE (NOT NULL)
       "num_of_nulls": "integer",
