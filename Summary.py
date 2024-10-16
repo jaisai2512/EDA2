@@ -17,7 +17,7 @@ def summary_gen(df):
     {
       "Name": "string",
       "Description": "string",
-      "Semantic_type": "string",
+      "data_type":"string"
       "type_of_measurement": "string", 
       "mean": "number",  // INCLUDE ONLY IF APPLICABLE (NOT NULL)
       "number_of_nulls": "integer",
