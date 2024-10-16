@@ -58,10 +58,8 @@ You are an experienced data analyst who generates a specified number of insightf
             {"role": "system", "content": U_SYSTEM_INSTRUCTIONS},
             {"role": "user","content":f"{user_prompt}\n\n Rules :\ni) The goals should be only focused on Univariate Analysis(Strictly no bivariate or multivariate analysis)\nii)Choose appropriate chart types that best represent the data and make the information easy to understand(ex:For distributions: Histograms or box plots)\niii)Please AVOID goals will with time series"}]
     st.write("Basic Information:")
-    #st.write(api(messages))
-    #exit()
-    p_data = json.loads(api(messages))
-    st.write(p_data)
+    #p_data = json.loads(api(messages))
+    #st.write(p_data)
     Q_system_prompt = f'''You are a highly skilled data analyst. Your task is to evaluate the provided goals. If a goal is not appropriate, please propose a new one which replaces the old one , the new goal can either be an improved version of the previous one or a completely new goal.
     Ask the following questions to evaluate each goal:
     1)Is this an appropriate question to extract valuable information about a variable from the summary, or is there a better way to ask it?
@@ -74,6 +72,17 @@ You are an experienced data analyst who generates a specified number of insightf
             {"role": "system", "content": Q_system_prompt},
             {"role": "user","content":f"{user_prompt}"}]
     st.write("New Information:")
+
+    M_variate = '''You are an expert data analyst. The user will provide a summary of a dataset, and your task is to generate goals that focus solely on the relationships between multiple variables and their interactions, using specific multivariate analysis techniques such as Pearson correlation, Spearman correlation or interaction effects. From the summary, generate the below : 
+    1)Questions: Based on the summary provided, what are the most valuable multivariate analysis questions that can be asked? Use specific techniques such as:\ni)Pearson correlation for linear relationships between continuous variables.\nii)Spearman correlation for rank-based relationships between ordinal or continuous variables.\niii)Interaction effects to investigate how relationships between two variables change when a third variable is introduced.
+    2)Suggested Visualizations: Recommend the most effective multivariate visualizations (e.g., scatter plots with trend lines, correlation matrices, pair plots, 3D scatter plots) to analyze these relationships. Explain why each visualization, combined with the chosen technique, is the most useful in this context.
+    3)Rationale: Provide a rationale for the insights you expect to uncover through these questions and visualizations. Why are these questions and visualizations important for understanding the relationships between variables in the dataset? What key interactions or patterns do you hope to reveal using these techniques?
+    Temeplate to follow:\n{FORMAT_INSTRUCTIONS }'''
+
+    messages = [
+            {"role": "system", "content": M_variate},
+            {"role": "user","content":f"{user_prompt}"}]
+    
     st.write(api(messages))
     #exit()
     data = json.loads(api(messages))
