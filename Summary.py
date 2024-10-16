@@ -48,7 +48,6 @@ When classifying, prioritize the semantic type and description to understand the
     """},
 ]
   o_summary = api(messages)
-  st.write(o_summary)
   count = 0
   '''while count <2:
     try:
