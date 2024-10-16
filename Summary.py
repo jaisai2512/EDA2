@@ -10,6 +10,8 @@ def summary_gen(df):
   1.Generate a semantic_type (a single word) for each field, based on its values (e.g., company, city, number, supplier, location, gender, longitude, latitude, URL, IP address, zip code, email, etc.)
   2.ALWAYS specify the description
   3.Always specify  the type of measurement based on the context
+  '''
+  temp = '''
   "dataset_name": "string",
   "dataset_description": "string",
   "fields_properties": [
