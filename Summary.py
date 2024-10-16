@@ -60,7 +60,7 @@ When classifying, prioritize the semantic type and description to understand the
   if(count == 2):
     st.write("reupload")
     exit()'''
-  system_prompt ='''You are tasked with summarizing a json using the following template. For each field in the dataset, provide a summary covering all its key properties, such as the field name, description, semantic type, type of measurement, null counts, and sample elements.\nRules:i)THE SUMMARY SHOULD BE NOT IN POINTS\nii)THE SUMMARY SHOULD BE CONCISE COVERING ALL POINTS OF THE FIELD\n\nEnsure the structure follows the template below:\n{temp}
+  system_prompt ='''You are tasked with summarizing a json using the following template. For each field in the dataset, provide a summary covering all its key properties, such as the field name, description, semantic type, type of measurement, null counts, and sample elements.\nRules:i)ther summary should not be in points\n\nEnsure the structure follows the template below:\n{temp}
   
   '''
   temp = '''
