@@ -7,9 +7,9 @@ def summary_gen(df):
   rules = Rules.get_column_properties(df)
 
   system_prompt = '''As a seasoned data analyst,your responsibility is to go through a dictionary given to you , understand it and ouput the information in the template given to you while following the rules below:  
-  1.Generate a semantic_type (a single word) for each field, based on its values (e.g., company, city, number, supplier, location, gender, longitude, latitude, URL, IP address, zip code, email, etc.).
-  2.ALWAYS specify the description.
-  3.Always specify  the type of measurement.
+  1.Generate a semantic_type (a single word) for each field, based on its values (e.g., company, city, number, supplier, location, gender, longitude, latitude, URL, IP address, zip code, email, etc.)
+  2.ALWAYS specify the description
+  3.Always specify  the type of measurement based on the context
 '''
   new_template = '''{
   "dataset_name": "string",
@@ -40,7 +40,7 @@ When classifying, prioritize the semantic type and description to understand the
     {"role": "user", "content": f"""
     Please annotate the dictionary below using the provided instructions:
     {rules}
-    Please Consider the below Context and sample elements for choosing type_of_data:
+    Please Consider the below Context and sample elements for choosing type_of_measurement:
     {information}
     Output template:
     {new_template}
@@ -59,7 +59,7 @@ When classifying, prioritize the semantic type and description to understand the
   if(count == 2):
     st.write("reupload")
     exit()'''
-  system_prompt ='''As an experienced data analyst, your task is to create a structured dataset annotation based on the template. Follow these Rules:
+  system_prompt ='''As an experienced data analyst, your task is to create a structured dataset annotation based on the json output them in a template given , REMEMBER TO INCLUDE ALL THE PROPERTIES MENTIONED IN THE JSON. Follow these Rules:
       1. Fill in the dataset title and description accurately, ensuring clarity about the dataset's purpose and context.
       2. For each field in the dataset:
         i)Provide a description of the field's properties which can be used for data analysis and should based on the json.
