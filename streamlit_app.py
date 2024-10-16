@@ -80,6 +80,7 @@ You are an experienced data analyst who generates a specified number of insightf
         Rules:
         1) Please AVOID UNIVARIATE ANALYSIS QUESTIONS
         2) Use Correlation analsysis, Interaction Anlysis 
+        3) Remember that use scatter plot only continous vs continous variable
 {FORMAT_INSTRUCTIONS}
 '''
     
