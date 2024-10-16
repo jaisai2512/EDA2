@@ -59,7 +59,7 @@ When classifying, prioritize the semantic type and description to understand the
   if(count == 2):
     st.write("reupload")
     exit()'''
-  system_prompt ='''As an experienced data analyst, your task is to create a structured dataset annotation based on the provided template given a json and  fill the missing details first. Follow these Rules:
+  system_prompt ='''As an experienced data analyst, your task is to create a structured dataset annotation based on the json given and ouput them in the given template. Follow these Rules:
       1. Fill in the dataset title and description accurately, ensuring clarity about the dataset's purpose and context.
       2. For each field in the dataset:
         i) Please provide its semantic type
