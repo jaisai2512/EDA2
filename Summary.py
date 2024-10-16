@@ -60,8 +60,10 @@ When classifying, prioritize the semantic type and description to understand the
   if(count == 2):
     st.write("reupload")
     exit()'''
-  system_prompt ='''Your task is to create a structured dataset annotation based on the provided JSON output, adhering to the following template given by the user and rules below\n i) Provide a comprehensive description of the field's properties based on the information in the JSON
-  '''
+  system_prompt ='''As an experienced data analyst, your task is to create a structured dataset annotation based on the json output them in a template given , REMEMBER TO INCLUDE ALL THE PROPERTIES MENTIONED IN THE JSON. Follow these Rules:
+      1. Fill in the dataset title and description accurately, ensuring clarity about the dataset's purpose and context.
+      2. For each field in the dataset:
+        i)Provide a description of the field's properties which can be used for data analysis and should based on the json.'''
   temp = '''
       Dataset Title(Bold text): 
       [Provide the title of the dataset here]
