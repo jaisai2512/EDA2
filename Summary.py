@@ -21,9 +21,9 @@ def summary_gen(df):
       "data_type":"string",
       "Semantic_type": "string",
       "type_of_measurement": "string", 
-      "mean": "number",  // INCLUDE ONLY IF APPLICABLE 
-      "min": can be anything, // INCLUDE ONLY IF APPLICABLE 
-      "min": can be anythig , // INCLUDE ONLY IF APPLICABLE 
+      "mean": "number",  // INCLUDE ONLY IF APPLICABLE (NOT NULL)
+      "min": can be anything, // INCLUDE ONLY IF APPLICABLE (NOT NULL)
+      "min": can be anythig , // INCLUDE ONLY IF APPLICABLE (NOT NULL)
       "number_of_nulls": "integer",
       "sample_elements": ["element_1", "element_2", "..."]  // A list of sample values for the field
     },
