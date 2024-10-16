@@ -39,14 +39,14 @@ import os
 import openai
 
 def api(prompt):
-    os.environ['SAMBANOVA_API_KY'] = 'ebd5e08a-0a6f-4f8f-9801-95001c33da6b'
+    os.environ['SAMBANOVA_API_KY'] = 'd17279e2-2af0-4dd0-850e-f02cf1b06f6e'
     client = openai.OpenAI(
         api_key=os.environ.get("SAMBANOVA_API_KY"),
         base_url="https://api.sambanova.ai/v1",
     )
 
     response = client.chat.completions.create(
-        model='Meta-Llama-3.1-70B-Instruct',
+        model='Meta-Llama-3.1-8B-Instruct',
         messages=prompt,
         temperature=0.1,
         top_p=0.1
