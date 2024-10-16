@@ -101,7 +101,7 @@ iv) Data: A DataFrame named "temp".
 v) Incomplete function: plot_and_save(temp).
 '''
 
-user_prompt = '''
+        user_prompt = '''
 Objective: Improve and complete the `plot_and_save(temp)` function to answer the question using an optimal visualization approach. The function must:
 i) Develop an efficient plan to generate the visualization and implement it in the function.
 ii) Process the DataFrame "temp" efficiently to create the plot.
