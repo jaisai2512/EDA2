@@ -140,6 +140,7 @@ def get_column_properties(df: pd.DataFrame, n_samples: int = 3) -> list[dict]:
       properties["num_unique_values"] = nunique
       properties["num_of_nulls"] = df[column].isnull().sum()
       properties["semantic_type"] = ""
+      properties["description"] = ""
       properties["type_of_measurement"]=""
       properties_list.append({"column": column, "properties": properties})
 
