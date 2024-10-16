@@ -10,6 +10,7 @@ def summary_gen(df):
   1.Generate a semantic_type (a single word) for each field, based on its values (e.g., company, city, number, supplier, location, gender, longitude, latitude, URL, IP address, zip code, email, etc.)
   2.ALWAYS specify the description
   3.Always specify  the type of measurement based on the context
+  4.When classifying type of measurement, prioritize the semantic type and description to understand the data's purpose. For example, numeric values representing categorical or countable data like area codes should be classified as discrete, not continuous'''
 '''
   new_template = '''{
   "dataset_name": "string",
@@ -33,8 +34,7 @@ def summary_gen(df):
 Nominal: If the data represents categories or labels that have no inherent order, even if numeric (e.g., codes, IDs, or categorical values).
 Ordinal: If the data represents categories with a meaningful order but without consistent intervals (e.g., ranks or satisfaction levels).
 Discrete: If the data represents countable, distinct numeric values (e.g., whole numbers with specific meanings like area codes or counts).
-Continuous: If the data represents measurable, continuous values with consistent intervals (e.g., heights, temperatures, or time).
-When classifying, prioritize the semantic type and description to understand the data's purpose. For example, numeric values representing categorical or countable data like area codes should be classified as discrete, not continuous'''
+Continuous: If the data represents measurable, continuous values with consistent intervals (e.g., heights, temperatures, or time).'''
   messages = [
     {"role": "system", "content": system_prompt},
     {"role": "user", "content": f"""
