@@ -49,7 +49,6 @@ When classifying type of measurement, prioritize the semantic type and descripti
     """},
 ]
   o_summary = api(messages)
-  st.write(o_summary)
   count = 0
   '''while count <2:
     try:
@@ -89,8 +88,29 @@ When classifying type of measurement, prioritize the semantic type and descripti
     {temp}
     """},
 ]
-  s = api(sum)
+  s = '''The Invoice Data dataset contains information about invoices, customers, and products. It includes the following fields:
+
+Invoice Number: Each invoice has a unique identifier (e.g., I704758, I218404, I195516) that distinguishes it from others.
+
+Customer ID: Each customer is identified by a unique customer ID (e.g., C971218, C949846, C440398).
+
+Gender: This field indicates the gender of the customer, with options including Male and Female.
+
+Age: The age of the customer is recorded as a discrete number, with an average age of 35 years (sample ages include 52 and 57).
+
+Product Category: The dataset categorizes products into types such as Clothing, Shoes, Books, Cosmetics, Food & Beverage, Toys, Technology, and Souvenirs.
+
+Quantity: This field represents the number of items purchased, with an average quantity of 2.6 items (sample quantities include 5, 3, 1, 4, and 2).
+
+Price: The price of each item is recorded as a continuous number, with an average price of 1234.9 (sample prices include 121.98 and 71.68).
+
+Payment Method: Customers can choose from various payment methods, including Credit Card, Debit Card, and Cash.
+
+Invoice Date: The date of each invoice is recorded, with sample dates including 9/7/2022 and 14/10/2022.
+
+Shopping Mall: The dataset includes information about the shopping mall where the purchase was made, with locations such as Kanyon, Forum Istanbul, Metrocity, and Zorlu Center.'''
   st.write(s)
+
   
   return s,o_summary
   
