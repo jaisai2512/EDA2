@@ -49,6 +49,7 @@ When classifying type of measurement, prioritize the semantic type and descripti
     """},
 ]
   o_summary = api(messages)
+  st.write(o_summary)
   count = 0
   '''while count <2:
     try:
