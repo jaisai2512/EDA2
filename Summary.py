@@ -9,7 +9,6 @@ def summary_gen(df):
   system_prompt = '''As a seasoned data analyst,your responsibility is to go through a dictionary given to you , understand it and ouput the information in the template given to you while following the rules below:  
   1.Generate a semantic_type (a single word) for each field, based on its values (e.g., company, city, number, supplier, location, gender, longitude, latitude, URL, IP address, zip code, email, etc.)
   2.ALWAYS specify the description
-  3.Always specify  the type of measurement based on the context
   '''
   new_template= '''
   "dataset_name": "string",
@@ -36,7 +35,7 @@ Discrete: If the data represents countable, distinct numeric values (e.g., whole
 Continuous: If the data represents measurable, continuous values with consistent intervals (e.g., heights, temperatures, or time).
 When classifying type of measurement, prioritize the semantic type and description to understand the data's purpose. For example, numeric values representing categorical or countable data like area codes should be classified as discrete, not continuous
 '''
-  new_template = '''{'''
+  
   messages = [
     {"role": "system", "content": system_prompt},
     {"role": "user", "content": f"""
