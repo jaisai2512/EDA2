@@ -102,7 +102,7 @@ v) Incomplete function: plot_and_save(temp).
 '''
         
         user_prompt = '''
-Objective: Come up with a plan to answer the question by completing the `plot_and_save(temp)` function use the visualization specified in the visuationa part or you can came up with new visualization if you feel the visualizaion is not right. The function must:
+Objective: Come up with a plan to answer the question by completing the `plot_and_save(temp)` function use the visualization specified in the visuationa part. The function must:
 i) Develop an efficient plan to generate the visualization and implement it in the function.
 ii) Process the DataFrame "temp" efficiently to create the plot.
 iii) Add appropriate labels, titles, and legends, ensuring spacing between legends for clarity.
