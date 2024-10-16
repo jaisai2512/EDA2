@@ -77,6 +77,7 @@ You are an experienced data analyst who generates a specified number of insightf
         1)Questions: Based on the provided dataset summary, formulate valuable multivariate analysis question which can 
         2)Suggested Visualizations: Come up with a visualization which is the most effective way to visually express the question, Use specific techniques such as:\ni)For visualizing linear relationships between continuous variables (e.g., scatter plots with correlation coefficients).\nii)For visualizing rank-based or ordinal relationships (e.g., heatmaps for ranked variables)\n
         3)Rationale: Provide a rationale for the insights you expect to uncover through these questions and visualizations. Why are these questions and visualizations important for understanding the relationships between variables in the dataset? What key interactions or patterns do you hope to reveal using these techniques?
+        Specify the variable used in the goals
 {FORMAT_INSTRUCTIONS}
 '''
     
@@ -91,7 +92,7 @@ You are an experienced data analyst who generates a specified number of insightf
     st.write(data)
     for i in data:
         temp = df
-        system_prompt = f'''You are an expert data visualization person who knows to code well. You are given the following:\ni)Question: {i['question']}.\nii)Visualization Type: {i['visualization']}.\niii)Reason : {i['reason']}\niv)Data: Provided in a DataFrame named temp.\nv)Summary of the data: {summary}.\nvi) And a function to Complete.'''
+        system_prompt = f'''You are an expert data visualization person who knows to code well. You are given the following:\ni)Question: {i['question']}.\nii)Visualization Type: {i['visualization']}.\niii)Data: Provided in a DataFrame named temp.\n.\niv) And a function to Complete.'''
         user_prompt = '''Your Objective is to Create a plan to answer the question through a code by improving and complete the plot_and_save(temp) function, which should:
                                     i) Come up with a optimal plan and used this plan to complete the function.
                                     ii)Ensure that the function handles and processes the input temp (which contains the data) efficiently.
