@@ -59,12 +59,10 @@ When classifying type of measurement, prioritize the semantic type and descripti
   if(count == 2):
     st.write("reupload")
     exit()'''
-  system_prompt ='''As an experienced data analyst, your task is to create a structured dataset annotation based on template. Follow these Rules:
+  system_prompt ='''As an experienced data analyst, your task is to create a structured dataset annotation based on thetemplate given . Follow these Rules:
       1. Fill in the dataset title and description accurately, ensuring clarity about the dataset's purpose and context.
       2. For each field in the dataset:
-        i)Provide a description of the field's properties without leaving anything.
-        ii)Always remember to specify type of measurement
-        iii)Always to remember specify semantic type'''
+        i)Provide a description of the field's properties which can be used for data analysis and should based on the json.'''
   temp = '''
       Dataset Title(Bold text): 
       [Provide the title of the dataset here]
