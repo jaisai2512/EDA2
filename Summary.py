@@ -64,7 +64,7 @@ When classifying type of measurement, prioritize the semantic type and descripti
       1. Fill in the dataset title and description accurately, ensuring clarity about the dataset's purpose and context.
       2. For each field in the dataset:
         i)Provide a description of the field's properties which can be used for data analysis and should based on the json.
-        ii) Please provide the field description in points'''
+        '''
   temp = '''
       Dataset Title(Bold text): 
       [Provide the title of the dataset here]
