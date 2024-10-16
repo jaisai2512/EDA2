@@ -72,7 +72,22 @@ You are an experienced data analyst who generates a specified number of insightf
             {"role": "system", "content": Q_system_prompt},
             {"role": "user","content":f"{user_prompt}"}]
     st.write("New Information:")
-   
+   vis_rules = '''Visualization Summary
+Scatter Plot:
+A scatter plot is used to explore the relationship between two continuous variables. For instance, you might analyze how height correlates with weight by plotting each individual's height against their weight on a graph.
+
+Bar Chart:
+Bar charts are effective for comparing the values of different categories. For example, you could use a bar chart to visualize sales figures across various product categories, helping to easily identify which categories perform better.
+
+Histogram:
+A histogram is useful for displaying the distribution of a single continuous variable. For example, it can show how customer ages are distributed within a dataset, revealing patterns such as age groups and frequency.
+
+Pie Chart:
+Pie charts are ideal for illustrating proportions of a whole within categorical data. For instance, you can represent the market share of different companies in a pie chart, giving a clear visual representation of how each company compares to the total market.
+
+Line Plot:
+Line plots are used to visualize trends over time for continuous variables. An example would be tracking stock prices over a period; this allows you to observe how prices fluctuate and identify trends over days, months, or years.'''
+
 
     M_variate = f'''You are an expert data analyst. The user will provide a summary of a dataset, and your task is to generate goals that can be only expressed through visual and also focus solely on the relationships between multiple variables and their interactions. From the summary, generate:
         1)Questions: Based on the provided dataset SUMMARY generate valuable questions which only expressed thorugh visually and mainly focuses on variable relation (ex:x vs y) , CONSIDER THE TYPE OF MEASUREMENT , DESCRIPTION  WHILE CREARTING A GOAL 
@@ -80,9 +95,9 @@ You are an experienced data analyst who generates a specified number of insightf
         3)Rationale: Provide a rationale for the insights you expect to uncover through these questions and visualizations. Why are these questions and visualizations important for understanding the relationships between variables in the dataset? What key interactions or patterns do you hope to reveal using these techniques?
         Rules:
         1) Please AVOID UNIVARIATE ANALYSIS QUESTIONS
+        2) while creating visualization please consider this \n{vis_rules}
 {FORMAT_INSTRUCTIONS}
 '''
-    
 
     messages = [
             {"role": "system", "content": M_variate},
