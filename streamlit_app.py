@@ -72,56 +72,7 @@ You are an experienced data analyst who generates a specified number of insightf
             {"role": "system", "content": Q_system_prompt},
             {"role": "user","content":f"{user_prompt}"}]
     st.write("New Information:")
-    vis_rules = '''{
-  "visualizations": [
-    {
-      "visualization_type": "scatter_plot",
-      "usage_rule": {
-        "rule": "Use to examine the relationship between two continuous variables.",
-        "variables_required": "2",
-        "variable_types": ["continuous", "continuous"],
-        "example": "Height vs. Weight"
-      }
-    },
-    {
-      "visualization_type": "bar_chart",
-      "usage_rule": {
-        "rule": "Use to compare the values of a categorical variable across different groups.",
-        "variables_required": "2",
-        "variable_types": ["categorical", "continuous"],
-        "example": "Average Sales per Product Category by Region"
-      }
-    },
-    {
-      "visualization_type": "line_plot",
-      "usage_rule": {
-        "rule": "Use to visualize trends over time for multiple continuous variables.",
-        "variables_required": "2 or more",
-        "variable_types": ["time", "continuous"],
-        "example": "Monthly Revenue and Expenses Over Time"
-      }
-    },
-    {
-      "visualization_type": "grouped_bar_chart",
-      "usage_rule": {
-        "rule": "Use to compare two categorical variables across different groups.",
-        "variables_required": "2",
-        "variable_types": ["categorical", "categorical"],
-        "example": "Sales by Product Category and Region"
-      }
-    },
-    {
-      "visualization_type": "heatmap",
-      "usage_rule": {
-        "rule": "Use to visualize the correlation or frequency between two categorical variables.",
-        "variables_required": "2",
-        "variable_types": ["categorical", "categorical"],
-        "example": "Customer Preference by Age Group and Product Category"
-      }
-    }
-  ]
-}
-'''
+   
 
     M_variate = f'''You are an expert data analyst. The user will provide a summary of a dataset, and your task is to generate goals that can be only expressed through visual and also focus solely on the relationships between multiple variables and their interactions. From the summary, generate:
         1)Questions: Based on the provided dataset SUMMARY generate valuable questions which only expressed thorugh visually and mainly focuses on variable relation (ex:x vs y) , CONSIDER THE TYPE OF MEASUREMENT , DESCRIPTION  WHILE CREARTING A GOAL 
@@ -129,7 +80,6 @@ You are an experienced data analyst who generates a specified number of insightf
         3)Rationale: Provide a rationale for the insights you expect to uncover through these questions and visualizations. Why are these questions and visualizations important for understanding the relationships between variables in the dataset? What key interactions or patterns do you hope to reveal using these techniques?
         Rules:
         1) Please AVOID UNIVARIATE ANALYSIS QUESTIONS
-        2) WHILE GENERATING VISUALIZATION CONSIDER THESE RULES BELOW:{vis_rules}
 {FORMAT_INSTRUCTIONS}
 '''
     
