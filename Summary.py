@@ -6,30 +6,10 @@ from json_correction import format_correction
 def summary_gen(df):
   rules = Rules.get_column_properties(df)
 
-  system_prompt = '''As a seasoned data analyst, your responsibility is to annotate the provided dictionary according to the specified template and follow this Rules below:
+  system_prompt = '''As a seasoned data analyst, your responsibility is to annotate the provided dictionary then output them in the specified template while following this Rules below:
   1.Generate a semantic_type (a single word) for each field, based on its values (e.g., company, city, number, supplier, location, gender, longitude, latitude, URL, IP address, zip code, email, etc.).
   2.ALWAYS specify the description.
-  3.Always specify the semantic type.
-  4.Always specify  the type of data.
-'''
-  template = '''{
-  "dataset_name": "string",
-  "dataset_description": "string",
-  "number_of_fields": "integer",
-  "number_of_rows": "integer",
-  "fields_properties": [
-    {
-      "field_name": "string",
-      "field_description": "string",
-      "semantic_type": "string",
-      "type_of_data": "string",
-      "mean": "number",  // INCLUDE ONLY IF APPLICABLE (NOT NULL)
-      "num_of_nulls": "integer",
-      "sample_elements": ["element_1", "element_2", "..."]  // A list of sample values for the field
-    },
-    // More fields...
-  ]
-}
+  3.Always specify  the type of data.
 '''
   new_template = '''{
   "dataset_name": "string",
@@ -50,7 +30,7 @@ def summary_gen(df):
   ]
 }
 '''
-  information ='''Given a dataset field with the following properties: column name, data type, semantic type, description, unique value count, and sample values, classify the field into one of four categories: nominal, ordinal, discrete, or continuous. Use the following rules:
+  information ='''
 Nominal: If the data represents categories or labels that have no inherent order, even if numeric (e.g., codes, IDs, or categorical values).
 Ordinal: If the data represents categories with a meaningful order but without consistent intervals (e.g., ranks or satisfaction levels).
 Discrete: If the data represents countable, distinct numeric values (e.g., whole numbers with specific meanings like area codes or counts).
