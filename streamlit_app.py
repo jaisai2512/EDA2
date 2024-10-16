@@ -72,7 +72,7 @@ You are an experienced data analyst who generates a specified number of insightf
             {"role": "system", "content": Q_system_prompt},
             {"role": "user","content":f"{user_prompt}"}]
     st.write("New Information:")
-   vis_rules = '''Visualization Summary
+    vis_rules = '''
 Scatter Plot:
 A scatter plot is used to explore the relationship between two continuous variables. For instance, you might analyze how height correlates with weight by plotting each individual's height against their weight on a graph.
 
