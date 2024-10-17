@@ -29,6 +29,59 @@ if uploaded_file is not None:
     st.write("Summary of the CSV file:")
     var_dict = {'df': df}
     summary= summary_gen(df)
+    summary = '''Dataset Title: Customer Information
+
+Description: This dataset contains detailed information about customers, focusing on their demographics, income, and spending habits.
+
+Fields Overview:
+
+CustomerID
+
+Type: Number (Discrete)
+Mean: 1000.5
+Nulls: None
+Sample Values: 1861, 354, 1334
+Gender
+
+Type: Category (Nominal)
+Values: Male, Female
+Nulls: None
+Age
+
+Type: Number (Discrete)
+Mean: 45.5
+Nulls: None
+Sample Values: 90, 62
+Annual Income ($)
+
+Type: Number (Continuous)
+Mean: 123456.7
+Nulls: None
+Sample Values: 162465, 124256
+Spending Score (1-100)
+
+Type: Number (Discrete)
+Mean: 50.5
+Nulls: None
+Sample Values: 0, 11
+Profession
+
+Type: Category (Nominal)
+Sample Values: Healthcare, Engineer, Lawyer, etc.
+Nulls: 35
+Work Experience
+
+Type: Number (Discrete)
+Mean: 8.5
+Nulls: None
+Sample Values: 1, 3, 0, 2, 4
+Family Size
+
+Type: Number (Discrete)
+Mean: 4.5
+Nulls: None
+Sample Values: 4, 3, 1, 2, 6
+'''
     FORMAT_INSTRUCTIONS = """
 The output must follow the exact JSON format below:
 [
