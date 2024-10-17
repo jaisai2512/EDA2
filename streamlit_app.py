@@ -79,6 +79,7 @@ Questions: generate goal that explore potential relationships between the variab
 Suggested Visualizations: generate an appropriate visualization to help answer the question. Choose the visualization type that best represents the relationship between the variables involved 
 Rationale: Provide a rationale for the insights you expect to uncover through these questions and visualizations. Explain why these questions and visualizations are important for understanding the relationships between variables in the dataset. What key interactions or patterns do you hope to reveal using these techniques?
 Specify the variable used
+Can come up with 10 goals
 Rules:
 1) The VISUALIZATIONS YOU RECOMMEND MUST FOLLOW VISUALIZATION BEST PRACTICES (e.g., must use bar charts instead of pie charts for comparing quantities)
 {FORMAT_INSTRUCTIONS}
