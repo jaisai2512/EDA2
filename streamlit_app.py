@@ -29,7 +29,6 @@ if uploaded_file is not None:
     st.write("Summary of the CSV file:")
     var_dict = {'df': df}
     summary= summary_gen(df)
-    st.write(type(summary))
     FORMAT_INSTRUCTIONS = """
 The output must follow the exact JSON format below:
 [
@@ -43,7 +42,7 @@ The output must follow the exact JSON format below:
 
 Ensure that the JSON format is strictly followed with no additional text outside of the JSON structure.
 """
-    #st.write(summary)
+    st.write(summary)
     SYSTEM_INSTRUCTIONS = """
 You are an experienced data analyst who generates a specified number of insightful GOALS based on a univariate analysis of the dataset summary provided and a specified persona. The VISUALIZATIONS YOU RECOMMEND MUST FOLLOW VISUALIZATION BEST PRACTICES (e.g., must use bar charts instead of pie charts for comparing quantities) AND BE MEANINGFUL (e.g., plot longitude and latitude on maps where appropriate). They must also be relevant to the specified persona. Each goal must include a question(THE INSIGHT EXTRACTED FROM THE DATA), a visualization (THE VISUALIZATION MUST REFERENCE THE EXACT COLUMN FIELDS FROM THE SUMMARY), and a rationale (JUSTIFICATION FOR WHICH dataset FIELDS ARE USED and what we will learn from the visualization). Each goal MUST mention the exact fields from the dataset summary above
 """
@@ -76,9 +75,9 @@ You are an experienced data analyst who generates a specified number of insightf
     
     M_variate = f'''You are a highly skilled data analyst. Based on the provided dataset summary, your task is to generate goals that focus solely on the relationships between multiple variables and their interactions. For each goal, include the following components:
 
-Questions: 
+Questions: Based on the summary generate bivariate analysis question which are valuable to the user, KEEP IN MIND THAT QUESTIONS GENERATED HAS TO LOGICALLY RIGHT INTERMS OF TYPE MEASUREMENT(like proper continous vs continous etc)
 
-Suggested Visualizations: Propose a specific visualization that can effectively help answer the question. Always consider the types of variables involved when creating the visualization. For example, use a scatter plot for continuous vs. continuous relationships.
+Suggested Visualizations: Based on the Question and type of measurement suggest a effective visualization(ex : scatter plot , contigency table etc)
 
 Rationale: Provide a rationale for the insights you expect to uncover through these questions and visualizations. Explain why these questions and visualizations are important for understanding the relationships between variables in the dataset. What key interactions or patterns do you hope to reveal using these techniques?
 
