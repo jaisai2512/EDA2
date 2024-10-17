@@ -83,7 +83,7 @@ Can come up with 10 goals
 Rules:
 1) The VISUALIZATIONS YOU RECOMMEND MUST FOLLOW VISUALIZATION BEST PRACTICES (e.g., must use bar charts instead of pie charts for comparing quantities)
 2) ONLY generate questions focused on CONTINUOUS VARIABLE VS CONTINUOUS VARIABLE and CATEGORICAL VARIABLE VS CATEGORICAL VARIABLE
-3)  I'll make sure that the generated goals not only focus on CONTINUOUS VARIABLE VS CONTINUOUS VARIABLE or any other but also have real meaning to it  
+3) Make sure the question is not just comparing but it should have a logical meaning 
 {FORMAT_INSTRUCTIONS}
 '''
 
