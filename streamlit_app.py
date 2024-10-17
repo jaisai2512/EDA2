@@ -103,26 +103,22 @@ iv) Data: A DataFrame named "temp".
 v) Incomplete function: plot_and_save(temp).
 '''
         
-        user_prompt = '''
-Objective: Come up with a plan to answer the question by completing the `plot_and_save(temp)` function use the visualization specified in the visuationa part. The function must:
-i) Develop an efficient plan to generate the visualization and implement it in the function.
-ii) Process the DataFrame "temp" efficiently to create the plot.
-iii) Add appropriate labels, titles, and legends, ensuring spacing between legends for clarity.
-iv) Handle missing values in the data and other exceptions, such as incorrect input formats.
-v) Save the plot to a buffer for return using:
-    buf = io.BytesIO()
-    plt.savefig(buf, format='png')
-    buf.seek(0)
-    return buf
-
-Key Considerations:
-- The plot must be clear, relevant, and accurate for the question asked.
-- Ensure the function is modular, flexible, and has robust error handling for missing or incorrect data
-Instruction
-    1.The data is provided in a DataFrame named temp.
-    2.Generate only Python code without any explanations or comments.
-    3.Don't import anything apart from given.
-    '''
+        user_prompt = '''You are an expert data visualization person who knows to code well. You are given the following:\ni)Question: {i['question']}.\nii)Visualization Type: {i['visualization']}.\niii) Summary : {summary}\niv)Data: Provided in a DataFrame named temp.\n\nv) And a function to Complete.
+        Your Objective is to Create a plan to answer the question through a code by improving and complete the plot_and_save(temp) function, which should:
+                                    i) Come up with a optimal plan and used this plan to complete the function.
+                                    ii)Ensure that the function handles and processes the input temp (which contains the data) efficiently.
+                                    iii)Implement appropriate labels, titles, and legends as needed for better readability.
+                                    iv)Ensure the visualization is CLEAR, RELEVANT, and ACCURATE for the question asked.
+                                    v) Rember to add spacing between the legends in the graph.
+                        Key Considerations:
+                            i) If there are any missing value in the data handle them.
+                            ii)Handle exceptions gracefully, such as cases where the data might be missing or the input format is incorrect.
+                            iii)Ensure flexibility, modularity, and exception handling for missing or incorrect data.
+                            iv) Make sure the plot created should be returned as buffer by executing the following code below:
+                                                buf = io.BytesIO()
+                                                plt.savefig(buf, format='png')
+                                                buf.seek(0)
+                                                return buf'''
         function ='''
 import seaborn as sns
 import pandas as pd
