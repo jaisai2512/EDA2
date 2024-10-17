@@ -36,6 +36,7 @@ if uploaded_file is not None:
             {"role": "system", "content": s_prompt},
             {"role": "user","content":f"{user_prompt}"}]
     summary = api(messages)
+    st.write(summary)
     FORMAT_INSTRUCTIONS = """
 The output must follow the exact JSON format below:
 [
