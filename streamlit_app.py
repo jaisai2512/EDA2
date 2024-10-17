@@ -90,7 +90,7 @@ Rules:
 """
     user_prompt = f"""The number of GOALS to generate is 10. The goals should be based on the data summary below, \n\n .
         {summary} \n\n"""
-    user_prompt += f"""\n The generated goals SHOULD BE FOCUSED ON THE INTERESTS AND PERSPECTIVE of A highly skilled data analyst who can come up with complex, insightful goals about data persona, who is insterested in complex, insightful goals about the data. \n"""
+    user_prompt += f"""\n The generated goals SHOULD BE FOCUSED ON THE INTERESTS AND PERSPECTIVE of A highly skilled data analyst who can come up with complex , insightful goals about data persona, who is insterested in complex multivariate analysis goals about the data. \n"""
     messages = [
             {"role": "system", "content": SYSTEM_INSTRUCTIONS},
             {"role": "assistant",
