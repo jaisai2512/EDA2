@@ -112,23 +112,26 @@ iv) Data: A DataFrame named "temp".
 v) Incomplete function: plot_and_save(temp).
 '''
         
-        user_prompt = '''You are an expert data visualization person who knows to code well. You are given the following:\ni)Question: {i['question']}.\nii)Visualization Type: {i['visualization']}.\niii) Summary : {summary}\niv)Data: Provided in a DataFrame named temp.\n\nv) And a function to Complete.
-        Your Objective is to Create a plan to answer the question through a code by improving and complete the plot_and_save(temp) function, which should:
-                                    i) Come up with a optimal plan and used this plan to complete the function.
-                                    ii)Ensure that the function handles and processes the input temp (which contains the data) efficiently.
-                                    iii)Implement appropriate labels, titles, and legends as needed for better readability.
-                                    iv)Ensure the visualization is CLEAR, RELEVANT, and ACCURATE for the question asked.
-                                    v) Rember to add spacing between the legends in the graph.
-                        Key Considerations:
-                            i) If there are any missing value in the data handle them.
-                            ii)Handle exceptions gracefully, such as cases where the data might be missing or the input format is incorrect.
-                            iii)Ensure flexibility, modularity, and exception handling for missing or incorrect data.
-                            iv) Make sure the plot created should be returned as buffer by executing the following code below:
-                                                buf = io.BytesIO()
-                                                plt.savefig(buf, format='png')
-                                                buf.seek(0)
-                                                return buf
-                            V) MAKE SURE ONLY CODE IS PRODUCED'''
+        user_prompt = '''You are an expert in data visualization and coding. You are provided with:
+i) Question: {i['question']}.
+ii) Summary: {summary}.
+iii) Data: Provided in a DataFrame named temp.
+
+Your task is to improve and complete the plot_and_save(temp) function by:
+    i) Creating an optimal plan to answer the question.
+    ii) Efficiently handling the input data.
+    iii) Implementing labels, titles, and legends for clarity.
+    iv) Ensuring the visualization is clear, relevant, and accurate.
+    v) Adding spacing between legends.
+    vi) Handling missing data and incorrect input gracefully.
+    vii) Returning the plot as a buffer using:
+        buf = io.BytesIO()
+        plt.savefig(buf, format='png')
+        buf.seek(0)
+        return buf.
+        
+Output only code.'''
+
         function ='''
 import seaborn as sns
 import pandas as pd
