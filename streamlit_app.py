@@ -114,6 +114,7 @@ v) Save the plot to a buffer for return using:
     plt.savefig(buf, format='png')
     buf.seek(0)
     return buf
+vi) When comes to age try to bin them.
 
 Key Considerations:
 - The plot must be clear, relevant, and accurate for the question asked.
