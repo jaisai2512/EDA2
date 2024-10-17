@@ -74,15 +74,15 @@ You are an experienced data analyst who generates a specified number of insightf
     st.write("New Information:")
     
     M_variate = f'''You are a highly skilled data analyst. Based on the provided dataset summary, your task is to generate goals that focus solely on the relationships between multiple variables and their interactions. For each goal, include the following components:
-
-Questions: Create goals that investigate potential relationships between the specified variable and other fields in the dataset, with a focus on questioning how these variables are related to one another (ex:What is the relationship between the variable x and variable y?)
-Suggested Visualizations: generate an appropriate visualization to help answer the question. Choose the visualization type that best represents the relationship between the variables involved(ex: box plot showing information)
+Questions: Create goals that investigate potential relationships between the specified variable and other fields in the dataset, with a focus on questioning how these variables are related to one another 
+Suggested Visualizations: generate an appropriate visualization to help answer the question. Choose the visualization type that best represents the relationship between the variables involved
 Rationale: Provide a rationale for the insights you expect to uncover through these questions and visualizations. Explain why these questions and visualizations are important for understanding the relationships between variables in the dataset. What key interactions or patterns do you hope to reveal using these techniques?
 Specify the variable used
 Can come up with 10 goals
 Rules:
 1) The VISUALIZATIONS YOU RECOMMEND MUST FOLLOW VISUALIZATION BEST PRACTICES (e.g., must use bar charts instead of pie charts for comparing quantities)
 2) Make sure the question is not just comparing but it should have a logical meaning 
+3) Striclty no univariate anlysis
 {FORMAT_INSTRUCTIONS}
 '''
 
