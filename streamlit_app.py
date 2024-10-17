@@ -51,7 +51,7 @@ You are an experienced data analyst who generates a specified number of insightf
 
     
 
-    user_prompt = f"""Generate goals which should be based on the data summary below,AVOID UNIVARIATE ANALYSIS \n\nSummary:\n{summary} \n\n"""
+    user_prompt = f"""Generate goals which should be based on the data summary below,avoid univariate analysis\n\nSummary:\n{summary} \n\n"""
     #persona = "A highly skilled data analyst who can come up with complex, insightful goals about the summary, and those goals are mainly focused on Univariate Analysis"
     #user_prompt += f"""\n The generated goals SHOULD BE FOCUSED ON THE INTERESTS AND PERSPECTIVE of a {persona} persona \n"""
     messages = [
