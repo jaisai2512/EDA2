@@ -30,12 +30,11 @@ if uploaded_file is not None:
     var_dict = {'df': df}
     summary= summary_gen(df)
     s_prompt = "Your job is convert a summary into a single paragraph without leaving any information"
-    user_prompt = "Convert the summary into paragraph here is the summary:\n{summary}"
+    user_prompt = f"Convert the summary into paragraph here is the summary:\n{summary}"
     messages = [
             {"role": "system", "content": s_prompt},
             {"role": "user","content":f"{user_prompt}"}]
     summary = api(messages)
-    st.write(summary)
     FORMAT_INSTRUCTIONS = """
 The output must follow the exact JSON format below:
 [
