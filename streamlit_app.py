@@ -29,7 +29,7 @@ if uploaded_file is not None:
     st.write("Summary of the CSV file:")
     var_dict = {'df': df}
     summary= summary_gen(df)
-    s_prompt = "Your a expert in summarizing , your job is to summarize a summary into a single paragraph without missing any information,be more concise
+    s_prompt = "Your a expert in summarizing , your job is to summarize a summary into a single paragraph without missing any information,be more concise"
     Rules:\ni) Don't generate anything apart from the summary"
     user_prompt = f"Here is the summary summarize it :\n{summary}"
     messages = [
