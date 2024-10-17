@@ -29,12 +29,6 @@ if uploaded_file is not None:
     st.write("Summary of the CSV file:")
     var_dict = {'df': df}
     summary= summary_gen(df)
-    s_prompt = """Your job is to convert a summary into a single paragraph without missing any information , your just making a content whoch is in specific format to a paragrah"""
-    user_prompt = f"Here is the summary:\n{summary}"
-    messages = [
-            {"role": "system", "content": s_prompt},
-            {"role": "user","content":f"{user_prompt}"}]
-    summary = api(messages)
     st.write(summary)
     FORMAT_INSTRUCTIONS = """
 The output must follow the exact JSON format below:
