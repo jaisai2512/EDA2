@@ -19,6 +19,7 @@ def summary_gen(df):
       "Description": "string",
       "data_type":"string"
       "Semantic_type": "string",
+      "type_of_measurement" : "string",
       "mean": "number",  // INCLUDE ONLY IF APPLICABLE (NOT NULL)
       "number_of_nulls": "integer",
       "sample_elements": ["element_1", "element_2", "..."]  // A list of sample values for the field
@@ -88,9 +89,9 @@ When classifying type of measurement, prioritize the semantic type and descripti
     {temp}
     """},
 ]
-  s = api(sum)
+  #s = api(sum)
   st.write(s)
 
   
-  return s,o_summary
+  return o_summary
   
