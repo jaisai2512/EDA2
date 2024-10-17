@@ -29,6 +29,7 @@ if uploaded_file is not None:
     st.write("Summary of the CSV file:")
     var_dict = {'df': df}
     summary= summary_gen(df)
+    st.write(type(summary))
     FORMAT_INSTRUCTIONS = """
 The output must follow the exact JSON format below:
 [
@@ -90,7 +91,7 @@ Ensure the questions, visualizations, and rationale are clear and detailed.
             {"role": "system", "content": M_variate},
             {"role": "user","content":f"{user_prompt}"}]
     
-    st.write(api(messages))
+    #st.write(api(messages))
     #exit()
     data = json.loads(api(messages))
     st.write(data)
