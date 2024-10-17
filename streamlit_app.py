@@ -118,7 +118,8 @@ v) Incomplete function: plot_and_save(temp).
                                                 buf = io.BytesIO()
                                                 plt.savefig(buf, format='png')
                                                 buf.seek(0)
-                                                return buf'''
+                                                return buf
+                            V) Make sure no extra content are produced'''
         function ='''
 import seaborn as sns
 import pandas as pd
