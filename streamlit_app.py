@@ -119,7 +119,7 @@ v) Incomplete function: plot_and_save(temp).
                                                 plt.savefig(buf, format='png')
                                                 buf.seek(0)
                                                 return buf
-                            V) Make sure no extra content are produced'''
+                            V) MAKE SURE ONLY CODE IS PRODUCED'''
         function ='''
 import seaborn as sns
 import pandas as pd
