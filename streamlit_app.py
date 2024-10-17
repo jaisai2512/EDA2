@@ -51,7 +51,7 @@ You are an experienced data analyst who generates a specified number of insightf
 
     
 
-    user_prompt = f"""Generate goals which should be based on the data summary below,\nRules:\navoid univariate analysis\n\nSummary:\n{summary} \n\n"""
+    user_prompt = f"""Generate goals which should be based on the data summary below,\n\nSummary:\n{summary} \n\n"""
     #persona = "A highly skilled data analyst who can come up with complex, insightful goals about the summary, and those goals are mainly focused on Univariate Analysis"
     #user_prompt += f"""\n The generated goals SHOULD BE FOCUSED ON THE INTERESTS AND PERSPECTIVE of a {persona} persona \n"""
     messages = [
@@ -75,7 +75,7 @@ You are an experienced data analyst who generates a specified number of insightf
     
     M_variate = f'''You are a highly skilled data analyst. Based on the provided dataset summary, your task is to generate goals that focus solely on the relationships between multiple variables and their interactions. For each goal, include the following components:
 
-Questions: generate goal that explore potential relationships between the variable described and other fields in the dataset.your goals should be questioning the relationship between variable,Ensure that the questions are insightful and concise.
+Questions: generate goal that explore potential relationships between the variable described and other fields in the dataset.your goals should be questioning the relationship between variable,Ensure that the questions are insightful and no univariate analysis
 Suggested Visualizations: generate an appropriate visualization to help answer the question. Choose the visualization type that best represents the relationship between the variables involved
 Rationale: Provide a rationale for the insights you expect to uncover through these questions and visualizations. Explain why these questions and visualizations are important for understanding the relationships between variables in the dataset. What key interactions or patterns do you hope to reveal using these techniques?
 Specify the variable used
