@@ -76,7 +76,7 @@ You are an experienced data analyst who generates a specified number of insightf
     
     M_variate = f'''You are a highly skilled data analyst. Based on the provided dataset summary, your task is to generate goals that focus solely on the relationships between multiple variables and their interactions. For each goal, include the following components:
 
-Questions: Based on the summary given ,What are the Multiivariate analsysis goals that can be asked which is highly valuable?
+Questions: 
 
 Suggested Visualizations: Propose a specific visualization that can effectively help answer the question. Always consider the types of variables involved when creating the visualization. For example, use a scatter plot for continuous vs. continuous relationships.
 
