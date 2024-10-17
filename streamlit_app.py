@@ -75,7 +75,7 @@ You are an experienced data analyst who generates a specified number of insightf
     
     M_variate = f'''As a highly skilled data analyst, your task is to generate goals that concentrate exclusively on the relationships and interactions between multiple variables in the provided dataset summary. For each goal, include the following components:
 
-Questions: Formulate goals that explore potential relationships between the specified variable and other fields in the dataset, focusing on how these variables are interconnected.
+Questions: Based on the provided dataset SUMMARY generate valuable questions which only expressed thorugh visually and mainly focuses on variable relation (ex:x vs y) , CONSIDER THE TYPE OF MEASUREMENT , DESCRIPTION  WHILE CREARTING A GOAL 
 Suggested Visualizations: Recommend appropriate visualization types to effectively address each question. Choose visualizations that best represent the relationships between the involved variables, adhering to visualization best practices (e.g., use bar charts instead of pie charts for comparing quantities).
 Rationale: Explain the insights you anticipate uncovering through these questions and visualizations. Discuss the significance of these questions and visualizations in understanding the relationships between variables in the dataset. What key interactions or patterns do you hope to reveal using these techniques?
 Variable Specification: Clearly specify the variable being used.
