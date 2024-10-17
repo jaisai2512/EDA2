@@ -145,5 +145,5 @@ def get_column_properties(df: pd.DataFrame, n_samples: int = 3) -> list[dict]:
       properties["description"] = ""
       properties["type_of_measurement"]=""
       properties_list.append({"column": column, "properties": properties})
-  st.write(properties_list)
+  
   return properties_list
