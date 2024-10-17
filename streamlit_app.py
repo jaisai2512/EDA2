@@ -82,8 +82,7 @@ Specify the variable used
 Can come up with 10 goals
 Rules:
 1) The VISUALIZATIONS YOU RECOMMEND MUST FOLLOW VISUALIZATION BEST PRACTICES (e.g., must use bar charts instead of pie charts for comparing quantities)
-2) Make sure the question is not just comparing but it should have a logical meaning 
-3) Striclty no univariate anlysis
+2) Striclty no univariate anlysis
 {FORMAT_INSTRUCTIONS}
 '''
 
