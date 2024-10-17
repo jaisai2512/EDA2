@@ -73,17 +73,16 @@ You are an experienced data analyst who generates a specified number of insightf
             {"role": "user","content":f"{user_prompt}"}]
     st.write("New Information:")
     
-    M_variate = f'''Based on the provided dataset summary, generate 10 goals that focus on the relationships between multiple variables and their interactions. For each goal, include the following components:
-Questions:
-Create goals that investigate potential relationships between the specified variable and other fields in the dataset. The questions should focus on how these variables are related to one another in a meaningful way.
-Suggested Visualizations:
-Recommend an appropriate visualization type to help answer the question. Ensure that your visualization recommendations follow best practices (e.g., use bar charts instead of pie charts for comparing quantities). Visualizations should depict the relationships between variables effectively.
-Rationale:
-Provide a rationale for the insights you expect to uncover through these questions and visualizations. Explain why these questions and visualizations are important for understanding the relationships between variables in the dataset. Specify the key interactions or patterns you hope to reveal using these techniques.
+    M_variate = f'''You are a highly skilled data analyst. Based on the provided dataset summary, your task is to generate goals that focus solely on the relationships between multiple variables and their interactions. For each goal, include the following components:
+Questions: Create goals that investigate potential relationships between the specified variable and other fields in the dataset, with a focus on questioning how these variables are related to one another 
+Suggested Visualizations: generate an appropriate visualization to help answer the question. Choose the visualization type that best represents the relationship between the variables involved
+Rationale: Provide a rationale for the insights you expect to uncover through these questions and visualizations. Explain why these questions and visualizations are important for understanding the relationships between variables in the dataset. What key interactions or patterns do you hope to reveal using these techniques?
+Specify the variable used
+Can come up with 10 goals
 Rules:
-Visualization Best Practices: You must follow visualization best practices. For example, use bar charts instead of pie charts for comparing quantities.
-Logical Questions: Ensure that questions are logical and investigate meaningful relationships between variables.
-No Univariate Analysis: The questions should not focus on univariate analysis.
+1) The VISUALIZATIONS YOU RECOMMEND MUST FOLLOW VISUALIZATION BEST PRACTICES (e.g., must use bar charts instead of pie charts for comparing quantities)
+2) Make sure the question is not just comparing but it should have a logical meaning 
+3) Striclty no univariate anlysis
 {FORMAT_INSTRUCTIONS}
 '''
 
