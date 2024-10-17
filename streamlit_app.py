@@ -75,7 +75,7 @@ You are an experienced data analyst who generates a specified number of insightf
     
     M_variate = f'''You are a highly skilled data analyst. Based on the provided dataset summary, your task is to generate goals that focus solely on the relationships between multiple variables and their interactions. For each goal, include the following components:
 
-Questions: generate goal that explore potential relationships between the variable described and other fields in the dataset. Your questions should focus on understanding how this variable interacts with other relevant variables. Ensure that the questions are insightful and avoid univariate analysis.
+Questions: generate goal that explore potential relationships between the variable described and other fields in the dataset. Your questions should focus on does the variable has a huge impact on the other variable(First understand meaning of the variables and then frame goal). Ensure that the questions are insightful and avoid univariate analysis.
 Suggested Visualizations: generate an appropriate visualization to help answer the question. Choose the visualization type that best represents the relationship between the variables involved
 Rationale: Provide a rationale for the insights you expect to uncover through these questions and visualizations. Explain why these questions and visualizations are important for understanding the relationships between variables in the dataset. What key interactions or patterns do you hope to reveal using these techniques?
 Specify the variable used
@@ -83,6 +83,7 @@ Can come up with 10 goals
 Rules:
 1) The VISUALIZATIONS YOU RECOMMEND MUST FOLLOW VISUALIZATION BEST PRACTICES (e.g., must use bar charts instead of pie charts for comparing quantities)
 2) ONLY generate questions focused on CONTINUOUS VARIABLE VS CONTINUOUS VARIABLE and CATEGORICAL VARIABLE VS CATEGORICAL VARIABLE
+3) REMEMBER THE GOAL SHOULD NOT BE JUST CONTINUOUS VARIABLE VS CONTINUOUS VARIABLE,THE GOAL SHOULD HAVE REAL LIFE MEANING TO IT  
 {FORMAT_INSTRUCTIONS}
 '''
 
