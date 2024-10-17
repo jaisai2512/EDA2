@@ -29,8 +29,8 @@ if uploaded_file is not None:
     st.write("Summary of the CSV file:")
     var_dict = {'df': df}
     summary= summary_gen(df)
-    s_prompt = "Your job is convert a summary into a single paragraph without leaving any information"
-    user_prompt = f"Convert the summary into paragraph here is the summary:\n{summary}"
+    s_prompt = "Your job is convert a summary into a single paragraph without leaving any information yo can cut-short the summary"
+    user_prompt = f"Convert the summary into a paragraph here is the summary:\n{summary}"
     messages = [
             {"role": "system", "content": s_prompt},
             {"role": "user","content":f"{user_prompt}"}]
