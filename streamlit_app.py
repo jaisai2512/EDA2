@@ -75,9 +75,8 @@ You are an experienced data analyst who generates a specified number of insightf
     
     M_variate = f'''You are a highly skilled data analyst. Based on the provided dataset summary, your task is to generate goals that focus solely on the relationships between multiple variables and their interactions. For each goal, include the following components:
 
-Questions: Based on the summary generate bivariate analysis question which are valuable to the user, KEEP IN MIND THAT QUESTIONS GENERATED HAS TO LOGICALLY RIGHT INTERMS OF TYPE MEASUREMENT(like proper continous vs continous etc), remeber to ask null analysis questions
-
-Suggested Visualizations: Based on the Question and type of measurement suggest a effective visualization(ex : scatter plot , contigency table etc)
+Questions: generate bivariate analysis goal that explore potential relationships between the variable described and other fields in the dataset. Your questions should focus on understanding how this variable interacts with other relevant variables. Ensure that the questions are insightful and avoid univariate analysis.
+Suggested Visualizations: Based on the goal and type of measurement suggest a effective visualization(ex : scatter plot , contigency table etc)
 
 Rationale: Provide a rationale for the insights you expect to uncover through these questions and visualizations. Explain why these questions and visualizations are important for understanding the relationships between variables in the dataset. What key interactions or patterns do you hope to reveal using these techniques?
 
