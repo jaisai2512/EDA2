@@ -33,6 +33,7 @@ Nominal: If the data represents categories or labels that have no inherent order
 Ordinal: If the data represents categories with a meaningful order but without consistent intervals (e.g., ranks or satisfaction levels).
 Discrete: If the data represents countable, distinct numeric values (e.g., whole numbers with specific meanings like area codes or counts).
 Continuous: If the data represents measurable, continuous values with consistent intervals (e.g., heights, temperatures, or time).
+Discrete(Categorical) : If the data is discrete and is categorical (ex:age only has limited value in column like 20,50 and 70)
 When classifying type of measurement, prioritize the semantic type and description to understand the data's purpose. For example, numeric values representing categorical or countable data like area codes should be classified as discrete, not continuous
 '''
   
