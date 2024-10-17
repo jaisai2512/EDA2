@@ -58,7 +58,7 @@ You are an experienced data analyst who generates a specified number of insightf
             {"role": "system", "content": U_SYSTEM_INSTRUCTIONS},
             {"role": "user","content":f"{user_prompt}\n\n Rules :\ni) The goals should be only focused on Univariate Analysis(Strictly no bivariate or multivariate analysis)\nii)Choose appropriate chart types that best represent the data and make the information easy to understand(ex:For distributions: Histograms or box plots)\niii)Please AVOID goals will with time series"}]
     st.write("Basic Information:")
-    #p_data = json.loads(api(messages))
+    p_data = json.loads(api(messages))
     #st.write(p_data)
     Q_system_prompt = f'''You are a highly skilled data analyst. Your task is to evaluate the provided goals. If a goal is not appropriate, please propose a new one which replaces the old one , the new goal can either be an improved version of the previous one or a completely new goal.
     Ask the following questions to evaluate each goal:
