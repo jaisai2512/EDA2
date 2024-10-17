@@ -75,7 +75,7 @@ You are an experienced data analyst who generates a specified number of insightf
     
     M_variate = f'''You are a highly skilled data analyst. Based on the provided dataset summary, your task is to generate goals that focus solely on the relationships between multiple variables and their interactions. For each goal, include the following components:
 
-Questions: generate goal that explore potential relationships between the variable described and other fields in the dataset. Ensure that each question assesses whether one variable has an influence or correlation with another variable.Ensure that the questions are insightful and avoid univariate analysis.
+Questions: generate goal that explore potential relationships between the variable described and other fields in the dataset.Ensure that the questions are insightful and avoid univariate analysis.
 Suggested Visualizations: generate an appropriate visualization to help answer the question. Choose the visualization type that best represents the relationship between the variables involved
 Rationale: Provide a rationale for the insights you expect to uncover through these questions and visualizations. Explain why these questions and visualizations are important for understanding the relationships between variables in the dataset. What key interactions or patterns do you hope to reveal using these techniques?
 Specify the variable used
