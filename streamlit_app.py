@@ -82,7 +82,7 @@ Specify the variable used
 Can come up with 10 goals
 Rules:
 1) The VISUALIZATIONS YOU RECOMMEND MUST FOLLOW VISUALIZATION BEST PRACTICES (e.g., must use bar charts instead of pie charts for comparing quantities)
-2) ALWAYS GENERATE QUESTION AMONG THESE VARIABLES for Continuous Variable vs Continuous Variable, Categorical Variable vs Categorical Variable
+2) ONLY generate questions focused on CONTINUOUS VARIABLE VS CONTINUOUS VARIABLE and CATEGORICAL VARIABLE VS CATEGORICAL VARIABLE
 {FORMAT_INSTRUCTIONS}
 '''
 
