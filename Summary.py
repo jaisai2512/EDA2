@@ -89,9 +89,9 @@ When classifying type of measurement, prioritize the semantic type and descripti
     {temp}
     """},
 ]
-  #s = api(sum)
+  s = api(sum)
   st.write(s)
 
   
-  return o_summary
+  return s
   
