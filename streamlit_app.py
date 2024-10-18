@@ -74,7 +74,7 @@ You are an experienced data analyst who generates a specified number of insightf
     st.write("New Information:")
     
     M_variate = f'''You are a highly skilled data analyst. Based on the provided dataset summary, your task is to generate goals that focus solely on the relationships between multiple variables and their interactions. For each goal, include the following components:
-Questions: Create goals that investigate potential relationships between the variabels in the dataset , When creating the goals consider description , sample elements and type of measurement , Generate only multivariate analysis goals
+Questions: Create goals that investigate potential relationships between the variabels in the dataset , When creating the goals consider description , sample elements and type of measurement , Generate only correlation analysis goals 
 Suggested Visualizations: Suggest a single and most effective visualization for answer the question , Consider the type of measurement and description for suggesting the visualization and sample elemenst
 Rationale: Provide a rationale for the insights you expect to uncover through these questions and visualizations. Explain why these questions and visualizations are important for understanding the relationships between variables in the dataset. What key interactions or patterns do you hope to reveal using these techniques?
 Specify the variable used
