@@ -75,10 +75,10 @@ You are an experienced data analyst who generates a specified number of insightf
     
     M_variate = f'''You are a highly skilled data analyst. Based on the provided dataset summary, your task is to generate goals that focus solely on the relationships between multiple variables and their interactions. For each goal, include the following components:
 Questions: Create goals that investigate potential relationships between the variabels in the dataset , When creating the goals consider description , sample elements and type of measurement
-Suggested Visualizations: Suggest a single and most effective visualization for answer the question , Consider the type of measurement and description for suggesting the visualization , plots example scatter plot,pair plot heatmap , contengency table ..
+Suggested Visualizations: Suggest a single and most effective visualization for answer the question , Consider the type of measurement and description for suggesting the visualization and sample elemenst
 Rationale: Provide a rationale for the insights you expect to uncover through these questions and visualizations. Explain why these questions and visualizations are important for understanding the relationships between variables in the dataset. What key interactions or patterns do you hope to reveal using these techniques?
 Specify the variable used
-Can come up with 10 goals
+Can come up with 5 goals
 Rules:
 1) The VISUALIZATIONS YOU RECOMMEND MUST FOLLOW VISUALIZATION BEST PRACTICES (e.g., must use bar charts instead of pie charts for comparing quantities)
 2) Striclty no univariate anlysis
@@ -119,6 +119,7 @@ Your task is to improve and complete the plot_and_save(temp) function by:
         plt.savefig(buf, format='png')
         buf.seek(0)
         return buf.
+    viii) When comes to dates ,try express a short period of time not the whole period
         
 Output only code.'''
 
