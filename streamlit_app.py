@@ -74,8 +74,8 @@ You are an experienced data analyst who generates a specified number of insightf
     st.write("New Information:")
     
     M_variate = f'''You are a highly skilled data analyst. Based on the provided dataset summary, your task is to generate goals that focus solely on the relationships between multiple variables and their interactions. For each goal, include the following components:
-Questions: Create goals that investigate potential relationships between the specified variable and other fields in the dataset, with a focus on questioning how these variables are related to one another 
-Suggested Visualizations: generate an appropriate visualization to help answer the question.Consider the below rules for suggesting the visuallization\ni)For continuous vs. continuous variables, consider using correlation or scatter plots.\nii)For categorical vs. categorical variables, consider cross-tabulation or heatmaps.\niii)For continuous vs. categorical variables, consider using box plots\niv)For Discrete vs. Continuous consider using violin plot,Scatter Plot with Jitter,Dot plot
+Questions: Create goals that investigate potential relationships between the specified variable and other fields in the dataset, with a focus on questioning how these variables are related to one another , Ask how x affects y or how x changes when y changes , Understand the meaning of the varaibles and consider th description and type of measurement when creating a questing
+Suggested Visualizations: Suggest a single and most effective visualization for answer the question , Consider the type of measurement and description for suggesting the visualization
 Rationale: Provide a rationale for the insights you expect to uncover through these questions and visualizations. Explain why these questions and visualizations are important for understanding the relationships between variables in the dataset. What key interactions or patterns do you hope to reveal using these techniques?
 Specify the variable used
 Can come up with 10 goals
