@@ -119,7 +119,8 @@ Your task is to improve and complete the plot_and_save(temp) function by:
         plt.savefig(buf, format='png')
         buf.seek(0)
         return buf.
-        
+ Considerations:
+ i)When dealing with age if needed bin them
 Output only code.'''
 
         function ='''
