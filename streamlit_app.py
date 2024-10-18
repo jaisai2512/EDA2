@@ -75,7 +75,8 @@ You are an experienced data analyst who generates a specified number of insightf
     
     M_variate = f'''You are a highly skilled data analyst. Based on the provided dataset summary, your task is to generate goals that focus solely on the relationships between multiple variables and their interactions. For each goal, include the following components:
 Questions: Create goals that investigate potential relationships between the specified variable and other fields in the dataset, with a focus on questioning how these variables are related to one another 
-Suggested Visualizations: generate an appropriate visualization to help answer the question. Choose the visualization type that best represents the relationship between the variables involved(ex: pairplots,scatter plots,heatmap)
+Suggested Visualizations: generate an appropriate visualization to help answer the question.Consider the below rules for suggesting the visuallization\ni)For continuous vs. continuous variables, consider using correlation or scatter plots.\nii)For categorical vs. categorical variables, consider cross-tabulation or heatmaps.\niii)For continuous vs. categorical variables, consider using box plots\niv)For Discrete vs. Continuous consider using violin plot,Scatter Plot with Jitter,Dot plot
+For continuous vs. categorical variables, consider using box plots, ANOVA, or logistic regression.
 Rationale: Provide a rationale for the insights you expect to uncover through these questions and visualizations. Explain why these questions and visualizations are important for understanding the relationships between variables in the dataset. What key interactions or patterns do you hope to reveal using these techniques?
 Specify the variable used
 Can come up with 10 goals
@@ -86,16 +87,6 @@ Rules:
 '''
 
     messages = [{"role": "system", "content": M_variate},{"role": "user","content":f"{user_prompt}"}]
-    SYSTEM_INSTRUCTIONS = """You are a an experienced data analyst who can generate a given number of insightful GOALS about data, when given a summary of the data, and a specified persona. The VISUALIZATIONS YOU RECOMMEND MUST FOLLOW VISUALIZATION BEST PRACTICES (e.g., must use bar charts instead of pie charts for comparing quantities) AND BE MEANINGFUL (e.g., plot longitude and latitude on maps where appropriate). They must also be relevant to the specified persona. Each goal must include a question, a visualization (THE VISUALIZATION MUST REFERENCE THE EXACT COLUMN FIELDS FROM THE SUMMARY), and a rationale (JUSTIFICATION FOR WHICH dataset FIELDS ARE USED and what we will learn from the visualization). Each goal MUST mention the exact fields from the dataset summary above
-"""
-    user_prompt = f"""The number of GOALS to generate is 10. The goals should be based on the data summary below, \n\n .
-        {summary} \n\n"""
-    user_prompt += f"""\n The generated goals SHOULD BE FOCUSED ON THE INTERESTS AND PERSPECTIVE of A highly skilled data analyst who can come up with complex , insightful goals about data persona, who is insterested in complex multivariate analysis goals about the data. \n"""
-    messages = [
-            {"role": "system", "content": SYSTEM_INSTRUCTIONS},
-            {"role": "assistant",
-             "content":
-             f"{user_prompt}\n\n {FORMAT_INSTRUCTIONS} \n\n. The generated 10 goals are: \n "}]
     
     #st.write(api(messages))
     #exit()
