@@ -119,7 +119,6 @@ Your task is to improve and complete the plot_and_save(temp) function by:
         plt.savefig(buf, format='png')
         buf.seek(0)
         return buf.
-    viii) When comes to dates ,try express a short period of time not the whole period
         
 Output only code.'''
 
