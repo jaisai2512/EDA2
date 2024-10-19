@@ -85,7 +85,7 @@ Rules:
 {FORMAT_INSTRUCTIONS}
 '''
 
-    #messages = [{"role": "system", "content": M_variate},{"role": "user","content":f"{user_prompt}"}]
+    messages = [{"role": "system", "content": M_variate},{"role": "user","content":f"{user_prompt}"}]
     
     #st.write(api(messages))
     #exit()
