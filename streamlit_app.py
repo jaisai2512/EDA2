@@ -119,7 +119,6 @@ Your task is to improve and complete the plot_and_save(temp) function by:
         plt.savefig(buf, format='png')
         buf.seek(0)
         return buf.
-    viii)for correlation first convert the categorical to number
 
  
 Output only code.'''
