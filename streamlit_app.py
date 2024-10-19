@@ -67,7 +67,7 @@ You are an experienced data analyst who generates a specified number of insightf
     Based on your evaluation:
     1)If the answers to questions are yes, then keep the goal unchanged.
     2)If the answer to any of the questions is no, modify the goal to make it optimal for univariate analysis.'''
-    #user_prompt = f'Evaluate and improve the goals\nGoals: {p_data}\n\nSummary of the Data: {summary}\n\n Rules :The newly generated goal, if any, should be based on univariate analysis only.\nOUTPUT THE GOALS IN THE FOLLOWING FOMRAT:{FORMAT_INSTRUCTIONS}'
+    user_prompt = f'Evaluate and improve the goals\nGoals: {p_data}\n\nSummary of the Data: {summary}\n\n Rules :The newly generated goal, if any, should be based on univariate analysis only.\nOUTPUT THE GOALS IN THE FOLLOWING FOMRAT:{FORMAT_INSTRUCTIONS}'
     messages = [
             {"role": "system", "content": Q_system_prompt},
             {"role": "user","content":f"{user_prompt}"}]
@@ -85,7 +85,7 @@ Rules:
 {FORMAT_INSTRUCTIONS}
 '''
 
-    messages = [{"role": "system", "content": M_variate},{"role": "user","content":f"{user_prompt}"}]
+    #messages = [{"role": "system", "content": M_variate},{"role": "user","content":f"{user_prompt}"}]
     
     #st.write(api(messages))
     #exit()
