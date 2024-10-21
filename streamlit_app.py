@@ -43,8 +43,9 @@ The output must follow the exact JSON format below:
 
 Ensure that the JSON format is strictly followed with no additional text outside of the JSON structure.
 """
-    data = Univariate.goal_generate(summary, FORMAT_INSTRUCTIONS)
-    data = Univariate.goal_enhancer(data,summary, FORMAT_INSTRUCTIONS)  # Pass the generated goals for enhancement
+    o_data = Univariate()
+    data = o_data.goal_generate(summary, FORMAT_INSTRUCTIONS)
+      # Pass the generated goals for enhancement
 
 
     st.write(data)
