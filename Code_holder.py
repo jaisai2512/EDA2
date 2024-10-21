@@ -55,15 +55,20 @@ def plot_and_save(temp: pd.DataFrame):
             {"role": "assistant",
              "content":
              f'''{user_prompt} \n\nThe FUNCTION TO COMPLETE IS :\n{function}'''}]
-        with st.spinner("Executing code..."):
-            generated_code = api(messages)
-        st.code(generated_code, language='Python')
-        local_vars = {}
         try:
-            exec(generated_code.replace('```python', '').replace('```', ''), locals(), local_vars)
-            plot_and_save = local_vars['plot_and_save']
-            plot_buffer = plot_and_save(temp)
-        except:
-            pass
-        if plot_buffer:
+          exec(generated_code.replace('```python', '').replace('```', ''), {}, local_vars)
+          plot_and_save = local_vars.get('plot_and_save')
+    
+          if plot_and_save:
+            plot_buffer = plot_and_save(temp)  # Call the function with the argument
+          else:
+            st.error("Function 'plot_and_save' is not defined in the generated code.")
+        
+        except Exception as e:
+            st.error(f"Error executing code: {str(e)}")
+
+# Display the plot if it's generated
+        if 'plot_buffer' in locals() and plot_buffer:
             st.image(plot_buffer, caption="Age Chart", use_column_width=True)
+        else:
+            st.warning("Plot buffer is not available.")
