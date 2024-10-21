@@ -52,7 +52,7 @@ def plot_and_save(temp: pd.DataFrame):
              f'''{user_prompt} \n\nThe FUNCTION TO COMPLETE IS :\n{function}'''}]
         with st.spinner("Executing code..."):
             generated_code = api(messages)
-        #st.code(generated_code, language='Python')
+        st.code(generated_code, language='Python')
         local_vars = {}
         try:
             exec(generated_code.replace('```python', '').replace('```', ''), globals(), local_vars)
