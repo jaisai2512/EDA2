@@ -2,7 +2,7 @@ import json
 from API import api
 class Univariate:
   def goal_enhancer(p_data,summary,FORMAT_INSTRUCTIONS):
-    Q_system_prompt = f'''You are a highly skilled data analyst. Your task is to evaluate the provided goals. If a goal is not appropriate, please propose a new one , the new goal can either be an improved version of the previous one or a completely new goal,Rember to remove the old goal.
+    Q_system_prompt = f'''You are a highly skilled data analyst. Your task is to evaluate the provided goals. If a goal is not appropriate, please propose a new one, the new goal should be a completely new goal,Rember to remove the old goal .
     Ask the following questions to evaluate each goal:
     1)Is this an appropriate question to extract valuable information about a variable from the summary, or is there a better way to ask it?
     2)Does this goal provide any highly valuable information to the user?
@@ -15,7 +15,7 @@ class Univariate:
 
     messages = [
             {"role": "system", "content": Q_system_prompt},
-            {"role": "user","content":f"{user_prompt}" + "Make sure no duplicate goals are present"}]
+            {"role": "user","content":f"{user_prompt}" +"Make sure no duplicate goals are present"}]
 
     data = json.loads(api(messages))
 
