@@ -14,7 +14,7 @@ class Univariate:
 
     messages = [
             {"role": "system", "content": Q_system_prompt},
-            {"role": "user","content":f"{user_prompt} + THE TOTAL NUMBER OF GOAL SHOULD BE FIVE NOT MORE THAN THIS }]
+            {"role": "user","content":f"{user_prompt} + THE TOTAL NUMBER OF GOAL SHOULD BE FIVE NOT MORE THAN THIS" }]
 
     data = json.loads(api(messages))
 
