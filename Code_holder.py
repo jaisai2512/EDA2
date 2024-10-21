@@ -1,7 +1,7 @@
 import json
 import streamlit as st
 from API import api
-def code_generation(data,type_analysis,df):
+def code_generation(data,type_analysis,df,summary):
   st.write(f"**{type_analysis}**")
   for i in data:
         temp = df
