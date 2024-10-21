@@ -6,7 +6,7 @@ class Univariate:
     Ask the following questions to evaluate each goal:
     1)Is this an appropriate question to extract valuable information about a variable from the summary, or is there a better way to ask it?
     2)Does this goal provide any highly valuable information to the user?
-    3)Does there are dupliates between the goals?
+    3)Does there are dupliates between the goals? 
     Based on your evaluation:
     1)If the answers to questions are yes, then keep the goal unchanged.
     2)If the answer to any of the questions is no, generate a new goal to make it optimal for univariate analysis .
