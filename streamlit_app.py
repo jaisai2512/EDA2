@@ -12,7 +12,7 @@ from tabs import Tabs
 from PDF import pdf_parser
 import os
 from Univariate_Analysis import goal_generate
-from Multivariate_Analysis import goal_generate
+from Multivariate_Analysis import mul_goal_generate
 from Code_holder import code_generation
 
 # Title of the Streamlit app
@@ -50,7 +50,7 @@ Ensure that the JSON format is strictly followed with no additional text outside
     #st.write(univariate_data)
     code_generation(univariate_data,'Univariate Analysis',df,summary)
 
-    multivariate_data = goal_generate(summary,FORMAT_INSTRUCTIONS)
+    multivariate_data = mul_goal_generate(summary,FORMAT_INSTRUCTIONS)
     code_generation(univariate_data,'Multivariate Analysis',df,summary)
     
 else:
