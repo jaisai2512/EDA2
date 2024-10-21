@@ -17,3 +17,4 @@ Rules:
     messages = [{"role": "system", "content": M_variate},{"role": "user","content":f"{user_prompt}"}]
     data = json.loads(api(messages))
     return data
+
