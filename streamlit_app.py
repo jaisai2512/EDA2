@@ -11,7 +11,7 @@ from Summary import summary_gen
 from tabs import Tabs
 from PDF import pdf_parser
 import os
-from Univariate_Analysis import Univariate
+from Univariate_Analysis.Univariate import goal_generate
 
 # Title of the Streamlit app
 st.title("EDA Report Generator")
@@ -43,7 +43,7 @@ The output must follow the exact JSON format below:
 
 Ensure that the JSON format is strictly followed with no additional text outside of the JSON structure.
 """
-    data = Univariate.goal_generate(summary, FORMAT_INSTRUCTIONS)
+    data = goal_generate(summary, FORMAT_INSTRUCTIONS)
       # Pass the generated goals for enhancement
 
 
