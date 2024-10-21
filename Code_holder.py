@@ -60,7 +60,7 @@ def plot_and_save(temp: pd.DataFrame):
         st.code(generated_code, language='Python')
         local_vars = {}
         try:
-            exec(generated_code.replace('```python', '').replace('```', ''), globals(), local_vars)
+            exec(generated_code.replace('```python', '').replace('```', ''), locals(), local_vars)
             plot_and_save = local_vars['plot_and_save']
             plot_buffer = plot_and_save(temp)
         except:
