@@ -11,7 +11,7 @@ from Summary import summary_gen
 from tabs import Tabs
 from PDF import pdf_parser
 import os
-from Univariate_Analysis import Univariate 
+from Univariate_Analysis import Univariate.goal_generate
 
 # Title of the Streamlit app
 st.title("EDA Report Generator")
