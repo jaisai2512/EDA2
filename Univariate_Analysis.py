@@ -2,15 +2,13 @@ import json
 from API import api
 class Univariate:
   def goal_enhancer(p_data,summary,FORMAT_INSTRUCTIONS):
-    Q_system_prompt = f'''You are a highly skilled data analyst. Your task is to critically evaluate the provided goals to ensure they are optimized for extracting valuable insights through univariate analysis. Follow these steps to evaluate and, if needed, improve each goal:
-    Assess the Goal:
-    i)Clarity and Purpose: Is the goal clearly stated, and does it aim to extract valuable information about a variable from the summary? If not, suggest a clearer and more meaningful question.
-Value and Insight: Does the goal provide valuable and actionable information for the user? Can the insight derived from this goal lead to important conclusions? If not, adjust the goal to ensure it yields highly valuable information.
-    ii)Refine the Goal:\n1)If both criteria are met (i.e., clarity and value), keep the goal unchanged.\n2)If either criterion is not met, modify the goal to make it optimal for univariate analysis. Your revised goal can be an improved version of the original or a completely new one if the initial goal is not suitable.
-    iii)Evaluation Questions:
-        1)Is this an appropriate question to extract valuable information from the summary about the variable, or is there a better way to phrase it?
-        2)Does this goal provide highly valuable insights for the user?
-    If the goal is good, Then Don;t change the goal, If the goal needs improvement, provide the new improved goal by replacing with the old one.
+    Q_system_prompt = f'''You are a highly skilled data analyst. Your task is to evaluate the provided goals. If a goal is not appropriate, please propose a new one which replaces the old one , the new goal can either be an improved version of the previous one or a completely new goal.
+    Ask the following questions to evaluate each goal:
+    1)Is this an appropriate question to extract valuable information about a variable from the summary, or is there a better way to ask it?
+    2)Does this goal provide any highly valuable information to the user?
+    Based on your evaluation:
+    1)If the answers to questions are yes, then keep the goal unchanged.
+    2)If the answer to any of the questions is no, modify the goal to make it optimal for univariate analysis.
     {FORMAT_INSTRUCTIONS}
     '''
 
