@@ -12,7 +12,6 @@ from tabs import Tabs
 from PDF import pdf_parser
 import os
 from Univariate_Analysis import goal_generate
-from Code_holder import code_generation
 def code_generation(data,type_analysis,df,summary):
   st.write(f"**{type_analysis}**")
   for i in data:
