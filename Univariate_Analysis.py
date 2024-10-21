@@ -1,4 +1,5 @@
 import json
+from API import api
 class Univariate:
   def goal_generate(summary,FORMAT_INSTRUCTIONS):
     #System Prompt for the llm 
