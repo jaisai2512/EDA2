@@ -2,8 +2,8 @@ import json
 from API import api
 class Univariate:
   def goal_enhancer(p_data,summary,FORMAT_INSTRUCTIONS):
-    Q_system_prompt = f'''You are a highly skilled data analyst. Your task is to evaluate the provided goals. If a goal is not appropriate, please propose a new one which replaces the old one , the new goal can either be an improved version of the previous one or a completely new goal.
-    Ask the following questions to evaluate each goal:
+    Q_system_prompt = f'''You are a highly skilled data analyst. Your task is to enchance the provided goals and visualization. If a goal is not appropriate, please propose a new one which replaces the old one , the new goal can either be an improved version of the previous one or a completely new goal.
+    Ask the following questions to enhance each goal:
     1)Is this an appropriate question to extract valuable information about a variable from the summary, or is there a better way to ask it?
     # 2)Does this goal provide any highly valuable information to the user ?
     3)Does the Visulation is appropriate to answer the question visually ?
