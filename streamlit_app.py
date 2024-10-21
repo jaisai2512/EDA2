@@ -46,7 +46,7 @@ Ensure that the JSON format is strictly followed with no additional text outside
 """
     
     univariate_data = goal_generate(summary,FORMAT_INSTRUCTIONS)
-    code_generation(univariate_data,'Univariate Analysis',df)
+    code_generation(univariate_data,'Univariate Analysis',df,summary)
     #st.write(data)
     
 else:
