@@ -1,4 +1,5 @@
-def code_generation(data,type_analysis):
+def code_generation(data,type_analysis,df):
+  st.write(f"**{type_analysis}**")
   for i in data:
         temp = df
         system_prompt = f'''
