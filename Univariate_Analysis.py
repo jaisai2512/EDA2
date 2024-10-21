@@ -35,6 +35,7 @@ class Univariate:
             {"role": "user","content":f"{user_prompt}\n\n Rules :\ni) The goals should be only focused on Univariate Analysis(Strictly no bivariate or multivariate analysis)\nii)Choose appropriate chart types that best represent the data and make the information easy to understand(ex:For distributions: Histograms or box plots)\niii)Please AVOID goals will with time series\niv)Generate only five goals"}]
 
     u_goal_data = json.loads(api(messages))
+    u_goal_data = goal_enhancer(u_goal_data,summary,FORMAT_INSTRUCTIONS)
 
     return u_goal_data
 
