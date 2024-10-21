@@ -15,7 +15,7 @@ class Univariate:
 
     messages = [
             {"role": "system", "content": Q_system_prompt},
-            {"role": "user","content":f"{user_prompt} + THE TOTAL NUMBER OF GOAL SHOULD BE FIVE NOT MORE THAN THIS" }]
+            {"role": "user","content":f"{user_prompt} }]
 
     data = json.loads(api(messages))
 
@@ -31,7 +31,7 @@ class Univariate:
 
     messages = [
             {"role": "system", "content": U_SYSTEM_INSTRUCTIONS},
-            {"role": "user","content":f"{user_prompt}\n\n Rules :\ni) The goals should be only focused on Univariate Analysis(Strictly no bivariate or multivariate analysis)\nii)Choose appropriate chart types that best represent the data and make the information easy to understand(ex:For distributions: Histograms or box plots)\niii)Please AVOID goals will with time series\n\n"}]
+            {"role": "user","content":f"{user_prompt}\n\n Rules :\ni) The goals should be only focused on Univariate Analysis(Strictly no bivariate or multivariate analysis)\nii)Choose appropriate chart types that best represent the data and make the information easy to understand(ex:For distributions: Histograms or box plots)\niii)Please AVOID goals will with time series\niv)Generate only five goals"}]
 
     u_goal_data = json.loads(api(messages))
 
