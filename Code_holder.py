@@ -58,6 +58,7 @@ def plot_and_save(temp: pd.DataFrame):
         local_vars={}
         with st.spinner("Executing code..."):
           generated_code = api(messages)
+          st.code(generated_code)
         try:
           exec(generated_code.replace('```python', '').replace('```', ''), {}, local_vars)
           plot_and_save = local_vars.get('plot_and_save')
