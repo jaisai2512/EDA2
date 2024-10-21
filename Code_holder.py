@@ -1,6 +1,18 @@
-import json
-import streamlit as st
+import Rules
 from API import api
+import streamlit as st
+import pandas as pd
+import json
+from execute import execute_code_safely
+import seaborn as sns
+import matplotlib.pyplot as plt
+import io
+from Summary import summary_gen
+from tabs import Tabs
+from PDF import pdf_parser
+import os
+from Univariate_Analysis import goal_generate
+from Code_holder import code_generation
 def code_generation(data,type_analysis,df,summary):
   st.write(f"**{type_analysis}**")
   for i in data:
