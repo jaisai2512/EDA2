@@ -1,6 +1,6 @@
 import Rules
 from API import api
-import streamlit as st
+import streamlit as st 
 import pandas as pd
 import json
 from execute import execute_code_safely
