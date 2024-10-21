@@ -4,6 +4,7 @@ import pandas as pd
 import json
 import seaborn as sns
 import matplotlib.pyplot as plt
+import io
 
 
 def code_generation(data,type_analysis,df,summary):
