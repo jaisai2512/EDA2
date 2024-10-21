@@ -47,7 +47,7 @@ Ensure that the JSON format is strictly followed with no additional text outside
     
     univariate_data = goal_generate(summary,FORMAT_INSTRUCTIONS)
     code_generation(univariate_data,'Univariate Analysis',df,summary)
-    #st.write(data)
+    st.write(data)
     
 else:
     st.write("Please upload a CSV or PDF file to proceed.")
