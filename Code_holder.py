@@ -61,5 +61,5 @@ def plot_and_save(temp: pd.DataFrame):
             continue
         if plot_buffer:
             st.write("Question:\n"+i["question"])
-            st.write("Reason:\n"+i["reason"]))
+            st.write("Reason:\n"+i["reason"])
             st.image(plot_buffer, caption="Age Chart", use_column_width=True)
