@@ -48,7 +48,7 @@ def plot_and_save(temp: pd.DataFrame):
              f'''{user_prompt} \n\nThe FUNCTION TO COMPLETE IS :\n{function}'''}]
         with st.spinner("Executing code..."):
             generated_code = api(messages)
-        st.code(generated_code, language='Python')
+        #st.code(generated_code, language='Python')
         local_vars = {}
         try:
             exec(generated_code.replace('```python', '').replace('```', ''), globals(), local_vars)
@@ -60,4 +60,6 @@ def plot_and_save(temp: pd.DataFrame):
         except:
             continue
         if plot_buffer:
+            st.write("Question:\n"+i["question"])
+            st.write("Reason:\n"+i["reason"]))
             st.image(plot_buffer, caption="Age Chart", use_column_width=True)
