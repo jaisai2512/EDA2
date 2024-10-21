@@ -78,4 +78,5 @@ def plot_and_save(temp: pd.DataFrame):
             st.write("Reason:\n"+i['reason'])
             st.image(plot_buffer, caption="Age Chart", use_column_width=True)
         else:
-            st.warning("Plot buffer is not available.")
+            pass
+            #st.warning("Plot buffer is not available.")
