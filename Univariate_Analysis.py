@@ -6,17 +6,17 @@ class Univariate:
     Ask the following questions to evaluate each goal:
     1)Is this an appropriate question to extract valuable information about a variable from the summary, or is there a better way to ask it?
     2)Does this goal provide any highly valuable information to the user?
+    3)Does there are dupliates between the goals?
     Based on your evaluation:
     1)If the answers to questions are yes, then keep the goal unchanged.
-    2)If the answer to any of the questions is no, modify the goal to make it optimal for univariate analysis.
-    
+    2)If the answer to any of the questions is no, generate a new goal to make it optimal for univariate analysis , remember to replace it with the old goal .
     '''
 
     user_prompt = f'Evaluate and improve the goals\nGoals: {p_data}\n\nSummary of the Data: {summary}\n\n Rules :The newly generated, if any, should be based on univariate analysis only.\n{FORMAT_INSTRUCTIONS}'
 
     messages = [
             {"role": "system", "content": Q_system_prompt},
-            {"role": "user","content":f"{user_prompt}" +"Rules:The total number of goals should be only be 5"}]
+            {"role": "user","content":f"{user_prompt}" +"Make sure no duplicates are present between the goals}]
 
     data = json.loads(api(messages))
 
