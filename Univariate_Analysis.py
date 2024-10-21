@@ -9,8 +9,7 @@ class Univariate:
     Based on your evaluation:
     1)If the answers to questions are yes, then keep the goal unchanged.
     2)If the answer to any of the questions is no, modify the goal to make it optimal for univariate analysis.
-    Rules:
-    i)Make sure there are no duplicates goals if any replace it with new one
+    Rules:i)Make sure there are no duplicates goals if any replace it with new one
     '''
 
     user_prompt = f'Evaluate and improve the goals\nGoals: {p_data}\n\nSummary of the Data: {summary}\n\n Rules :The newly generated, if any, should be based on univariate analysis only.\n{FORMAT_INSTRUCTIONS}'
