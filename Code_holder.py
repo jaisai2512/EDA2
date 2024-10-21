@@ -55,6 +55,7 @@ def plot_and_save(temp: pd.DataFrame):
             {"role": "assistant",
              "content":
              f'''{user_prompt} \n\nThe FUNCTION TO COMPLETE IS :\n{function}'''}]
+        local_vars={}
         with st.spinner("Executing code..."):
           generated_code = api(messages)
         try:
