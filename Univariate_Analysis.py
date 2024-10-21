@@ -10,11 +10,11 @@ class Univariate:
     1)If the answers to questions are yes, then keep the goal unchanged.
     2)If the answer to any of the questions is no, modify the goal to make it optimal for univariate analysis.'''
 
-    user_prompt = f'Evaluate and improve the goals\nGoals: {p_data}\n\nSummary of the Data: {summary}\n\n Rules :The newly generated goal, if any, should be based on univariate analysis only,should replace the old one.\nOUTPUT THE GOALS IN THE FOLLOWING FOMRAT:{FORMAT_INSTRUCTIONS}'
+    user_prompt = f'Evaluate and improve the goals\nGoals: {p_data}\n\nSummary of the Data: {summary}\n\n Rules :The newly generated goal which replace the old one, if any, should be based on univariate analysis only.\nOUTPUT THE GOALS IN THE FOLLOWING FOMRAT:{FORMAT_INSTRUCTIONS}'
 
     messages = [
             {"role": "system", "content": Q_system_prompt},
-            {"role": "user","content":f"{user_prompt} + THE TOTAL NUMBER OF GOALS SHOULD BE FIVE NOT MORE THAN THIS"}]
+            {"role": "user","content":f"{user_prompt} + THE TOTAL NUMBER OF GOAL SHOULD BE FIVE NOT MORE THAN THIS }]
 
     data = json.loads(api(messages))
 
