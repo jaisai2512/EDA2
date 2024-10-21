@@ -2,7 +2,7 @@ import json
 from API import api
 class Univariate:
   def goal_enhancer(p_data,summary,FORMAT_INSTRUCTIONS):
-    Q_system_prompt = f'''ou are a highly skilled data analyst. Your task is to critically evaluate the provided goals to ensure they are optimized for extracting valuable insights through univariate analysis. Follow these steps to evaluate and, if needed, improve each goal:
+    Q_system_prompt = f'''You are a highly skilled data analyst. Your task is to critically evaluate the provided goals to ensure they are optimized for extracting valuable insights through univariate analysis. Follow these steps to evaluate and, if needed, improve each goal:
     Assess the Goal:
     i)Clarity and Purpose: Is the goal clearly stated, and does it aim to extract valuable information about a variable from the summary? If not, suggest a clearer and more meaningful question.
 Value and Insight: Does the goal provide valuable and actionable information for the user? Can the insight derived from this goal lead to important conclusions? If not, adjust the goal to ensure it yields highly valuable information.
@@ -10,7 +10,7 @@ Value and Insight: Does the goal provide valuable and actionable information for
     iii)Evaluation Questions:
         1)Is this an appropriate question to extract valuable information from the summary about the variable, or is there a better way to phrase it?
         2)Does this goal provide highly valuable insights for the user?
-    If the goal is good, Then Don;t change the goal, If the goal needs improvement, provide the new, improved goal replace with the old one.
+    If the goal is good, Then Don;t change the goal, If the goal needs improvement, provide the new improved goal by replacing with the old one.
     {FORMAT_INSTRUCTIONS}
     '''
 
