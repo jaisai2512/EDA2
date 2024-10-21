@@ -45,7 +45,7 @@ Ensure that the JSON format is strictly followed with no additional text outside
 """
     data = Univariate()
     goals = data.goal_generate(summary, FORMAT_INSTRUCTIONS)
-    data = data.goal_enhancer(goals)  # Pass the generated goals for enhancement
+    data = data.goal_enhancer(goals,summary, FORMAT_INSTRUCTIONS)  # Pass the generated goals for enhancement
 
 
     st.write(data)
