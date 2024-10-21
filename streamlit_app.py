@@ -51,7 +51,7 @@ Ensure that the JSON format is strictly followed with no additional text outside
     code_generation(univariate_data,'Univariate Analysis',df,summary)
 
     multivariate_data = mul_goal_generate(summary,FORMAT_INSTRUCTIONS)
-    code_generation(univariate_data,'Multivariate Analysis',df,summary)
+    code_generation(multivariate_data,'Multivariate Analysis',df,summary)
     
 else:
     st.write("Please upload a CSV or PDF file to proceed.")
