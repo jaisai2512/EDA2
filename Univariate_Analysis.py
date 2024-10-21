@@ -1,6 +1,6 @@
 import json
 from API import api
-def goal_enhancer(self,p_data,summary,FORMAT_INSTRUCTIONS):
+def goal_enhancer(p_data,summary,FORMAT_INSTRUCTIONS):
     Q_system_prompt = f'''You are a highly skilled data analyst. Your task is to evaluate the provided goals. If a goal is not appropriate create a new goal and replace it with the old goal, 
     Ask the following questions to evaluate each goal:
     1)Is this an appropriate question to extract valuable information about a variable from the summary, or is there a better way to ask it?
@@ -21,7 +21,7 @@ def goal_enhancer(self,p_data,summary,FORMAT_INSTRUCTIONS):
 
     return data
     
-def goal_generate(self,summary,FORMAT_INSTRUCTIONS):
+def goal_generate(summary,FORMAT_INSTRUCTIONS):
     #System Prompt for the llm 
     U_SYSTEM_INSTRUCTIONS = f"""You are an expert data analyst. The user will provide a summary of a dataset, and your task is to generate goals which only focuses on the distribution and behaviour of the ddata. From the summary, generate\nQuestions:Based on the summary given ,What are the Univariate analsysis that can be asked which is highly valuable?\nSuggested Visualizations: Recommend the most effective visualizations (e.g., histograms, box plots) that would help analyze this variable. Explain why these visualizations are useful.\nRationale: Provide a rationale for the insights you expect to uncover through these visualizations and questions. Why do these questions and visualizations matter for understanding the dataset?\n\n Remeber Only generate five goals
     Rule:\ni)PLEASE AVOID THE VARIABLE WHICH HAS NO POTENTIAL OF HAVING DISTRIBUTION OR BEHAVIOUR(EX:ID)\n\n{FORMAT_INSTRUCTIONS}"""
