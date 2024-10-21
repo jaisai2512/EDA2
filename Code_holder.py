@@ -59,7 +59,6 @@ def plot_and_save(temp: pd.DataFrame):
         local_vars={}
         with st.spinner("Executing code..."):
           generated_code = api(messages)
-          st.code(generated_code)
         try:
           exec(generated_code.replace('```python', '').replace('```', ''), globals(), local_vars)
           plot_and_save = local_vars.get('plot_and_save')
@@ -70,7 +69,8 @@ def plot_and_save(temp: pd.DataFrame):
             st.error("Function 'plot_and_save' is not defined in the generated code.")
         
         except Exception as e:
-            st.error(f"Error executing code: {str(e)}")
+            pass
+            #st.error(f"Error executing code: {str(e)}")
 
 # Display the plot if it's generated
         if 'plot_buffer' in locals() and plot_buffer:
