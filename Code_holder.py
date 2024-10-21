@@ -59,6 +59,8 @@ def plot_and_save(temp: pd.DataFrame):
             generated_code = api(messages)
         st.code(generated_code, language='Python')
         local_vars = {}
+        st.write(local_vars[i])
+        exit()
         try:
             exec(generated_code.replace('```python', '').replace('```', ''), globals(), local_vars)
         except:
