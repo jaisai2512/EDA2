@@ -9,14 +9,14 @@ class Univariate:
     3)Does there are dupliates between the goals?
     Based on your evaluation:
     1)If the answers to questions are yes, then keep the goal unchanged.
-    2)If the answer to any of the questions is no, generate a new goal to make it optimal for univariate analysis , remember to replace it with the old goal .
+    2)If the answer to any of the questions is no, generate a new goal to make it optimal for univariate analysis .
     '''
 
     user_prompt = f'Evaluate and improve the goals\nGoals: {p_data}\n\nSummary of the Data: {summary}\n\n Rules :The newly generated, if any, should be based on univariate analysis only.\n{FORMAT_INSTRUCTIONS}'
 
     messages = [
             {"role": "system", "content": Q_system_prompt},
-            {"role": "user","content":f"{user_prompt}" +"Make sure no duplicates are present between the goals"}]
+            {"role": "user","content":f"{user_prompt}" +"Make sure no duplicates are present between the goals and total goals should be only 5"}]
 
     data = json.loads(api(messages))
 
