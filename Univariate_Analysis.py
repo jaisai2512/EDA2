@@ -1,9 +1,7 @@
 import json
 from API import api
 class Univariate:
-  def __init__():
-    pass
-  def goal_enhancer(p_data,summary,FORMAT_INSTRUCTIONS):
+  def goal_enhancer(self,p_data,summary,FORMAT_INSTRUCTIONS):
     Q_system_prompt = f'''You are a highly skilled data analyst. Your task is to evaluate the provided goals. If a goal is not appropriate create a new goal and replace it with the old goal, 
     Ask the following questions to evaluate each goal:
     1)Is this an appropriate question to extract valuable information about a variable from the summary, or is there a better way to ask it?
