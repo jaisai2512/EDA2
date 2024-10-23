@@ -10,11 +10,11 @@ Rationale: Provide a rationale for the insights expected from these visualizatio
 
 Rules: i) Output only the JSON, no additional descriptions./n'''
 
-    user_prompt = f'Remove the duplicated goal and then add a new goal to the provided json : {p_data} and the data summary: {summary}. Ensure adherence to the specified format:\n{FORMAT_INSTRUCTIONS}. Replace the old goals with the new goals and output everything in the required format,TOTAL GOALS NOT MORE THAN 5'
+    user_prompt = f'Remove the duplicated goal and then add a new goal to the provided json : {p_data} and the data summary: {summary}. Ensure adherence to the specified format:\n{FORMAT_INSTRUCTIONS}. Replace the old goals with the new goals and output everything in the required format'
 
     messages = [
     {"role": "system", "content": Q_system_prompt},
-    {"role": "user", "content": user_prompt}
+    {"role": "user", "content": user_prompt+"Make sure the total number of goals is 5 "}
 ]
 
     st.write(api(messages))
