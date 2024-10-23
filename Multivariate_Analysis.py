@@ -1,14 +1,14 @@
 from API import api
 import json
 def goal_enhancer(p_data,summary,FORMAT_INSTRUCTIONS):
-    Q_system_prompt = f'''You are experienced data analysts , you are given a json which contains question , visualization and reason ,your job is to remove duplicated goal and replace them with a new one .
-    '''
+    Q_system_prompt = '''You are experienced data analysts tasked with processing a JSON object containing questions, visualizations, and reasons. Your job is to identify and remove duplicated goals, replacing them with a new multivariate goal.'''
 
-    user_prompt = f'Replace duplicated questions with new one, the goal should be a multivariate ,given the json :{p_data} and given the summary of the data Summary:{summary}'
+    user_prompt = f'Replace duplicated questions with a new multivariate goal based on the provided JSON: {p_data} and the data summary: {summary}. Ensure the output adheres to the JSON format.'
 
     messages = [
-            {"role": "system", "content": Q_system_prompt},
-            {"role": "user","content":f"{user_prompt}+ Remeber to follow the json format." }]
+    {"role": "system", "content": Q_system_prompt},
+    {"role": "user", "content": user_prompt}
+]
 
     data = json.loads(api(messages))
 
