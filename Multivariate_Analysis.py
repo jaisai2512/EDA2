@@ -2,18 +2,22 @@ from API import api
 import json
 import streamlit as st
 def goal_enhancer(p_data,summary,FORMAT_INSTRUCTIONS):
-    Q_system_prompt = '''You are experienced data analysts tasked with processing a JSON object containing questions, visualizations, and reasons. Your job is to identify and remove duplicated goals, replacing them with a new multivariate goal,the new goal should be based on the data summary given
-    Questions:Based on the summary given ,What are the Multiivariate analsysis that can be asked which is highly valuable?\nSuggested Visualizations: Recommend the most effective visualizations (e.g., histograms, box plots) that would help analyze this variable. Explain why these visualizations are useful.\nRationale: Provide a rationale for the insights you expect to uncover through these visualizations and questions. Why do these questions and visualizations matter for understanding the dataset?
-    Rules: i) Just ouput the json only no description'''
+    Q_system_prompt = '''You are experienced data analysts responsible for processing a JSON object that includes questions, visualizations, and reasons. Your task is to identify and remove duplicated goals, replacing them with a new multivariate goal based on the provided data summary.
 
-    user_prompt = f'Replace duplicated questions with a new multivariate goal based on the provided JSON: {p_data} and the data summary: {summary}. Ensure the output adheres to the given format:\n{FORMAT_INSTRUCTIONS} Replace the new goal with old goals and ouput all of them in the above format'
+Questions: Based on the given summary, identify valuable multivariate analyses that can be performed. 
+Suggested Visualizations: Recommend effective visualizations (e.g., histograms, box plots) to analyze these variables, and explain their utility. 
+Rationale: Provide a rationale for the insights expected from these visualizations and questions, emphasizing their importance in understanding the dataset.
+
+Rules: i) Output only the JSON, no additional descriptions.'''
+
+    user_prompt = f'Replace duplicated questions with a new multivariate goal based on the provided JSON: {p_data} and the data summary: {summary}. Ensure adherence to the specified format:\n{FORMAT_INSTRUCTIONS}. Replace the old goals with the new goals and output everything in the required format.'
 
     messages = [
     {"role": "system", "content": Q_system_prompt},
     {"role": "user", "content": user_prompt}
 ]
 
-    #st.write(api(messages))
+# st.write(api(messages))
     data = json.loads(api(messages))
 
     return data
