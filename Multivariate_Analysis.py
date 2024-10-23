@@ -3,7 +3,7 @@ import json
 import streamlit as st
 def goal_enhancer(p_data,summary,FORMAT_INSTRUCTIONS):
     Q_system_prompt = '''You are experienced data analysts responsible for processing a JSON object that includes questions, visualizations, and reasons. Your task is to identify and remove duplicated goals and then add  new multivariate goals to the json provided based on the provided data summary.
-
+The json consist of the following:
 Questions: Based on the given summary, identify valuable multivariate analyses that can be performed. 
 Suggested Visualizations: Recommend effective visualizations (e.g., histograms, box plots) to analyze these variables, and explain their utility. 
 Rationale: Provide a rationale for the insights expected from these visualizations and questions, emphasizing their importance in understanding the dataset.
