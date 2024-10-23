@@ -11,7 +11,8 @@ def goal_enhancer(p_data,summary,FORMAT_INSTRUCTIONS):
     {"role": "user", "content": user_prompt}
 ]
 
-    data = json.loads(api(messages))
+    st.write(api(messages))
+    #data = json.loads(api(messages))
 
     return data
 
