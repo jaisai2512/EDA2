@@ -6,15 +6,15 @@ def goal_enhancer(p_data,summary,FORMAT_INSTRUCTIONS):
     Questions:Based on the summary given ,What are the Multiivariate analsysis that can be asked which is highly valuable?\nSuggested Visualizations: Recommend the most effective visualizations (e.g., histograms, box plots) that would help analyze this variable. Explain why these visualizations are useful.\nRationale: Provide a rationale for the insights you expect to uncover through these visualizations and questions. Why do these questions and visualizations matter for understanding the dataset?
     Rules: i) Just ouput the json only no description'''
 
-    user_prompt = f'Replace duplicated questions with a new multivariate goal based on the provided JSON: {p_data} and the data summary: {summary}. Ensure the output adheres to the given format:\n{FORMAT_INSTRUCTIONS} Combine the new goal with old goals and ouput them in the above format'
+    user_prompt = f'Replace duplicated questions with a new multivariate goal based on the provided JSON: {p_data} and the data summary: {summary}. Ensure the output adheres to the given format:\n{FORMAT_INSTRUCTIONS} Replace the new goal with old goals and ouput all of them in the above format'
 
     messages = [
     {"role": "system", "content": Q_system_prompt},
     {"role": "user", "content": user_prompt}
 ]
 
-    st.write(api(messages))
-    #data = json.loads(api(messages))
+    #st.write(api(messages))
+    data = json.loads(api(messages))
 
     return data
 
