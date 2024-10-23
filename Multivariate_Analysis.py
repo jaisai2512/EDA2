@@ -36,7 +36,7 @@ Rules:
 '''
     user_prompt = f"""Generate goals which should be based on the data summary below,\n\nSummary:\n{summary} \n\n"""
     
-    messages = [{"role": "system", "content": M_variate},{"role": "user","content":f"{user_prompt} + Make sure each goal are distinct"}]
+    messages = [{"role": "system", "content": M_variate},{"role": "user","content":f"{user_prompt} + Age is discrte"}]
     data = json.loads(api(messages))
     return data
 
