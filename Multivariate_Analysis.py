@@ -2,15 +2,15 @@ from API import api
 import json
 import streamlit as st
 def goal_enhancer(p_data,summary,FORMAT_INSTRUCTIONS):
-    Q_system_prompt = '''You are experienced data analysts responsible for processing a JSON object that includes questions, visualizations, and reasons. Your task is to identify and remove duplicated goals, replacing them with a new multivariate goal based on the provided data summary.
+    Q_system_prompt = '''You are experienced data analysts responsible for processing a JSON object that includes questions, visualizations, and reasons. Your task is to identify and remove duplicated goals and then add  with a new multivariate goals based on the provided data summary.
 
 Questions: Based on the given summary, identify valuable multivariate analyses that can be performed. 
 Suggested Visualizations: Recommend effective visualizations (e.g., histograms, box plots) to analyze these variables, and explain their utility. 
 Rationale: Provide a rationale for the insights expected from these visualizations and questions, emphasizing their importance in understanding the dataset.
 
-Rules: i) Output only the JSON, no additional descriptions.'''
+Rules: i) Output only the JSON, no additional descriptions./nii) Toal goals should be not more than 5,new goal and old goal combined'''
 
-    user_prompt = f'Replace duplicated questions with a new multivariate goal based on the provided JSON: {p_data} and the data summary: {summary}. Ensure adherence to the specified format:\n{FORMAT_INSTRUCTIONS}. Replace the old goals with the new goals and output everything in the required format.'
+    user_prompt = f'Remove the duplicated goal and then add a new goal to the provided json : {p_data} and the data summary: {summary}. Ensure adherence to the specified format:\n{FORMAT_INSTRUCTIONS}. Replace the old goals with the new goals and output everything in the required format.'
 
     messages = [
     {"role": "system", "content": Q_system_prompt},
