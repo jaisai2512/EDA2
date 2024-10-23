@@ -2,7 +2,7 @@ from API import api
 import json
 def goal_enhancer(p_data,summary,FORMAT_INSTRUCTIONS):
     Q_system_prompt = '''You are experienced data analysts tasked with processing a JSON object containing questions, visualizations, and reasons. Your job is to identify and remove duplicated goals, replacing them with a new multivariate goal,the new goal should be based on the data summary given
-    Questions:Based on the summary given ,What are the Univariate analsysis that can be asked which is highly valuable?\nSuggested Visualizations: Recommend the most effective visualizations (e.g., histograms, box plots) that would help analyze this variable. Explain why these visualizations are useful.\nRationale: Provide a rationale for the insights you expect to uncover through these visualizations and questions. Why do these questions and visualizations matter for understanding the dataset?'''
+    Questions:Based on the summary given ,What are the Multiivariate analsysis that can be asked which is highly valuable?\nSuggested Visualizations: Recommend the most effective visualizations (e.g., histograms, box plots) that would help analyze this variable. Explain why these visualizations are useful.\nRationale: Provide a rationale for the insights you expect to uncover through these visualizations and questions. Why do these questions and visualizations matter for understanding the dataset?'''
 
     user_prompt = f'Replace duplicated questions with a new multivariate goal based on the provided JSON: {p_data} and the data summary: {summary}. Ensure the output adheres to the given format:\n{FORMAT_INSTRUCTIONS}.'
 
