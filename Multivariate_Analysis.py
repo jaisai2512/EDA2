@@ -17,7 +17,7 @@ Rules: i) Output only the JSON, no additional descriptions.'''
     {"role": "user", "content": user_prompt}
 ]
 
-     st.write(api(messages))
+    st.write(api(messages))
     data = json.loads(api(messages))
 
     return data
