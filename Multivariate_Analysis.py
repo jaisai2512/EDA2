@@ -8,9 +8,9 @@ Questions: Based on the given summary, identify valuable multivariate analyses t
 Suggested Visualizations: Recommend effective visualizations (e.g., histograms, box plots) to analyze these variables, and explain their utility. 
 Rationale: Provide a rationale for the insights expected from these visualizations and questions, emphasizing their importance in understanding the dataset.
 
-Rules: i) Output only the JSON, no additional descriptions./nii) Toal goals should be not more than 5,new goal and old goal combined'''
+Rules: i) Output only the JSON, no additional descriptions./n'''
 
-    user_prompt = f'Remove the duplicated goal and then add a new goal to the provided json : {p_data} and the data summary: {summary}. Ensure adherence to the specified format:\n{FORMAT_INSTRUCTIONS}. Replace the old goals with the new goals and output everything in the required format.'
+    user_prompt = f'Remove the duplicated goal and then add a new goal to the provided json : {p_data} and the data summary: {summary}. Ensure adherence to the specified format:\n{FORMAT_INSTRUCTIONS}. Replace the old goals with the new goals and output everything in the required format,TOTAL GOALS NOT MORE THAN 5'
 
     messages = [
     {"role": "system", "content": Q_system_prompt},
