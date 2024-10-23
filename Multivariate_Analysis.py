@@ -3,7 +3,7 @@ import json
 def goal_enhancer(p_data,summary,FORMAT_INSTRUCTIONS):
     Q_system_prompt = '''You are experienced data analysts tasked with processing a JSON object containing questions, visualizations, and reasons. Your job is to identify and remove duplicated goals, replacing them with a new multivariate goal.'''
 
-    user_prompt = f'Replace duplicated questions with a new multivariate goal based on the provided JSON: {p_data} and the data summary: {summary}. Ensure the output adheres to the JSON format.'
+    user_prompt = f'Replace duplicated questions with a new multivariate goal based on the provided JSON: {p_data} and the data summary: {summary}. Ensure the output adheres to the given format:\n{FORMAT_INSTRUCTIONS}.'
 
     messages = [
     {"role": "system", "content": Q_system_prompt},
