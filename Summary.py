@@ -95,5 +95,5 @@ When classifying type of measurement, prioritize the semantic type and descripti
   st.write(s)
 
   st.write(rules)
-  return o_summary,s 
+  return rules,s 
   
