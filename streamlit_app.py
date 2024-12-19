@@ -121,7 +121,7 @@ Ensure that the JSON format is strictly followed with no additional text outside
     "content": ""
   }
 ]
-            llm_response = api(message1)
+            llm_response = exec(api(message1),{"df",df})
             st.session_state.history.append(
             Message("human", human_prompt)
         )
