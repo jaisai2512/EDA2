@@ -18,7 +18,5 @@ python-dotenv
 langchain-community
 langchain-core
 pytest-warnings
-openai
-dataclasses
 typing
-langchain
+
