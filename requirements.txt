@@ -20,3 +20,5 @@ langchain-core
 pytest-warnings
 openai
 dataclass
+typing
+langchain
