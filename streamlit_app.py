@@ -123,11 +123,11 @@ Ensure that the JSON format is strictly followed with no additional text outside
     "content": ""
   }
 ]
-            llm_response =exec(api(message1), {"df": df})
+            #llm_response =exec(api(message1), {"df": df})
             captured_output = io.StringIO()
             sys.stdout = captured_output  # Redirect stdout
 
-            exec(code_to_execute, {"df": df})
+            exec(api(message1), {"df": df})
 
             sys.stdout = sys.__stdout__  # Restore stdout
             llm_response = captured_output.getvalue().strip()
