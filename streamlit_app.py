@@ -15,6 +15,15 @@ import os
 from Univariate_Analysis import goal_generate
 from Multivariate_Analysis import mul_goal_generate
 from Code_holder import code_generation
+from dataclasses import dataclass
+from typing import Literal
+import streamlit as st
+
+from langchain import OpenAI
+from langchain.callbacks import get_openai_callback
+from langchain.chains import ConversationChain
+from langchain.chains.conversation.memory import ConversationSummaryMemory
+import streamlit.components.v1 as components
 
 # Title of the Streamlit app
 st.title("EDA Report Generator")
