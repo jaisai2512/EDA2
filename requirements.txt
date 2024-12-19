@@ -19,6 +19,6 @@ langchain-community
 langchain-core
 pytest-warnings
 openai
-dataclass
+dataclasses
 typing
 langchain
