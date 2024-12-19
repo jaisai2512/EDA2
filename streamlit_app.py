@@ -94,8 +94,8 @@ Ensure that the JSON format is strictly followed with no additional text outside
             answer = json.loads(api(message))
             var_prop = []
             for i in answer['matched_variables']:
-                for j in o_summary:
-                    if(j['column'] == i):
+                for j in o_summary["fields_properties"]:
+                    if(j['Name'] == i):
                         var_prop.append(j)
                         break
             message1 =[
