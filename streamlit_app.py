@@ -80,7 +80,7 @@ Ensure that the JSON format is strictly followed with no additional text outside
             st.session_state.token_count = 0
         if "conversation" not in st.session_state:
             client = openai.OpenAI(
-        api_key=os.environ.get("3625d6ad-e51e-4d62-97df-149d8de8ffe9"),
+        api_key="3625d6ad-e51e-4d62-97df-149d8de8ffe9",
         base_url="https://api.sambanova.ai/v1",
     )
 
