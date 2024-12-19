@@ -96,8 +96,8 @@ Ensure that the JSON format is strictly followed with no additional text outside
             for i in answer['matched_variables']:
                 for j in o_summary:
                     if(j['column'] == i):
-                    var_prop.append(j)
-                    break
+                        var_prop.append(j)
+                        break
             message1 =[
     {
         "role": "system",
