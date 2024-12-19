@@ -116,7 +116,7 @@ Ensure that the JSON format is strictly followed with no additional text outside
   },
   {
     "role": "user",
-    "content": f"Please solve the following problem step-by-step:\n\nProblem: { human_prompt}\n\nPlease output the code in a step-by-step explanation format. The variable properties are:\n {var_prop}."
+    "content": f"Please solve the following problem step-by-step:\n\nProblem: { human_prompt}\n\nPlease output the code in a step-by-step explanation format. The variable properties are:\n {var_prop}.,USE ONLY DATAFRAME FOR OPERATIONS."
   },
   {
     "role": "assistant",
