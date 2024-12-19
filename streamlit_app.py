@@ -58,11 +58,11 @@ The output must follow the exact JSON format below:
 Ensure that the JSON format is strictly followed with no additional text outside of the JSON structure.
 """
     
-    univariate_data = goal_generate(summary,FORMAT_INSTRUCTIONS)
+    #univariate_data = goal_generate(summary,FORMAT_INSTRUCTIONS)
     #st.write(univariate_data)
     #code_generation(univariate_data,'Univariate Analysis',df,summary)
 
-    multivariate_data = mul_goal_generate(summary,FORMAT_INSTRUCTIONS)
+    #multivariate_data = mul_goal_generate(summary,FORMAT_INSTRUCTIONS)
     #code_generation(multivariate_data,'Multivariate Analysis',df,summary)
     
     @dataclass
