@@ -90,7 +90,10 @@ Ensure that the JSON format is strictly followed with no additional text outside
         temperature=0,
         top_p=0.1
     )
-            llm = response
+           
+
+# Initialize the Conversation Chain
+            llm = response.choices[0].message
             st.session_state.conversation = ConversationChain(
             llm=llm,
             memory=ConversationSummaryMemory(llm=llm),
