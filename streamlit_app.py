@@ -41,7 +41,7 @@ if uploaded_file is not None:
     # Display the content of the CSV file
     st.write("Summary of the CSV file:")
     var_dict = {'df': df}
-    summary= summary_gen(df)
+    o_summary,summary= summary_gen(df)
     FORMAT_INSTRUCTIONS = """
 The output must follow the exact JSON format below:
 [
@@ -62,10 +62,7 @@ Ensure that the JSON format is strictly followed with no additional text outside
 
     multivariate_data = mul_goal_generate(summary,FORMAT_INSTRUCTIONS)
     #code_generation(multivariate_data,'Multivariate Analysis',df,summary)
-    prompt =  [
-    {"role": "system", "content": "You are a helpful assistant."},
-    {"role": "user", "content": "Hello, can you summarize our conversation?"},
-]
+    
     @dataclass
     class Message:
         """Class for keeping track of a chat message."""
@@ -97,11 +94,34 @@ Ensure that the JSON format is strictly followed with no additional text outside
 ]           answer = json.loads(api(message))
             var_prop = []
             for i in answer['matched_variables']:
-                for j in summary:
+                for j in o_summary:
                     if(j['column'] == i):
                     var_prop.append(j)
                     break
-            llm_response = api(human_prompt)
+            message1 =[
+    {
+        "role": "system",
+        "content": "You are a problem-solving assistant tasked with generating code in a step-by-step Chain of Thought (CoT) manner. Break down the code generation process into logical steps, ensuring each step is clear and contributes to the solution. Do not jump directly to the solution; instead, explain each step briefly while generating the corresponding code for that step. You will be given a query and the properties of the variables in the DataFrame (such as data type, missing values, etc.). The DataFrame itself is stored as 'df'. You should analyze the structure of the DataFrame based on the variable properties provided and use 'df' accordingly. If data preprocessing is needed, you should perform it as part of the process."
+    }
+    ,
+  {
+    "role": "user",
+    "content": "Please solve the following problem step-by-step using a DataFrame:\n\nProblem: {Query}\n\nThe variable properties (e.g., data type, missing values, etc.) will be provided."
+  },
+  {
+    "role": "assistant",
+    "content": "# Step 1: Access the relevant data column\n# Retrieve the specified column from the DataFrame. Ensure that the data type is appropriate for the required operation (e.g., numeric for summing or squaring).\n# Example:\ncolumn = df['column_name']\n\n# Step 2: Preprocessing (if required)\n# Check for missing values in the column. If there are missing values, choose an appropriate imputation strategy (e.g., filling with mean, median, or mode).\n# Handle any missing values using the chosen method.\n# Example:\ncolumn.fillna(column.mean(), inplace=True)  # Filling missing values with mean\n\n# Step 3: Filter data based on conditions\n# Apply any necessary filters to the data (e.g., selecting even numbers from the column using the modulus operator % 2 == 0).\n# Example:\neven_numbers = column[column % 2 == 0]\n\n# Step 4: Data transformation (if needed)\n# Apply the necessary transformation to the filtered data (e.g., squaring the numbers, applying a logarithmic transformation, etc.).\n# Example:\nsquared_numbers = even_numbers ** 2\n\n# Step 5: Perform the required operation\n# Execute the main operation (e.g., summing the squared numbers, counting occurrences, or computing the mean).\n# Example:\nsum_of_squares = squared_numbers.sum()\n\n# Step 6: Edge case handling\n# Check for edge cases, such as empty columns, no matching data (e.g., no even numbers), or columns with all missing values.\n# Return an appropriate result for these edge cases (e.g., return 0 if no matching data).\n# Example:\nif len(even_numbers) == 0:\n    sum_of_squares = 0\n\n# Step 7: Output the result\n# Provide the final result after completing all operations.\n# Example:\nprint(sum_of_squares)"
+  },
+  {
+    "role": "user",
+    "content": f"Please solve the following problem step-by-step:\n\nProblem: { human_prompt}\n\nPlease output the code in a step-by-step explanation format. The variable properties are:\n {var_prop}."
+  },
+  {
+    "role": "assistant",
+    "content": ""
+  }
+]
+            llm_response = api(message1)
             st.session_state.history.append(
             Message("human", human_prompt)
         )
