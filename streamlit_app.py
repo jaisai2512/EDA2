@@ -86,7 +86,6 @@ Ensure that the JSON format is strictly followed with no additional text outside
 
             response = client.chat.completions.create(
         model='Meta-Llama-3.1-8B-Instruct',
-        messages=prompt,
         temperature=0,
         top_p=0.1
     )
