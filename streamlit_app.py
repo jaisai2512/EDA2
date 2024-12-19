@@ -85,6 +85,22 @@ Ensure that the JSON format is strictly followed with no additional text outside
     def on_click_callback():
         with get_openai_callback() as cb:
             human_prompt = st.session_state.human_prompt
+            message = [
+    {
+        "role": "system",
+        "content": "You are an expert query interpreter for data analysis. Your job is to assist users by identifying variables involved in their query and classifying the type of output they expect.\n\n### Your Tasks:\n1. **Variable Identification**:\n   - Analyze the user's query.\n   - Identify the variables in the query that match the given list and then output the variables with the name as in the list..\n\n2. **Output Type Classification**:\n   - Determine whether the query's output is:\n     - **Visual**: If the query asks for patterns, trends, comparisons, or insights requiring a graph, chart, or plot.\n     - **Numerical**: If the query asks for specific metrics, values, or summaries.\n\n### Input Format:\nYou will be given:\n- **Query**: A user-generated question or request.\n- **Variables**: A list of possible variables, e.g., `[\"variable_1\", \"variable_2\", ..., \"variable_n\"]`.\n\n### Response Format:\nProvide your response in the following structured JSON format:\n```json\n{\n  \"matched_variables\": [\"variable_1\", \"variable_2\"],\n  \"output_type\": \"visual\" // or \"numerical\"\n}\n```\n\n### Guidelines:\n- Select the variable name from the given list that is explicitly or implicitly mentioned in the user's query, ensuring there are no missing letters in the word.\n- Use context and intent from the query to decide the output type accurately.\n- If no variable matches, leave the \"matched_variables\" array empty."
+    },
+    {
+        "role": "user",
+        "content": f"Query:{human_prompt}\nVariables: {df.columns}\n Please output only the json nothing apart from it"
+    }
+]           answer = json.loads(api(message))
+            var_prop = []
+            for i in answer['matched_variables']:
+                for j in summary:
+                    if(j['column'] == i):
+                    var_prop.append(j)
+                    break
             llm_response = api(human_prompt)
             st.session_state.history.append(
             Message("human", human_prompt)
