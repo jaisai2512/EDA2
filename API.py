@@ -39,7 +39,7 @@ import os
 import openai
 
 def api(prompt):
-    os.environ['SAMBANOVA_API_KY'] = ''
+    os.environ['SAMBANOVA_API_KY'] = '3625d6ad-e51e-4d62-97df-149d8de8ffe9'
     client = openai.OpenAI(
         api_key=os.environ.get("SAMBANOVA_API_KY"),
         base_url="https://api.sambanova.ai/v1",
