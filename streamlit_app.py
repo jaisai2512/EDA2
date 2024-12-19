@@ -80,42 +80,19 @@ Ensure that the JSON format is strictly followed with no additional text outside
     def initialize_session_state():
         if "history" not in st.session_state:
             st.session_state.history = []
-        if "token_count" not in st.session_state:
-            st.session_state.token_count = 0
-        if "conversation" not in st.session_state:
-            client = openai.OpenAI(
-        api_key="3625d6ad-e51e-4d62-97df-149d8de8ffe9",
-        base_url="https://api.sambanova.ai/v1",
-    )
 
-            response = client.chat.completions.create(
-        model='Meta-Llama-3.1-8B-Instruct',
-                messages=prompt,
-        temperature=0,
-        top_p=0.1
-    )
-           
-
-# Initialize the Conversation Chain
-            llm = response.choices[0].message.content
-            st.session_state.conversation = ConversationChain(
-            llm=llm,
-            memory=ConversationSummaryMemory(llm=llm),
-        )
 
     def on_click_callback():
         with get_openai_callback() as cb:
             human_prompt = st.session_state.human_prompt
-            llm_response = st.session_state.conversation.run(
-            human_prompt
-        )
+            llm_response = api(human_prompt)
             st.session_state.history.append(
             Message("human", human_prompt)
         )
             st.session_state.history.append(
             Message("ai", llm_response)
         )
-            st.session_state.token_count += cb.total_tokens
+            
 
     load_css()
     initialize_session_state()
@@ -162,9 +139,8 @@ Ensure that the JSON format is strictly followed with no additional text outside
     )
 
     credit_card_placeholder.caption(f"""
-    Used {st.session_state.token_count} tokens \n
+    Used  tokens \n
     Debug Langchain conversation: 
-{st.session_state.conversation.memory.buffer}
 """)
 
     components.html("""
