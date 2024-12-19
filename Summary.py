@@ -49,7 +49,7 @@ When classifying type of measurement, prioritize the semantic type and descripti
     Return the updated JSON dictionary directly, without any explanation.
     """},
 ]
-  o_summary = api(messages)
+  o_summary = json.loads(api(messages))
   count = 0
   '''while count <2:
     try:
@@ -94,6 +94,6 @@ When classifying type of measurement, prioritize the semantic type and descripti
   s = api(sum)
   st.write(s)
 
-  st.write(type(o_summary))
+  st.write(o_summary)
   return o_summary,s 
   
