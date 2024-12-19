@@ -62,6 +62,10 @@ Ensure that the JSON format is strictly followed with no additional text outside
 
     multivariate_data = mul_goal_generate(summary,FORMAT_INSTRUCTIONS)
     #code_generation(multivariate_data,'Multivariate Analysis',df,summary)
+    prompt =  [
+    {"role": "system", "content": "You are a helpful assistant."},
+    {"role": "user", "content": "Hello, can you summarize our conversation?"},
+]
     @dataclass
     class Message:
         """Class for keeping track of a chat message."""
@@ -86,13 +90,14 @@ Ensure that the JSON format is strictly followed with no additional text outside
 
             response = client.chat.completions.create(
         model='Meta-Llama-3.1-8B-Instruct',
+                messages=prompt,
         temperature=0,
         top_p=0.1
     )
            
 
 # Initialize the Conversation Chain
-            llm = response.choices[0].message
+            llm = response.choices[0].message.content
             st.session_state.conversation = ConversationChain(
             llm=llm,
             memory=ConversationSummaryMemory(llm=llm),
