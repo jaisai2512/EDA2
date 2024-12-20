@@ -94,6 +94,6 @@ When classifying type of measurement, prioritize the semantic type and descripti
   s = api(sum)
   st.write(s)
 
-  st.write(rules)
+  #st.write(rules)
   return rules,s 
   
