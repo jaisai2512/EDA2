@@ -142,7 +142,7 @@ Ensure that the JSON format is strictly followed with no additional text outside
     load_css()
     initialize_session_state()
 
-    st.title("Hello Custom CSS Chatbot 🤖")
+    st.title("Question Bot 🤖")
 
     chat_placeholder = st.container()
     prompt_placeholder = st.form("chat-form")
